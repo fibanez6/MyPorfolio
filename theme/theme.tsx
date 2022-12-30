@@ -5,27 +5,6 @@ import '@fontsource/open-sans/700.css'
 import '@fontsource/raleway/400.css'
 import components from './components';
 
-// const components = {
-//   Button: {
-//     baseStyle: (props: StyleFunctionProps) => ({
-
-//     }),
-//     variants: {
-
-//     },
-//     defaultProps: {
-//       size: 'md',
-//     },
-//   },
-//   Box: {
-//     baseStyle: (props: StyleFunctionProps) => ({
-//       color: 'white',
-//       bg: 'gray.900'
-//     }),
-//   }
-// }
-
-
 const theme = extendTheme({
   styles: {
     global: (props: StyleFunctionProps) => ({
