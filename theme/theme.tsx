@@ -3,15 +3,27 @@ import type { StyleFunctionProps } from '@chakra-ui/styled-system'
 import { mode } from '@chakra-ui/theme-tools'
 import '@fontsource/open-sans/700.css'
 import '@fontsource/raleway/400.css'
+import components from './components';
 
-const components = {
-  Button: {
-    defaultProps: {
-      size: 'lg', // default is md
-      colorScheme: 'red', // default is gray
-    },
-  }
-}
+// const components = {
+//   Button: {
+//     baseStyle: (props: StyleFunctionProps) => ({
+
+//     }),
+//     variants: {
+
+//     },
+//     defaultProps: {
+//       size: 'md',
+//     },
+//   },
+//   Box: {
+//     baseStyle: (props: StyleFunctionProps) => ({
+//       color: 'white',
+//       bg: 'gray.900'
+//     }),
+//   }
+// }
 
 
 const theme = extendTheme({

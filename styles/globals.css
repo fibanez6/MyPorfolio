@@ -24,8 +24,10 @@ Paragraph default: 1.6
 
 
 --- 02 COLORS
-- PRIMARY: 8EE1FF
+- PRIMARY: 9DC4FB
 -   TINTS: 8EE1FF, C0EEFF <-> 63D4FF, 38C6FC
+-          9DC4FB, 
+-          02054B (strong blue)
 
 - SECONDARY-1: FF9E89
 -       TINTS: FDE5E0, FFC9BD <-> FF795D, FF5430
@@ -33,7 +35,7 @@ Paragraph default: 1.6
 - SECONDARY-2: FFDD89
 -       TINTS: FFF9E9, FFECBD <-> FFD05D, FFC330
 
--  SHADES: 
+-  SHADES:  
 - ACCENTS:  FBFDFF
 -   GREYs:  F5F8FA (section)
             383838 (text)

@@ -29,7 +29,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
   </Link>
 );
 
-export default function Nav() {
+const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -53,7 +53,7 @@ export default function Nav() {
               <NavLink key={link}>{link}</NavLink>
             ))}
           </HStack>
-          <Button onClick={toggleColorMode}>
+          <Button onClick={toggleColorMode} variant='ghost'>
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
         </Stack>
@@ -71,3 +71,5 @@ export default function Nav() {
     </Box>
   );
 }
+
+export default NavBar;
