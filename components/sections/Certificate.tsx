@@ -1,5 +1,5 @@
 
-import { Box, SimpleGrid, Text, Stack, Flex, Heading, Container, Link } from '@chakra-ui/react';
+import { Box, SimpleGrid, Text, Stack, Flex, Heading, Container, Link, Button } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import Image from 'next/image'
 import NextLink from 'next/link'
@@ -35,7 +35,7 @@ const CertificateSection = () => {
         <Box spacing={4} as={Container} maxW={'3xl'} textAlign={'center'} pb={10}>
           <Heading fontSize={'3xl'}>Certificates</Heading>
         </Box>
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={100}>
+        <SimpleGrid columns={{ base: 2 }} spacing={100}>
           <Feature
             image={'/media/AWS-Certified-Developer-Associate.png'}
             alt={'AWS Certified Developer Associate'}
