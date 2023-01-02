@@ -30,12 +30,12 @@ const Feature = ({ date, alt, image, justifySelf }: FeatureProps) => {
 
 const CertificateSection = () => {
   return (
-    <section className='section-cert'>
+    <Container as="section" className='section-cert'>
       <Box p={4}>
         <Box spacing={4} as={Container} maxW={'3xl'} textAlign={'center'} pb={10}>
           <Heading fontSize={'3xl'}>Certificates</Heading>
         </Box>
-        <SimpleGrid columns={{ base: 2 }} spacing={100}>
+        <Flex alignItems="center" justifyContent="center" gap={100}>
           <Feature
             image={'/media/AWS-Certified-Developer-Associate.png'}
             alt={'AWS Certified Developer Associate'}
@@ -48,9 +48,9 @@ const CertificateSection = () => {
             date={'August 2022'}
             justifySelf={'start'}
           />
-        </SimpleGrid>
+        </Flex>
       </Box>
-    </section>
+    </Container>
   )
 }
 
