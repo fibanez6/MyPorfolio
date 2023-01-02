@@ -74,7 +74,7 @@ html,
 body {
   /* font-size: 10px */
   /* Percentage of user's font-size setting */
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
   font-weight: 400;
   font-family: "Source Sans Pro", Roboto, sans-serif;
   line-height: 1;
