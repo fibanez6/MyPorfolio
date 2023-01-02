@@ -5,21 +5,17 @@ import Timeline from "../Timeline";
 const ExperienceSection = () => {
   return (
     <Container
-      // maxW="full"
-      maxW={'8xl'}
-      mt={0}
-      centerContent
-      overflow="hidden"
       as="section"
       className="section-experience"
+      maxW={"6xl"}
+      mt={0}
+      p={{ sm: 5, md: 5, lg: 16 }}
+      centerContent
+      overflow="hidden"
     >
-      <Box p={4}>
-        <Box
-          maxW={"full"}
-          textAlign={"center"}
-          pb={10}
-        >
-          <Heading fontSize={"3xl"}>Experience</Heading>
+      <Box p={4} w="full">
+        <Box maxW="full" textAlign="center" pb={10} m="0 5rem">
+          <Heading fontSize="3xl">Experience</Heading>
         </Box>
         <Timeline />
       </Box>

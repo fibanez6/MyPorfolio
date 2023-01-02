@@ -30,24 +30,25 @@ import {
 const ContactSection = () => {
   return (
     <Container
-      maxW="full"
+      as="section"
+      className="section-contact"
+      maxW={"6xl"}
       mt={0}
       centerContent
       overflow="hidden"
-      as="section"
-      className="section-contact"
     >
       {/* <Container bg={useColorModeValue('#9DC4FB', 'gray.900')} maxW="full" mt={0} centerContent overflow="hidden"> */}
-      <Flex>
-        <Box
-          // bg="#02054B"
-          bg={useColorModeValue("#9DC4FB", "gray.900")}
-          color="white"
-          borderRadius="lg"
-          m={{ sm: 4, md: 16, lg: 10 }}
-          p={{ sm: 5, md: 5, lg: 16 }}
-        >
-          <Box p={4}>
+      <Box
+        bg={useColorModeValue("#9DC4FB", "gray.900")}
+        w="full"
+        mt={0}
+        overflow="hidden"
+        borderRadius="lg"
+        m={{ sm: 4, md: 16, lg: 10 }}
+        p={{ sm: 5, md: 5, lg: 12 }}
+        color="white"
+      >
+          <Box p={8}>
             <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
                 <Box>
@@ -122,8 +123,8 @@ const ContactSection = () => {
                   </HStack>
                 </Box>
               </WrapItem>
-              <WrapItem>
-                <Box bg="white" borderRadius="lg">
+              <WrapItem w="36rem">
+                <Box bg="white" borderRadius="lg" w="full">
                   <Box m={8} color="#0B0E3F">
                     <VStack spacing={5}>
                       <FormControl id="name">
@@ -166,7 +167,6 @@ const ContactSection = () => {
             </Wrap>
           </Box>
         </Box>
-      </Flex>
     </Container>
   );
 };
