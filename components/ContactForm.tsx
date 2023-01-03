@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
+  HStack,
 } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
@@ -37,7 +38,7 @@ const ContactForm2 = () => {
   };
 
   return (
-    <Box bg="white" borderRadius="lg" p={4} w='full'>
+    <Box bg="white" borderRadius="lg" p={8} w="full">
       <Box color="#0B0E3F">
         <Formik
           onSubmit={handleFormSubmit}
@@ -111,9 +112,11 @@ const ContactForm2 = () => {
                   />
                   <FormErrorMessage>{errors.message}</FormErrorMessage>
                 </FormControl>
-                <FormControl id="submit-btn">
-                  <Button type="submit">Send Message</Button>
-                </FormControl>
+                <HStack>
+                  <FormControl id="submit-btn">
+                    <Button float="right" type="submit">Send Message</Button>
+                  </FormControl>
+                </HStack>
               </VStack>
             </form>
           )}
