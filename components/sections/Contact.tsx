@@ -8,25 +8,12 @@ import {
   Button,
   VStack,
   HStack,
-  Wrap,
-  WrapItem,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftElement,
   useColorModeValue,
-  Textarea,
+  WrapItem,
+  Wrap,
 } from "@chakra-ui/react";
 import { MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
-import {
-  BsGithub,
-  BsLinkedin,
-  BsPerson,
-  BsTwitter,
-  BsInstagram,
-} from "react-icons/bs";
-import ContactForm2 from "../ContactForm";
+import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs";
 import ContactForm from "../ContactForm";
 
 const ContactSection = () => {
@@ -43,15 +30,15 @@ const ContactSection = () => {
       <Box
         bg={useColorModeValue("#9DC4FB", "gray.900")}
         w="full"
-        mt={0}
-        overflow="hidden"
         borderRadius="lg"
         m={{ base: 10, sm: 5, md: 16, lg: 10 }}
         p={{ base: 5, sm: 5, md: 5, lg: 10 }}
         color="white"
       >
-
-        <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 10, xl: 20 }} className="ul-style">
+        <Wrap
+          spacing={{ base: 20, sm: 3, md: 5, lg: 10, xl: 20 }}
+          className="ul-style"
+        >
           <WrapItem>
             <Box>
               <Heading>Get in Touch</Heading>
@@ -124,12 +111,15 @@ const ContactSection = () => {
                 />
               </HStack>
             </Box>
-          </WrapItem >
-          <WrapItem w={{ base: '100%', lg: '59%' }}>
-            <ContactForm />
+          </WrapItem>
+          <WrapItem w={{ base: "100%", lg: "59%" }}>
+            <Box bg="white" borderRadius="lg" p={8} w="full">
+              <Box color="#0B0E3F">
+                <ContactForm />
+              </Box>
+            </Box>
           </WrapItem>
         </Wrap>
-
       </Box>
     </Container>
   );

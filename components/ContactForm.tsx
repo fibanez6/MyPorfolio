@@ -1,18 +1,5 @@
 import { Formik } from "formik";
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Input,
-  VStack,
-  InputGroup,
-  InputLeftElement,
-  Textarea,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, Button, FormControl, VStack, HStack, Flex, Spacer } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
@@ -34,59 +21,51 @@ const initialValues = {
   message: "",
 };
 
-const ContactForm2 = () => {
+const ContactForm = () => {
   const handleFormSubmit = (values) => {
     console.log(values);
   };
 
   return (
-    <Box bg="white" borderRadius="lg" p={8} w="full">
-      <Box color="#0B0E3F">
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={contactSchema}
-        >
-          {({
-            values,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-          }) => (
-            <form onSubmit={handleSubmit}>
-              <VStack spacing={5} align="stretch">
-                <InputField
-                  label="Your Name"
-                  name="name"
-                  placeholder="Enter your name"
-                  leftElement={<BsPerson color="gray.800" />}
-                />
-                <InputField
-                  label="Email Address"
-                  name="email"
-                  placeholder="Enter your email address"
-                  leftElement={<MdOutlineEmail color="gray.800" />}
-                />
-                <TextAreaField
-                  label="Message"
-                  name="message"
-                  placeholder="Hi Fernando, I would like..."
-                  value={values.name}
-                />
-                 <HStack>
-                  <FormControl id="submit-btn">
-                    <Button float="right" type="submit">
-                      Send Message
-                    </Button>
-                  </FormControl>
-                </HStack>
-              </VStack>
-            </form>
-          )}
-        </Formik>
-      </Box>
-    </Box>
+    <Formik
+      onSubmit={handleFormSubmit}
+      initialValues={initialValues}
+      validationSchema={contactSchema}
+    >
+      {({ values, handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          <VStack spacing={5} align="stretch">
+            <InputField
+              label="Your Name"
+              name="name"
+              placeholder="Enter your name"
+              leftElement={<BsPerson color="gray.800" />}
+            />
+            <InputField
+              label="Email Address"
+              name="email"
+              placeholder="Enter your email address"
+              leftElement={<MdOutlineEmail color="gray.800" />}
+            />
+            <TextAreaField
+              label="Message"
+              name="message"
+              placeholder="Hi Fernando, I would like..."
+              value={values.name}
+            />
+            <Flex justifyContent="flex-end">
+              <Spacer />
+              <FormControl id="submit-btn" mr="auto" w="auto">
+                <Button type="submit">
+                  Send Message
+                </Button>
+              </FormControl>
+            </Flex>
+          </VStack>
+        </form>
+      )}
+    </Formik>
   );
 };
 
-export default ContactForm2;
+export default ContactForm;
