@@ -37,7 +37,7 @@ const ContactForm2 = () => {
   };
 
   return (
-    <Flex bg="white" borderRadius="lg" p={4} align="center" justify="center">
+    <Box bg="white" borderRadius="lg" p={4} w='full'>
       <Box color="#0B0E3F">
         <Formik
           onSubmit={handleFormSubmit}
@@ -119,7 +119,7 @@ const ContactForm2 = () => {
           )}
         </Formik>
       </Box>
-    </Flex>
+    </Box>
   );
 };
 

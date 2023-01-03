@@ -1,5 +1,6 @@
 import {
   Container,
+  Flex,
   Box,
   Heading,
   Text,
@@ -9,15 +10,23 @@ import {
   HStack,
   Wrap,
   WrapItem,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftElement,
   useColorModeValue,
+  Textarea,
 } from "@chakra-ui/react";
-import { MdEmail, MdLocationOn } from "react-icons/md";
+import { MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
 import {
   BsGithub,
   BsLinkedin,
+  BsPerson,
   BsTwitter,
   BsInstagram,
 } from "react-icons/bs";
+import ContactForm2 from "../ContactForm";
 import ContactForm from "../ContactForm";
 
 const ContactSection = () => {
