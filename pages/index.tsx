@@ -1,6 +1,5 @@
 import { Flex } from '@chakra-ui/react';
 import Head from 'next/head'
-import LoginForm from '../components/LoginForm';
 import NavBar from '../components/NavBar';
 import Certificates from '../components/sections/Certificate';
 import ContactSection from '../components/sections/Contact';

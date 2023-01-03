@@ -16,6 +16,8 @@ import {
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
+import { InputField } from "./form/InputField";
+import { TextAreaField } from "./form/TextAreaField";
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -47,74 +49,35 @@ const ContactForm2 = () => {
         >
           {({
             values,
-            errors,
-            touched,
             handleBlur,
             handleChange,
             handleSubmit,
           }) => (
             <form onSubmit={handleSubmit}>
               <VStack spacing={5} align="stretch">
-                <FormControl isInvalid={!!errors.name && touched.name}>
-                  <FormLabel htmlFor="name">Your Name</FormLabel>
-                  <InputGroup borderColor="#E0E1E7">
-                    <InputLeftElement
-                      pointerEvents="none"
-                      children={<BsPerson color="gray.800" />}
-                    />
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      size="md"
-                      placeholder="Enter your name"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.name}
-                    />
-                  </InputGroup>
-                  <FormErrorMessage>{errors.name}</FormErrorMessage>
-                </FormControl>
-                <FormControl isInvalid={!!errors.email && touched.email}>
-                  <FormLabel htmlFor="email">Email Address</FormLabel>
-                  <InputGroup borderColor="#E0E1E7">
-                    <InputLeftElement
-                      pointerEvents="none"
-                      children={<MdOutlineEmail color="gray.800" />}
-                    />
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      size="md"
-                      placeholder="Enter your email"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.email}
-                    />
-                  </InputGroup>
-                  <FormErrorMessage>{errors.email}</FormErrorMessage>
-                </FormControl>
-                <FormControl isInvalid={!!errors.message && touched.message}>
-                  <FormLabel>Message</FormLabel>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    size="lg"
-                    borderColor="gray.300"
-                    _hover={{
-                      borderRadius: "gray.300",
-                    }}
-                    placeholder="Hi Fernando, I would like..."
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.message}
-                  />
-                  <FormErrorMessage>{errors.message}</FormErrorMessage>
-                </FormControl>
-                <HStack>
+                <InputField
+                  label="Your Name"
+                  name="name"
+                  placeholder="Enter your name"
+                  leftElement={<BsPerson color="gray.800" />}
+                />
+                <InputField
+                  label="Email Address"
+                  name="email"
+                  placeholder="Enter your email address"
+                  leftElement={<MdOutlineEmail color="gray.800" />}
+                />
+                <TextAreaField
+                  label="Message"
+                  name="message"
+                  placeholder="Hi Fernando, I would like..."
+                  value={values.name}
+                />
+                 <HStack>
                   <FormControl id="submit-btn">
-                    <Button float="right" type="submit">Send Message</Button>
+                    <Button float="right" type="submit">
+                      Send Message
+                    </Button>
                   </FormControl>
                 </HStack>
               </VStack>
