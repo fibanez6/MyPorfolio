@@ -1,6 +1,5 @@
 import {
   Container,
-  Flex,
   Box,
   Heading,
   Text,
@@ -10,22 +9,16 @@ import {
   HStack,
   Wrap,
   WrapItem,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftElement,
   useColorModeValue,
-  Textarea,
 } from "@chakra-ui/react";
-import { MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
+import { MdEmail, MdLocationOn } from "react-icons/md";
 import {
   BsGithub,
   BsLinkedin,
-  BsPerson,
   BsTwitter,
   BsInstagram,
 } from "react-icons/bs";
+import ContactForm from "../ContactForm";
 
 const ContactSection = () => {
   return (
@@ -124,45 +117,7 @@ const ContactSection = () => {
             </Box>
           </WrapItem >
           <WrapItem w={{ base: '100%', lg: '59%' }}>
-            <Box bg="white" borderRadius="lg" w="full">
-              <Box m={8} color="#0B0E3F">
-                <VStack spacing={5}>
-                  <FormControl id="name">
-                    <FormLabel>Your Name</FormLabel>
-                    <InputGroup borderColor="#E0E1E7">
-                      <InputLeftElement
-                        pointerEvents="none"
-                        children={<BsPerson color="gray.800" />}
-                      />
-                      <Input type="text" size="md" />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id="name">
-                    <FormLabel>Mail</FormLabel>
-                    <InputGroup borderColor="#E0E1E7">
-                      <InputLeftElement
-                        pointerEvents="none"
-                        children={<MdOutlineEmail color="gray.800" />}
-                      />
-                      <Input type="email" size="md" />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id="name">
-                    <FormLabel>Message</FormLabel>
-                    <Textarea
-                      borderColor="gray.300"
-                      _hover={{
-                        borderRadius: "gray.300",
-                      }}
-                      placeholder="message"
-                    />
-                  </FormControl>
-                  <FormControl id="name" float="right">
-                    <Button>Send Message</Button>
-                  </FormControl>
-                </VStack>
-              </Box>
-            </Box>
+            <ContactForm />
           </WrapItem>
         </Wrap>
 

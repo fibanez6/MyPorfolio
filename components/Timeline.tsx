@@ -62,6 +62,7 @@ const Timeline = () => {
         {timelineData.map((row, index, arr) => {
           return (
             <TimelineRow
+              key={index}
               title={row.title}
               date={row.date}
               description={row.description}

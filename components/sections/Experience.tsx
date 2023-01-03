@@ -1,5 +1,4 @@
 import { Box, Container, Heading } from "@chakra-ui/react";
-import Accordion from "../Accordion";
 import Timeline from "../Timeline";
 
 const ExperienceSection = () => {

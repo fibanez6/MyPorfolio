@@ -6,7 +6,7 @@ import {
   Box,
   useColorModeValue,
   AccordionPanel,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -56,7 +56,7 @@ const TimelineRow = (props) => {
             fontWeight="normal"
             fontFamily="Source Sans Pro"
           >
-              {description}
+            {description}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
