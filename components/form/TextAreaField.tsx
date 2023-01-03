@@ -8,7 +8,7 @@ import { FieldHookConfig, useField } from "formik";
 import React from "react";
 
 
-type InputFieldProps = FieldHookConfig<string> & {
+type TextAreaFieldProps = FieldHookConfig<string> & {
   label: string;
   placeholder?: string;
 };
@@ -17,7 +17,7 @@ export const TextAreaField = ({
   label,
   placeholder,
   ...props
-}: InputFieldProps) => {
+}: TextAreaFieldProps) => {
   const [field, meta] = useField(props);
   const hasError = Boolean(meta.touched && meta.error);
 

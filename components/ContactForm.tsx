@@ -5,6 +5,7 @@ import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
+import { SubmitButtom } from "./form/SubmitButtom";
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -56,9 +57,10 @@ const ContactForm = () => {
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">
-                <Button type="submit">
+                {/* <Button type="submit">
                   Send Message
-                </Button>
+                </Button> */}
+                <SubmitButtom label="Send"/>
               </FormControl>
             </Flex>
           </VStack>

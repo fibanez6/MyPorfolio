@@ -37,7 +37,6 @@ const ContactSection = () => {
       >
         <Wrap
           spacing={{ base: 20, sm: 3, md: 5, lg: 10, xl: 20 }}
-          className="ul-style"
         >
           <WrapItem>
             <Box>
