@@ -1,4 +1,5 @@
 import { Flex } from '@chakra-ui/react';
+import { GetStaticProps } from 'next';
 import Head from 'next/head'
 import NavBar from '../components/NavBar';
 import Certificates from '../components/sections/Certificate';

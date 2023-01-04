@@ -1,11 +1,12 @@
 import { Formik } from "formik";
-import { Box, Button, FormControl, VStack, HStack, Flex, Spacer } from "@chakra-ui/react";
+import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
+import emailjs from '@emailjs/browser';
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -22,10 +23,38 @@ const initialValues = {
   message: "",
 };
 
-const ContactForm = () => {
-  const handleFormSubmit = (values) => {
-    console.log(values);
-  };
+
+const ContactForm = () => {  
+  const handleFormSubmit = async (formData) => {
+    console.log(formData);
+
+    // var templateParams = {
+    //   name: formData.name,
+    //   email: formData.email,
+    //   message: formData.message
+    // };
+    // emailjs.send(
+    //   'service_8hxelho',
+    //   'template_f7ff84i',
+    //   templateParams,
+    //   'jwXveudue6-_s90R1')
+    //   .then((response) => {
+    //     console.log('SUCCESS!', response.status, response.text);
+    //   }, (err) => {
+    //     console.log('FAILED...', err);
+    //   });
+
+    const resp = await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const response = await resp.json();
+    console.log(response);
+  }
 
   return (
     <Formik

@@ -50,6 +50,7 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
     return (
         <Button
             ref={buttomRef}
+            type="submit"
             role="group"
             transition="all 0.6s"
             overflow="hidden"
