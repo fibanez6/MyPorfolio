@@ -6,7 +6,6 @@ import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
-import { DisplayFormikState } from "./form/Helper";
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
