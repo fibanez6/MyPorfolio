@@ -13,7 +13,7 @@ type Position = {
 };
 
 export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
-    const buttomRef = useRef<HTMLButtonElement>(null);
+    const buttomRef = useRef<HTMLButtonElement>();
     const [pos, setPos] = useState<Position>({
         x: undefined,
         y: undefined,
@@ -22,10 +22,9 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
     useEffect(() => {
         let timer: NodeJS.Timeout;
         if (pos.x !== 0 || pos.y !== 0) {
-            console.log("x " + pos.x + " y " + pos.)
             timer = setTimeout(() => {
                 buttomRef.current.style.transform = `translate(0px, 0px)`
-            }, 500);
+            }, 1000);
         }
         return () => {
             clearTimeout(timer);
@@ -34,8 +33,7 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
 
     var posX: number;
     var posY: number;
-
-    const skipClick = () => {
+    const dodgeMouse = () => {
         if (props.disabled) {
             posX ? posX = 0 : posX = getRandom(0, 300)
             posY ? posY = 0 : posY = getRandom(0, 300)
@@ -58,12 +56,8 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
             _active={{
                 transform: "scale(0.95)"
             }}
-            // _disabled= {{
-            //     transform: "translate(-150px, 0px)"
-            // }}
             disabled={props.disabled}
-            onMouseOver={skipClick}
-        // onMouseOut={resetPosition}
+            onMouseOver={dodgeMouse}
         >
             <Box
                 w="1.5em"
@@ -100,5 +94,3 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
         </Button>
     );
 };
-
-// btn. style. transform = *translate(${position}px, @px)*;

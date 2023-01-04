@@ -11,7 +11,7 @@ const useWindowDimensions = (): WindowDimentions => {
         height: undefined,
     });
     useEffect(() => {
-        function handleResize(): void {
+        const handleResize = (): void => {
             setWindowDimensions({
                 width: window.innerWidth,
                 height: window.innerHeight,
