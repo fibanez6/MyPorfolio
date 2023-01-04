@@ -6,6 +6,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
+import { DisplayFormikState } from "./form/Helper";
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -32,8 +33,9 @@ const ContactForm = () => {
       onSubmit={handleFormSubmit}
       initialValues={initialValues}
       validationSchema={contactSchema}
+      validateOnMount={true}
     >
-      {({ values, handleSubmit }) => (
+      {({ values, isValid, handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <VStack spacing={5} align="stretch">
             <InputField
@@ -57,7 +59,7 @@ const ContactForm = () => {
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">
-                <SubmitButtom label="Send" name="send"/>
+                <SubmitButtom label="Send" disabled={!isValid} />
               </FormControl>
             </Flex>
           </VStack>

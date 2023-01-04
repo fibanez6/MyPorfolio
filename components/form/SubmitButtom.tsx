@@ -1,12 +1,48 @@
-import { Box, Button, keyframes } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, ButtonProps, keyframes } from "@chakra-ui/react";
+import React, { useEffect, useRef, useState } from "react";
+import { getRandom } from "../helper/random";
 
 
-type SubmitButtomProps = {
+type SubmitButtomProps = ButtonProps & {
     label: string;
 };
 
-export const SubmitButtom = ({ label }: SubmitButtomProps) => {
+type Position = {
+    x: number | undefined;
+    y: number | undefined;
+};
+
+export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
+    const buttomRef = useRef<HTMLButtonElement>(null);
+    const [pos, setPos] = useState<Position>({
+        x: undefined,
+        y: undefined,
+    });
+
+    useEffect(() => {
+        let timer: NodeJS.Timeout;
+        if (pos.x !== 0 || pos.y !== 0) {
+            console.log("x " + pos.x + " y " + pos.)
+            timer = setTimeout(() => {
+                buttomRef.current.style.transform = `translate(0px, 0px)`
+            }, 500);
+        }
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [props.disabled, pos]);
+
+    var posX: number;
+    var posY: number;
+
+    const skipClick = () => {
+        if (props.disabled) {
+            posX ? posX = 0 : posX = getRandom(0, 300)
+            posY ? posY = 0 : posY = getRandom(0, 300)
+            setPos({ x: posX, y: posY })
+            buttomRef.current.style.transform = `translate(${-posX}px, ${-posY}px)`
+        }
+    }
 
     const fly = keyframes`
         from {transform: translateY(0.1em);}
@@ -15,12 +51,19 @@ export const SubmitButtom = ({ label }: SubmitButtomProps) => {
 
     return (
         <Button
+            ref={buttomRef}
             role="group"
-            transition="all 0.2s"
+            transition="all 0.6s"
             overflow="hidden"
             _active={{
                 transform: "scale(0.95)"
             }}
+            // _disabled= {{
+            //     transform: "translate(-150px, 0px)"
+            // }}
+            disabled={props.disabled}
+            onMouseOver={skipClick}
+        // onMouseOut={resetPosition}
         >
             <Box
                 w="1.5em"
@@ -57,3 +100,5 @@ export const SubmitButtom = ({ label }: SubmitButtomProps) => {
         </Button>
     );
 };
+
+// btn. style. transform = *translate(${position}px, @px)*;
