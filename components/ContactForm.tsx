@@ -57,10 +57,7 @@ const ContactForm = () => {
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">
-                {/* <Button type="submit">
-                  Send Message
-                </Button> */}
-                <SubmitButtom label="Send"/>
+                <SubmitButtom label="Send" name="send"/>
               </FormControl>
             </Flex>
           </VStack>

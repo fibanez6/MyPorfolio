@@ -1,19 +1,12 @@
 import { Box, Button, keyframes } from "@chakra-ui/react";
-import { FieldHookConfig, useField } from "formik";
 import React from "react";
 
 
-type SubmitButtomProps = FieldHookConfig<string> & {
+type SubmitButtomProps = {
     label: string;
 };
 
-export const SubmitButtom = ({
-    label,
-    ...props
-}: SubmitButtomProps) => {
-    const [field, meta] = useField(props);
-    const hasError = Boolean(meta.touched && meta.error);
-
+export const SubmitButtom = ({ label }: SubmitButtomProps) => {
 
     const fly = keyframes`
         from {transform: translateY(0.1em);}
@@ -48,7 +41,7 @@ export const SubmitButtom = ({
                         transform: "translateX(1.2em) rotate(0deg) scale(1.1)"
                     }}
                 >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                 </Box>
             </Box>
             <Box
@@ -64,6 +57,3 @@ export const SubmitButtom = ({
         </Button>
     );
 };
-
-
-
