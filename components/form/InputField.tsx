@@ -28,17 +28,16 @@ export const InputField = ({
   const renderLeftElement = () => {
     if (leftElement)
       return <InputLeftElement
-        pointerEvents="none"
-        children={leftElement}
-      />;
+        pointerEvents="none">
+        {leftElement}
+      </InputLeftElement>;
   }
 
   const renderRightElement = () => {
     if (rightElement)
       return <InputRightElement
         pointerEvents="none"
-        children={leftElement}
-      />;
+      > {leftElement} </InputRightElement>;
   }
 
   return (

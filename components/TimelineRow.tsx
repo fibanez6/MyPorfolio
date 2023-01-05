@@ -6,12 +6,18 @@ import {
   Box,
   useColorModeValue,
   AccordionPanel,
-  Text,
 } from "@chakra-ui/react";
 import React from "react";
 
-const TimelineRow = (props) => {
-  const { title, date, description, index, arrLength } = props;
+interface TimelineRowProps {
+  title: string;
+  date: string;
+  description: string;
+  index: number;
+  arrLength: number;
+}
+
+const TimelineRow = ({ title, date, description }: TimelineRowProps) => {
   const textColor = useColorModeValue("gray.700", "white.300");
   const bgIconColor = useColorModeValue("white.300", "gray.700");
 

@@ -1,6 +1,6 @@
 import { Box, Button, ButtonProps, keyframes } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import { getRandom } from "../helper/random";
+import { getRandom } from "../../helper/random";
 
 
 type SubmitButtomProps = ButtonProps & {
@@ -13,7 +13,7 @@ type Position = {
 };
 
 export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
-    const buttomRef = useRef<HTMLButtonElement>();
+    const buttomRef = useRef<HTMLButtonElement>(null);
     const [pos, setPos] = useState<Position>({
         x: undefined,
         y: undefined,
@@ -23,7 +23,7 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
         let timer: NodeJS.Timeout;
         if (pos.x !== 0 || pos.y !== 0) {
             timer = setTimeout(() => {
-                buttomRef.current.style.transform = `translate(0px, 0px)`
+                buttomRef.current!.style.transform = `translate(0px, 0px)`
             }, 1000);
         }
         return () => {
@@ -38,7 +38,7 @@ export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
             posX ? posX = 0 : posX = getRandom(0, 300)
             posY ? posY = 0 : posY = getRandom(0, 300)
             setPos({ x: posX, y: posY })
-            buttomRef.current.style.transform = `translate(${-posX}px, ${-posY}px)`
+            buttomRef.current!.style.transform = `translate(${-posX}px, ${-posY}px)` 
         }
     }
 
