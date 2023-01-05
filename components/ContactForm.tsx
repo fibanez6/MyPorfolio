@@ -51,7 +51,7 @@ const ContactForm = () => {
       validateOnMount={true}
     >
       {({ values, isValid, handleSubmit }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} data-netlify="true">
           <VStack spacing={5} align="stretch">
             <InputField
               label="Your Name"
