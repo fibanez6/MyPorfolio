@@ -7,6 +7,12 @@ import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
 
+interface FormProps {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
   email: yup
@@ -22,9 +28,8 @@ const initialValues = {
   message: "",
 };
 
-
 const ContactForm = () => {  
-  const handleFormSubmit = async (formData) => {
+  const handleFormSubmit = async (formData: FormProps) => {
 
     const resp = await fetch('/api/email', {
       method: 'POST',
