@@ -1,3 +1,5 @@
+"use client";
+
 import { Formik } from "formik";
 import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
 import * as yup from "yup";
@@ -51,7 +53,11 @@ const ContactForm = () => {
       validateOnMount={true}
     >
       {({ values, isValid, handleSubmit }) => (
-        <form onSubmit={handleSubmit} data-netlify="true">
+        <form name="contact" onSubmit={handleSubmit} 
+          data-netlify="true" 
+          netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
+        >
           <VStack spacing={5} align="stretch">
             <InputField
               label="Your Name"
@@ -71,6 +77,12 @@ const ContactForm = () => {
               placeholder="Hi Fernando, I would like..."
               value={values.name}
             />
+            <p className="hidden" hidden={true}>
+              <label>
+                <input name="bot-field" />
+              </label>
+            </p>
+            <div data-netlify-recaptcha="true"></div>
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">

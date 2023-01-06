@@ -11,6 +11,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
+import { Section } from "./Section";
 
 interface FeatureProps {
   date: string;
@@ -49,46 +50,35 @@ const Feature = ({ date, alt, image, justifySelf, index }: FeatureProps) => {
 
 const CertificateSection = () => {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.5 }}
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0 },
-      }}
-    >
-      <Container as="section" className="section-cert" maxW={"6xl"}>
-        <Box p={4}>
-          <Box
-            spacing={4}
-            as={Container}
-            maxW={"3xl"}
-            textAlign={"center"}
-            pb={10}
-          >
-            <Heading fontSize={"3xl"}>Certificates</Heading>
-          </Box>
-          <Flex alignItems="center" justifyContent="center" gap={100}>
-            <Feature
-              image={"/media/AWS-Certified-Developer-Associate.png"}
-              alt={"AWS Certified Developer Associate"}
-              date={"August 2022"}
-              justifySelf={"end"}
-              index={1}
-            />
-            <Feature
-              image={"/media/AWS-Certified-Solutions-Architect-Associate.png"}
-              alt={"AWS Certified Solutions Architect Associate"}
-              date={"August 2022"}
-              justifySelf={"start"}
-              index={2}
-            />
-          </Flex>
+    <Section className="section-cert">
+      <Box p={4}>
+        <Box
+          spacing={4}
+          as={Container}
+          maxW={"3xl"}
+          textAlign={"center"}
+          pb={10}
+        >
+          <Heading fontSize={"3xl"}>Certificates</Heading>
         </Box>
-      </Container>
-    </motion.div>
+        <Flex alignItems="center" justifyContent="center" gap={100}>
+          <Feature
+            image={"/media/AWS-Certified-Developer-Associate.png"}
+            alt={"AWS Certified Developer Associate"}
+            date={"August 2022"}
+            justifySelf={"end"}
+            index={1}
+          />
+          <Feature
+            image={"/media/AWS-Certified-Solutions-Architect-Associate.png"}
+            alt={"AWS Certified Solutions Architect Associate"}
+            date={"August 2022"}
+            justifySelf={"start"}
+            index={2}
+          />
+        </Flex>
+      </Box>
+    </Section>
   );
 };
 
