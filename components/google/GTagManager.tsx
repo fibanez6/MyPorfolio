@@ -15,10 +15,10 @@ export const GTagManager = () => (
   />
 )
 
-// export const GTagManagerBody = () => (
-//   <noscript>
-//     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQFNVH"
-//       height="0" width="0" style="display:none;visibility:hidden">
-//     </iframe>
-//   </noscript>
-// )
+export const GTagManagerBody = () => (
+  <noscript>
+    <iframe id="asd" src="https://www.googletagmanager.com/ns.html?id=GTM-MQQFNVH"
+      height="0" width="0" hidden={true} >
+    </iframe>
+  </noscript>
+)

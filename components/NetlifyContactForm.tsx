@@ -30,7 +30,7 @@ const initialValues = {
   message: "",
 };
 
-const ContactForm = () => {  
+const NetlifyContactForm = () => {  
   const handleFormSubmit = async (formData: FormProps) => {
 
     const resp = await fetch('/api/email', {
@@ -54,6 +54,9 @@ const ContactForm = () => {
     >
       {({ values, isValid, handleSubmit }) => (
         <form name="contact" onSubmit={handleSubmit} 
+          data-netlify="true" 
+          netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
         >
           <VStack spacing={5} align="stretch">
             <InputField
@@ -79,6 +82,7 @@ const ContactForm = () => {
                 <input name="bot-field" />
               </label>
             </p>
+            <div data-netlify-recaptcha="true"></div>
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">
@@ -92,4 +96,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default NetlifyContactForm;

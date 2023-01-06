@@ -1,4 +1,9 @@
+'use client';
+
 import './globals.css'
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from '../theme/theme'
+import { GTagManager } from '../components/google/GTagManager';
 
 export default function RootLayout({
   children,
@@ -7,12 +12,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      <GTagManager />
+      <ChakraProvider resetCSS theme={theme}>
+        <body>
+          {children}
+        </body>
+      </ChakraProvider>
     </html>
   )
 }

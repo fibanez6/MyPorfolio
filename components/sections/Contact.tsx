@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Box,
   Heading,
@@ -14,23 +16,20 @@ import { MdEmail, MdLocationOn } from "react-icons/md";
 import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs";
 import ContactForm from "../ContactForm";
 import { motion } from "framer-motion";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 const ContactSection = () => {
   return (
-    <Section
-      className="section-contact"
-    >
-      <Box
+    <Section className="section-contact">
+      <Box className="box-asdasd"
         bg={useColorModeValue("#9DC4FB", "gray.900")}
         w="full"
         borderRadius="lg"
-        m={{ base: 10, sm: 5, md: 16, lg: 10 }}
         p={{ base: 5, sm: 5, md: 5, lg: 10 }}
         color="white"
       >
-        <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 10, xl: 20 }}>
-          <WrapItem>
+        <Wrap>
+          <WrapItem flex="1 0 0">
             <Box>
               <Heading>Get in Touch</Heading>
               <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
@@ -103,7 +102,7 @@ const ContactSection = () => {
               </HStack>
             </Box>
           </WrapItem>
-          <WrapItem w={{ base: "100%", lg: "59%" }}>
+          <WrapItem flex="2 0 0">
             <Box bg="white" borderRadius="lg" p={8} w="full">
               <Box color="#0B0E3F">
                 <motion.div

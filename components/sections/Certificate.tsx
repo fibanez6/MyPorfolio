@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Box,
   Text,
@@ -11,7 +13,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 interface FeatureProps {
   date: string;
@@ -50,17 +52,7 @@ const Feature = ({ date, alt, image, justifySelf, index }: FeatureProps) => {
 
 const CertificateSection = () => {
   return (
-    <Section className="section-cert">
-      <Box p={4}>
-        <Box
-          spacing={4}
-          as={Container}
-          maxW={"3xl"}
-          textAlign={"center"}
-          pb={10}
-        >
-          <Heading fontSize={"3xl"}>Certificates</Heading>
-        </Box>
+    <Section title="Certificates" >
         <Flex alignItems="center" justifyContent="center" gap={100}>
           <Feature
             image={"/media/AWS-Certified-Developer-Associate.png"}
@@ -77,7 +69,6 @@ const CertificateSection = () => {
             index={2}
           />
         </Flex>
-      </Box>
     </Section>
   );
 };
