@@ -17,6 +17,7 @@ import {
   Center,
   Grid,
   SimpleGrid,
+  GridItem,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
@@ -73,19 +74,36 @@ const Feature = ({
             <Text>{description}</Text>
           </VStack>
           <SimpleGrid
-            columns={{ md: 1, lg: 2 }}
+            columns={{ base: 1, lg: 2 }}
             pt="0.5rem"
             spacingX={{ sm: "0.2rem", lg: "0.5rem" }}
             spacingY={{ sm: "0.2rem", lg: "0.5rem" }}
+            gridTemplateAreas={{
+              base: `"a"
+              "b"
+              "c"
+              "d"`,
+              lg: `"a b" 
+              "c d"`,
+            }}
           >
-            <Text ml={{ sm: "0", lg: "3rem" }}>
+            <Text
+              gridArea="a"
+              minW={"7rem"}
+              ml={{ base: 0, lg: "auto" }}>
               <strong>Issued:</strong>
             </Text>
-            <Text>{date}</Text>
-            <Text ml={{ sm: "0", lg: "3rem" }}>
+            <Text
+              gridArea={{ md: "b", lg: "c" }}
+              minW={"7rem"}
+              ml={{ base: 0, lg: "auto" }}>
+              {date}
+            </Text>
+            <Text
+              gridArea={{ md: "c", lg: "b" }}>
               <strong>Credential ID:</strong>
             </Text>
-            <Text>{credentialId}</Text>
+            <Text gridArea="d">{credentialId}</Text>
           </SimpleGrid>
         </CardBody>
         <CardFooter>
@@ -130,3 +148,13 @@ const CertificateSection = () => {
 };
 
 export default CertificateSection;
+
+// gridTemplateColumns="repeat(1, minmax(0, 1fr))"
+// gridColumnGap="0.2rem"
+// gridRowGap="0.2rem"
+
+// gridTemplateColumns="repeat(2, minmax(0, 1fr))"
+// gridColumnGap="0.5rem"
+// gridRowGap: 0.5rem
+
+// ml={{ sm: "0", lg: "3rem" }}
