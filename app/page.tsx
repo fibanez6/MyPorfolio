@@ -19,7 +19,8 @@ export default function Home() {
         maxW={"6xl"}
         m="0 auto"
         gap={{ base: 16, sm: 5, md: 5, lg: 16 }}
-        p={{ base: 16, sm: 5, md: 5, lg: 16 }}
+        p={{ base: 16, sm: 5, md: 10, lg: 16 }}
+        // p={5}
       >
         <Experience />
         <Certificates />
