@@ -18,7 +18,6 @@ export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
     const styles = useStyleConfig("Section", props)
 
     const render_title = () => {
-        console.log('title:', title)
         if (title) {
             return (
                 <Center pb={10}>
