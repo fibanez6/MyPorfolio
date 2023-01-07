@@ -8,6 +8,15 @@ import {
   Heading,
   Container,
   Link,
+  Card,
+  CardHeader,
+  CardBody,
+  Button,
+  CardFooter,
+  VStack,
+  Center,
+  Grid,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
@@ -17,17 +26,27 @@ import { Section } from "../layout/Section";
 
 interface FeatureProps {
   title: string;
+  subtitle: string;
   description: string;
   credentialId: string;
   date: string;
   image: string;
   link: string;
   alt: string;
-  justifySelf: string;
   index: number;
 }
 
-const Feature = ({ title, description, credentialId, date, alt, image, link, justifySelf, index }: FeatureProps) => {
+const Feature = ({
+  title,
+  subtitle,
+  description,
+  credentialId,
+  date,
+  alt,
+  image,
+  link,
+  index,
+}: FeatureProps) => {
   return (
     <motion.div
       initial="hidden"
@@ -39,25 +58,42 @@ const Feature = ({ title, description, credentialId, date, alt, image, link, jus
         visible: { opacity: 1, scale: 1 },
       }}
     >
-      <Box justifySelf={justifySelf}>
-        <Stack align={"center"} justify={"center"}>
-          <Flex mb={1}>
+      <Card align="center" justify={"center"} variant="unstyled">
+        <CardHeader>
+          <VStack>
+            <Heading size={{ base: "md", sm: "sm", lg: "md" }}>{title}</Heading>
+            <Heading as="h3" size={{ base: "md", sm: "xs", md: "sm" }}>
+              {subtitle}
+            </Heading>
+          </VStack>
+        </CardHeader>
+        <CardBody pt="5" pb="5" gap="0.5rem">
+          <VStack>
             <Image src={image} alt={alt} width={200} height={200} />
-          </Flex>
-          <Text fontWeight={600}>{title}</Text>
-          <Text fontWeight={600}>{description}</Text>
-          <Text fontWeight={600}>Issued {date}</Text>
-          <Text fontWeight={600}>Credential ID: {credentialId}</Text>
-          <Link
-            as={NextLink}
-            href="https://aw.certmetrics.com/amazon/public/verification.aspx"
-            variant={"solid"}
-            isExternal
+            <Text>{description}</Text>
+          </VStack>
+          <SimpleGrid
+            columns={{ md: 1, lg: 2 }}
+            pt="0.5rem"
+            spacingX={{ sm: "0.2rem", lg: "0.5rem" }}
+            spacingY={{ sm: "0.2rem", lg: "0.5rem" }}
           >
-            Show Credential<ExternalLinkIcon mx="5px" />
+            <Text ml={{ sm: "0", lg: "3rem" }}>
+              <strong>Issued:</strong>
+            </Text>
+            <Text>{date}</Text>
+            <Text ml={{ sm: "0", lg: "3rem" }}>
+              <strong>Credential ID:</strong>
+            </Text>
+            <Text>{credentialId}</Text>
+          </SimpleGrid>
+        </CardBody>
+        <CardFooter>
+          <Link as={NextLink} href={link} variant={"solid"} isExternal>
+            Show Credential <ExternalLinkIcon mx="5px" />
           </Link>
-        </Stack>
-      </Box>
+        </CardFooter>
+      </Card>
     </motion.div>
   );
 };
@@ -67,25 +103,25 @@ const CertificateSection = () => {
     <Section title="Certificates">
       <Flex alignItems="center" justifyContent="center" gap="10rem">
         <Feature
-          title="AWS Certified Developer - Associate (DVA-C01)"
+          title="AWS Certified Developer"
+          subtitle="Associate (DVA-C01)"
           description="Amazon Web Services (AWS)"
           credentialId="FXHJ72T1Q111Q3WY"
           image={"/media/AWS-Certified-Developer-Associate.png"}
           alt={"AWS Certified Developer Associate"}
           link="https://aw.certmetrics.com/amazon/public/verification.aspx"
           date={"August 2022"}
-          justifySelf={"end"}
           index={1}
         />
         <Feature
-          title="AWS Certified Solutions Architect - Associate (SAA-C02)"
+          title="AWS Certified Solutions Architect"
+          subtitle="Associate (SAA-C02)"
           description="Amazon Web Services (AWS)"
           credentialId="MNW36P7BNEEQQPSW"
           image={"/media/AWS-Certified-Solutions-Architect-Associate.png"}
           alt={"AWS Certified Solutions Architect Associate"}
           date={"August 2022"}
           link="https://aw.certmetrics.com/amazon/public/verification.aspx"
-          justifySelf={"start"}
           index={2}
         />
       </Flex>
