@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Text,
@@ -11,17 +13,21 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 interface FeatureProps {
+  title: string;
+  description: string;
+  credentialId: string;
   date: string;
   image: string;
+  link: string;
   alt: string;
   justifySelf: string;
   index: number;
 }
 
-const Feature = ({ date, alt, image, justifySelf, index }: FeatureProps) => {
+const Feature = ({ title, description, credentialId, date, alt, image, link, justifySelf, index }: FeatureProps) => {
   return (
     <motion.div
       initial="hidden"
@@ -38,9 +44,17 @@ const Feature = ({ date, alt, image, justifySelf, index }: FeatureProps) => {
           <Flex mb={1}>
             <Image src={image} alt={alt} width={200} height={200} />
           </Flex>
-          <Text fontWeight={600}>{date}</Text>
-          <Link as={NextLink} href="#" variant={"solid"} isExternal>
-            Show <ExternalLinkIcon mx="2px" />
+          <Text fontWeight={600}>{title}</Text>
+          <Text fontWeight={600}>{description}</Text>
+          <Text fontWeight={600}>Issued {date}</Text>
+          <Text fontWeight={600}>Credential ID: {credentialId}</Text>
+          <Link
+            as={NextLink}
+            href="https://aw.certmetrics.com/amazon/public/verification.aspx"
+            variant={"solid"}
+            isExternal
+          >
+            Show Credential<ExternalLinkIcon mx="5px" />
           </Link>
         </Stack>
       </Box>
@@ -50,34 +64,31 @@ const Feature = ({ date, alt, image, justifySelf, index }: FeatureProps) => {
 
 const CertificateSection = () => {
   return (
-    <Section className="section-cert">
-      <Box p={4}>
-        <Box
-          spacing={4}
-          as={Container}
-          maxW={"3xl"}
-          textAlign={"center"}
-          pb={10}
-        >
-          <Heading fontSize={"3xl"}>Certificates</Heading>
-        </Box>
-        <Flex alignItems="center" justifyContent="center" gap={100}>
-          <Feature
-            image={"/media/AWS-Certified-Developer-Associate.png"}
-            alt={"AWS Certified Developer Associate"}
-            date={"August 2022"}
-            justifySelf={"end"}
-            index={1}
-          />
-          <Feature
-            image={"/media/AWS-Certified-Solutions-Architect-Associate.png"}
-            alt={"AWS Certified Solutions Architect Associate"}
-            date={"August 2022"}
-            justifySelf={"start"}
-            index={2}
-          />
-        </Flex>
-      </Box>
+    <Section title="Certificates">
+      <Flex alignItems="center" justifyContent="center" gap="10rem">
+        <Feature
+          title="AWS Certified Developer - Associate (DVA-C01)"
+          description="Amazon Web Services (AWS)"
+          credentialId="FXHJ72T1Q111Q3WY"
+          image={"/media/AWS-Certified-Developer-Associate.png"}
+          alt={"AWS Certified Developer Associate"}
+          link="https://aw.certmetrics.com/amazon/public/verification.aspx"
+          date={"August 2022"}
+          justifySelf={"end"}
+          index={1}
+        />
+        <Feature
+          title="AWS Certified Solutions Architect - Associate (SAA-C02)"
+          description="Amazon Web Services (AWS)"
+          credentialId="MNW36P7BNEEQQPSW"
+          image={"/media/AWS-Certified-Solutions-Architect-Associate.png"}
+          alt={"AWS Certified Solutions Architect Associate"}
+          date={"August 2022"}
+          link="https://aw.certmetrics.com/amazon/public/verification.aspx"
+          justifySelf={"start"}
+          index={2}
+        />
+      </Flex>
     </Section>
   );
 };

@@ -1,10 +1,8 @@
+'use client';
+
 import {
-  Card,
-  CardBody,
-  CardHeader,
   Flex,
   useColorModeValue,
-  Text,
   Box,
 } from "@chakra-ui/react";
 import TimelineRow from "./TimelineRow";

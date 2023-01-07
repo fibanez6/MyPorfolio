@@ -1,19 +1,32 @@
 "use client";
 
-import { Flex } from '@chakra-ui/react';
+import styles from './page.module.css'
+import { Stack } from '@chakra-ui/react';
 import NavBar from '../components/NavBar';
 import Certificates from '../components/sections/Certificate';
-import ContactSection from '../components/sections/Contact';
-import ExperienceSection from '../components/sections/Experience';
-import HeroSection from '../components/sections/Hero';
-import SkillsSection from '../components/sections/Skill';
+import Contact from '../components/sections/Contact';
+import Experience from '../components/sections/Experience';
+import Hero from '../components/sections/Hero';
 
 export default function Home() {
   return (
-    <main>
-      <Flex direction="column">
-        <NavBar />
-      </Flex>
-    </main>
+    <>
+      <NavBar />
+      <Hero />
+      <Stack 
+        as="main"
+        minH="100vh"
+        maxW={"6xl"}
+        m="0 auto"
+        gap={{ base: 16, sm: 5, md: 5, lg: 16 }}
+        p={{ base: 16, sm: 5, md: 10, lg: 16 }}
+        // p={5}
+      >
+        <Experience />
+        <Certificates />
+        <Contact />
+      </Stack>
+    </>
+
   )
 }

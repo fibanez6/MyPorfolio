@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Flex, Heading, Input, useColorMode, useColorModeValue } from "@chakra-ui/react";
 
 const LoginForm = () => {

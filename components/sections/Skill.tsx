@@ -1,3 +1,5 @@
+'use client';
+
 const SkillsSection = () => {
   return (
     <section className='section-skill'>
