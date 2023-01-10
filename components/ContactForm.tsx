@@ -1,19 +1,26 @@
 "use client";
 
-import { Formik } from "formik";
-import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
+import { Formik, FormikHelpers } from "formik";
+import { FormControl, VStack, Flex, Spacer, Text } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
+import { useState } from "react";
 
 interface FormProps {
   name: string;
   email: string;
   message: string;
 }
+
+const initialValues = {
+  name: "",
+  email: "",
+  message: "",
+};
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -24,25 +31,30 @@ const contactSchema = yup.object().shape({
   message: yup.string().trim().required("Please enter a message"),
 });
 
-const initialValues = {
-  name: "",
-  email: "",
-  message: "",
-};
-
 const ContactForm = () => {  
-  const handleFormSubmit = async (formData: FormProps) => {
+  const [isSuccess, setSuccess] = useState<boolean | undefined>();
 
-    const resp = await fetch('/api/email', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+  const handleFormSubmit = async (formData: FormProps, {
+    setStatus,
+    resetForm
+  }: FormikHelpers<any>) => {
 
-    const response = await resp.json();
-    console.log(response);
+      const resp = await fetch('/api/email', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const response = await resp.json();
+      console.log(response);
+    
+      setSuccess(resp.ok)
+      setStatus({ message: response });
+      resetForm();
+    
+      setTimeout(() => { setSuccess(undefined) }, 5000);
   }
 
   return (
@@ -52,9 +64,8 @@ const ContactForm = () => {
       validationSchema={contactSchema}
       validateOnMount={true}
     >
-      {({ values, isValid, handleSubmit }) => (
-        <form name="contact" onSubmit={handleSubmit} 
-        >
+      {({ values, isValid, isSubmitting, dirty, handleSubmit }) => (
+        <form name="contact" onSubmit={handleSubmit}>
           <VStack spacing={5} align="stretch">
             <InputField
               label="Your Name"
@@ -82,7 +93,12 @@ const ContactForm = () => {
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">
-                <SubmitButtom label="Send" disabled={!isValid} />
+                <SubmitButtom
+                  label="Send"
+                  dodge={!isValid}
+                  isSuccess={isSuccess}
+                  isLoading={isSubmitting}
+                />
               </FormControl>
             </Flex>
           </VStack>

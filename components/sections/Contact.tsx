@@ -9,8 +9,6 @@ import {
   VStack,
   HStack,
   useColorModeValue,
-  WrapItem,
-  Wrap,
   Flex,
 } from "@chakra-ui/react";
 import { MdEmail, MdLocationOn } from "react-icons/md";
@@ -18,7 +16,6 @@ import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs";
 import ContactForm from "../ContactForm";
 import { motion } from "framer-motion";
 import { Section } from "../layout/Section";
-import { wrap } from "module";
 
 const ContactSection = () => {
   return (
@@ -28,7 +25,6 @@ const ContactSection = () => {
         w="100%"
         borderRadius="lg"
         p={{ base: 10, sm: 5, md: 10 }}
-        // p={10}
         gap={10}
         color="white"
         flexWrap="wrap"
@@ -56,8 +52,6 @@ const ContactSection = () => {
                 height="48px"
                 width="200px"
                 variant="ghost"
-                // color="#DCE2FF"
-                // _hover={{ border: '2px solid #1C6FEB' }}
                 leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
               >
                 Melbourne, Australia

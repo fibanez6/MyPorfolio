@@ -86,7 +86,7 @@ const NetlifyContactForm = () => {
             <Flex justifyContent="flex-end">
               <Spacer />
               <FormControl id="submit-btn" mr="auto" w="auto">
-                <SubmitButtom label="Send" disabled={!isValid} />
+                <SubmitButtom label="Send" dodge={!isValid} />
               </FormControl>
             </Flex>
           </VStack>
