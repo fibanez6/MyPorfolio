@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Timeline from "../Timeline";
-import { Section } from "../layout/Section";
+import Timeline from "../components/Timeline";
+import { Section } from "../components/layout/Section";
 
 const ExperienceSection = () => {
   return (
     <Section id="experience" title="Experience">
-        <Timeline />
+      <Timeline />
     </Section>
   );
 };

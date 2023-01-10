@@ -25,12 +25,19 @@ interface NavLinkProps {
   page: string;
   isSelected: boolean;
   setSelectedPage: Dispatch<SetStateAction<string>>;
+  onClick?: () => void;
 }
 
 const Pages = ["About", "Experience", "Certificates", "Contact"];
 
-const NavLink = ({ page, isSelected, setSelectedPage }: NavLinkProps) => {
+const NavLink = ({
+  page,
+  isSelected,
+  setSelectedPage,
+  onClick,
+}: NavLinkProps) => {
   const _page = page.toLowerCase();
+
   return (
     <Link
       px={2}
@@ -40,9 +47,14 @@ const NavLink = ({ page, isSelected, setSelectedPage }: NavLinkProps) => {
         textDecoration: "none",
         bg: useColorModeValue("gray.200", "gray.700"),
       }}
-      variant={isSelected ? "selected": undefined}
+      variant={isSelected ? "selected" : undefined}
       href={`#${_page}`}
-      onClick={() => setSelectedPage(_page)}
+      onClick={() => {
+        if (typeof onClick == 'function') {
+          onClick();
+        } 
+        setSelectedPage(_page);
+      }}
     >
       {page}
     </Link>
@@ -94,6 +106,7 @@ const NavBar = ({
                 page={page}
                 isSelected={page.toLowerCase() === selectedPage}
                 setSelectedPage={setSelectedPage}
+                onClick={isOpen ? onClose : onOpen }
               />
             ))}
           </Stack>

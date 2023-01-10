@@ -14,7 +14,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <GTagManager />
-      <ChakraProvider resetCSS theme={theme}>
+      <ChakraProvider theme={theme}>
         <body>
           {children}
         </body>

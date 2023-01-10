@@ -17,7 +17,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
-import { Section } from "../layout/Section";
+import { Section } from "../components/layout/Section";
 
 interface CertProps {
   title: string;
@@ -103,7 +103,11 @@ const Certificate = ({
 const CertificateSection = () => {
   return (
     <Section id="certificates" title="Certificates">
-      <Flex alignItems="center" justifyContent="center" gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}>
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}
+      >
         <Certificate
           title="AWS Certified Developer"
           subtitle="Associate (DVA-C01)"

@@ -1,9 +1,9 @@
 import { GTagManager } from "../components/google/GTagManager";
 import NavBar from "../components/NavBar";
-import Certificates from "../components/sections/Certificate";
-import Contact from "../components/sections/Contact";
-import Experience from "../components/sections/Experience";
-import HeroSection from "../components/sections/Hero";
+import Certificates from "../scenes/Certificate";
+import Contact from "../scenes/Contact";
+import Experience from "../scenes/Experience";
+import HeroSection from "../scenes/Hero";
 import { Stack } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import { NEXT_SEO_DEFAULT } from "../next-seo-config";

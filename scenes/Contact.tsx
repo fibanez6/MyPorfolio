@@ -13,9 +13,9 @@ import {
 } from "@chakra-ui/react";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs";
-import ContactForm from "../ContactForm";
+import ContactForm from "../components/ContactForm";
 import { motion } from "framer-motion";
-import { Section } from "../layout/Section";
+import { Section } from "../components/layout/Section";
 
 const ContactSection = () => {
   return (

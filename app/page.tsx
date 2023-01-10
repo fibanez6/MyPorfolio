@@ -3,12 +3,12 @@
 import styles from "./page.module.css";
 import { Stack, useMediaQuery } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
-import Certificates from "../components/sections/Certificate";
-import Contact from "../components/sections/Contact";
-import Experience from "../components/sections/Experience";
-import Hero from "../components/sections/Hero";
+import Certificates from "../scenes/Certificate";
+import Contact from "../scenes/Contact";
+import Experience from "../scenes/Experience";
+import Hero from "../scenes/Hero";
 import { useEffect, useState } from "react";
-
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -45,7 +45,9 @@ export default function Home() {
       >
         <Experience />
         <Certificates />
-        <Contact />
+        <motion.div onViewportEnter={() => setSelectedPage("skills")}>
+          <Contact />
+        </motion.div>
       </Stack>
     </>
   );
