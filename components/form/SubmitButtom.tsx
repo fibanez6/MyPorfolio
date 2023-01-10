@@ -13,7 +13,7 @@ type SubmitButtomProps = ButtonProps & {
   label: string;
   dodge?: boolean;
   isSuccess?: boolean;
-  isLoading: boolean;
+  isLoading?: boolean;
 };
 
 type Position = {

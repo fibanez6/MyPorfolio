@@ -52,8 +52,6 @@ const ContactSection = () => {
                 height="48px"
                 width="200px"
                 variant="ghost"
-                // color="#DCE2FF"
-                // _hover={{ border: '2px solid #1C6FEB' }}
                 leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
               >
                 Melbourne, Australia
