@@ -1,8 +1,9 @@
 import { ComponentSingleStyleConfig } from '@chakra-ui/react';
+import { theme } from "@chakra-ui/react";
 
 const Link = {
   variants: {
-    solid: ({colorMode}) => ({
+    solid: ({ colorMode }) => ({
       display: "inline-flex",
       bg: colorMode === 'light' ? '#0D74FF' : '#FF5430',
       color: "var(--chakra-colors-white)",
@@ -19,7 +20,15 @@ const Link = {
       _hover: {
         bg: colorMode === 'light' ? '#FF5430' : '#0D74FF',
       }
+    }),
+    selected: ({ colorMode }) => ({
+      ...theme.components.Link.defaultProps,
+      borderRadius: "var(--chakra-radii-md)",
+      border: "solid 2px",
+      borderColor: colorMode === 'light' ? '#0D74FF' : '#FF5430',
+      fontWeight:"bold"
     })
+    
   }
 } as ComponentSingleStyleConfig;
 

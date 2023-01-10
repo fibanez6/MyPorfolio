@@ -1,7 +1,7 @@
 "use client";
 
 import { Formik, FormikHelpers } from "formik";
-import { FormControl, VStack, Flex, Spacer, Text } from "@chakra-ui/react";
+import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";

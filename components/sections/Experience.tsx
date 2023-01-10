@@ -5,7 +5,7 @@ import { Section } from "../layout/Section";
 
 const ExperienceSection = () => {
   return (
-    <Section title="Experience">
+    <Section id="experience" title="Experience">
         <Timeline />
     </Section>
   );

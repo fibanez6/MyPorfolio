@@ -102,7 +102,7 @@ const Certificate = ({
 
 const CertificateSection = () => {
   return (
-    <Section title="Certificates">
+    <Section id="certificates" title="Certificates">
       <Flex alignItems="center" justifyContent="center" gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}>
         <Certificate
           title="AWS Certified Developer"
