@@ -1,97 +1,168 @@
-import { Box, Button, ButtonProps, keyframes } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ButtonProps,
+  keyframes,
+} from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { getRandom } from "../../helper/random";
-
+import { FiSend } from "react-icons/fi";
+import { BeatLoader } from "react-spinners";
 
 type SubmitButtomProps = ButtonProps & {
-    label: string;
+  label: string;
+  dodge?: boolean;
+  isSuccess?: boolean;
+  isLoading: boolean;
 };
 
 type Position = {
-    x: number | undefined;
-    y: number | undefined;
+  x: number | undefined;
+  y: number | undefined;
 };
 
-export const SubmitButtom = ({ label, ...props }: SubmitButtomProps) => {
-    const buttomRef = useRef<HTMLButtonElement>(null);
-    const [pos, setPos] = useState<Position>({
-        x: undefined,
-        y: undefined,
-    });
+export const SubmitButtom = ({
+  label,
+  dodge,
+  isSuccess,
+  isLoading,
+  ...props
+}: SubmitButtomProps) => {
+  const buttomRef = useRef<HTMLButtonElement>(null);
+  const [pos, setPos] = useState<Position>({
+    x: undefined,
+    y: undefined,
+  });
 
-    useEffect(() => {
-        let timer: NodeJS.Timeout;
-        if (pos.x !== 0 || pos.y !== 0) {
-            timer = setTimeout(() => {
-                buttomRef.current!.style.transform = `translate(0px, 0px)`
-            }, 1000);
-        }
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [props.disabled, pos]);
-
-    var posX: number;
-    var posY: number;
-    const dodgeMouse = () => {
-        if (props.disabled) {
-            posX ? posX = 0 : posX = getRandom(0, 300)
-            posY ? posY = 0 : posY = getRandom(0, 300)
-            setPos({ x: posX, y: posY })
-            buttomRef.current!.style.transform = `translate(${-posX}px, ${-posY}px)` 
-        }
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (pos.x !== 0 || pos.y !== 0) {
+      timer = setTimeout(() => {
+        buttomRef.current!.style.transform = `translate(0px, 0px)`;
+      }, 1000);
     }
 
-    const fly = keyframes`
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isLoading, isSuccess, pos]);
+
+  var posX: number;
+  var posY: number;
+  const dodgeMouse = () => {
+    if (dodge) {
+      posX ? (posX = 0) : (posX = getRandom(0, 300));
+      posY ? (posY = 0) : (posY = getRandom(0, 300));
+      setPos({ x: posX, y: posY });
+      buttomRef.current!.style.transform = `translate(${-posX}px, ${-posY}px)`;
+    }
+  };
+
+  const suspension = keyframes`
         from {transform: translateY(0.1em);}
         to {transform: translateY(-0.1em)}
     `;
 
+  const fly = keyframes`
+      from {transform: translateX(-6.5m) rotate(45deg) scale(1);}
+      to {transform: translateX(3em) rotate(45deg) scale(1.3)}
+  `;
+
+  const flyText = keyframes`
+    from {transform: translateX(-7.5em);}
+    to {transform: translateX(0.5em)}
+  `;
+
+  const renderInitButton = () => {
     return (
-        <Button
-            ref={buttomRef}
-            type="submit"
-            role="group"
-            transition="all 0.6s"
-            overflow="hidden"
-            _active={{
-                transform: "scale(0.95)"
-            }}
-            disabled={props.disabled}
-            onMouseOver={dodgeMouse}
+      <>
+        <Box
+          w="1.5em"
+          _groupHover={{
+            animation: `${suspension} 0.6s ease-in-out infinite alternate`,
+          }}
         >
-            <Box
-                w="1.5em"
-                _groupHover={{
-                    animation: `${fly} 0.6s ease-in-out infinite alternate`
-                }}
-            >
-                <Box
-                    as="svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    transition="transform 0.3s ease-in-out"
-                    transform-origin="center center"
-                    transform="rotate(-45deg)"
-                    _groupHover={{
-                        transform: "translateX(1.2em) rotate(0deg) scale(1.1)"
-                    }}
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                </Box>
-            </Box>
-            <Box
-                as="span"
-                ml="0.3em"
-                transition="all 0.3s ease-in-out"
-                _groupHover={{
-                    transform: "translateX(5em)"
-                }}
-            >
-                {label}
-            </Box>
-        </Button>
+          <Box
+            transition="transform 0.3s ease-in-out"
+            transform-origin="center center"
+            _groupHover={{
+              transform: "translateX(1.2em) rotate(45deg) scale(1.1)",
+            }}
+            _groupActive={{
+              transform: "translateX(10em) scale(3)",
+            }}
+          >
+            <FiSend size={20} />
+          </Box>
+        </Box>
+        <Box
+          as="span"
+          ml="0.3em"
+          transition="all 0.3s ease-in-out"
+          _groupHover={{
+            transform: "translateX(5em)",
+          }}
+        >
+          {label}
+        </Box>
+      </>
     );
+  };
+
+  const renderCallbackButton = () => {
+    return (
+      <>
+        <Box
+          as="span"
+          ml="0.3em"
+          transform="translateX(-7.5em) "
+          transition="all 0.3s ease-in-out"
+          animation={`${flyText} 0.5s ease-in-out normal forwards`}
+        >
+          {isSuccess ? "Sent" : "Failed"}
+        </Box>
+        <Box
+          w="1.5em"
+          transform="translateX(-6.5em) rotate(45deg) scale(1)"
+          animation={`${fly} 0.5s ease-in-out normal forwards`}
+        >
+          <Box
+            transition="transform 0.3s ease-in-out"
+            transform-origin="center center"
+          >
+            <FiSend size={20} />
+          </Box>
+        </Box>
+      </>
+    );
+  };
+
+  const background = () => {
+    if (!isLoading && isSuccess !== undefined) {
+      return { bg: isSuccess ? "#44d8a4" : "#FF5430" };
+    }
+    return {};
+  };
+
+  return (
+    <Button
+      ref={buttomRef}
+      {...background()}
+      isLoading={isLoading}
+      spinner={<BeatLoader size={8} color="white" />}
+      type="submit"
+      role="group"
+      transition="all 0.6s"
+      overflow="hidden"
+      _active={{
+        transform: "scale(0.95)",
+      }}
+      onMouseOver={dodgeMouse}
+    >
+      {isSuccess === undefined ?
+        renderInitButton() :
+        renderCallbackButton()
+      }
+    </Button>
+  );
 };

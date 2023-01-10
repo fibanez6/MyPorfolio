@@ -1,23 +1,17 @@
 "use client";
 
 import {
-  Box,
   Text,
-  Stack,
   Flex,
   Heading,
-  Container,
   Link,
   Card,
   CardHeader,
   CardBody,
-  Button,
   CardFooter,
   VStack,
-  Center,
-  Grid,
   SimpleGrid,
-  GridItem,
+  Center,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
@@ -25,7 +19,7 @@ import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { Section } from "../layout/Section";
 
-interface FeatureProps {
+interface CertProps {
   title: string;
   subtitle: string;
   description: string;
@@ -37,17 +31,16 @@ interface FeatureProps {
   index: number;
 }
 
-const Feature = ({
+const Certificate = ({
   title,
   subtitle,
-  description,
   credentialId,
   date,
   alt,
   image,
   link,
   index,
-}: FeatureProps) => {
+}: CertProps) => {
   return (
     <motion.div
       initial="hidden"
@@ -59,7 +52,7 @@ const Feature = ({
         visible: { opacity: 1, scale: 1 },
       }}
     >
-      <Card align="center" justify={"center"} variant="unstyled">
+      <Card align="center" justify={"center"} variant="unstyled" w="22rem">
         <CardHeader>
           <VStack>
             <Heading size={{ base: "md", sm: "sm", lg: "md" }}>{title}</Heading>
@@ -69,12 +62,12 @@ const Feature = ({
           </VStack>
         </CardHeader>
         <CardBody pt="5" pb="5" gap="0.5rem">
-          <VStack>
+          <Center>
             <Image src={image} alt={alt} width={200} height={200} />
-            <Text>{description}</Text>
-          </VStack>
+          </Center>
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
+            justifyItems="center"
             pt="0.5rem"
             spacingX={{ sm: "0.2rem", lg: "0.5rem" }}
             spacingY={{ sm: "0.2rem", lg: "0.5rem" }}
@@ -87,20 +80,11 @@ const Feature = ({
               "c d"`,
             }}
           >
-            <Text
-              gridArea="a"
-              minW={"7rem"}
-              ml={{ base: 0, lg: "auto" }}>
+            <Text gridArea="a">
               <strong>Issued:</strong>
             </Text>
-            <Text
-              gridArea={{ md: "b", lg: "c" }}
-              minW={"7rem"}
-              ml={{ base: 0, lg: "auto" }}>
-              {date}
-            </Text>
-            <Text
-              gridArea={{ md: "c", lg: "b" }}>
+            <Text gridArea={{ md: "b", lg: "c" }}>{date}</Text>
+            <Text gridArea={{ md: "c", lg: "b" }}>
               <strong>Credential ID:</strong>
             </Text>
             <Text gridArea="d">{credentialId}</Text>
@@ -119,8 +103,8 @@ const Feature = ({
 const CertificateSection = () => {
   return (
     <Section title="Certificates">
-      <Flex alignItems="center" justifyContent="center" gap="10rem">
-        <Feature
+      <Flex alignItems="center" justifyContent="center" gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}>
+        <Certificate
           title="AWS Certified Developer"
           subtitle="Associate (DVA-C01)"
           description="Amazon Web Services (AWS)"
@@ -131,7 +115,7 @@ const CertificateSection = () => {
           date={"August 2022"}
           index={1}
         />
-        <Feature
+        <Certificate
           title="AWS Certified Solutions Architect"
           subtitle="Associate (SAA-C02)"
           description="Amazon Web Services (AWS)"
@@ -148,13 +132,3 @@ const CertificateSection = () => {
 };
 
 export default CertificateSection;
-
-// gridTemplateColumns="repeat(1, minmax(0, 1fr))"
-// gridColumnGap="0.2rem"
-// gridRowGap="0.2rem"
-
-// gridTemplateColumns="repeat(2, minmax(0, 1fr))"
-// gridColumnGap="0.5rem"
-// gridRowGap: 0.5rem
-
-// ml={{ sm: "0", lg: "3rem" }}

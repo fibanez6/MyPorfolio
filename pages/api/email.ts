@@ -9,6 +9,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     template_params: req.body
   }
 
+  // const delay = (ms) => new Promise(res => setTimeout(res, ms));
+  // await delay(3000)
+  // res.status(200).end(JSON.stringify({ message: 'Send Mail' }))
+  // res.status(400).end(JSON.stringify({ message: "Error" }))
+
   await fetch(`https://api.emailjs.com/api/v1.0/email/send`, {
     method: 'POST',
     body: JSON.stringify(data),
