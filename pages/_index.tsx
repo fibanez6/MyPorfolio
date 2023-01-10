@@ -1,23 +1,42 @@
-import { GTagManager } from '../components/google/GTagManager';
-import NavBar from '../components/NavBar';
-import Certificates from '../components/sections/Certificate';
-import Contact from '../components/sections/Contact';
-import Experience from '../components/sections/Experience';
-import HeroSection from '../components/sections/Hero';
-import { Stack } from '@chakra-ui/react';
-import { NextSeo } from 'next-seo';
-import { NEXT_SEO_DEFAULT } from '../next-seo-config';
-
+import { GTagManager } from "../components/google/GTagManager";
+import NavBar from "../components/NavBar";
+import Certificates from "../components/sections/Certificate";
+import Contact from "../components/sections/Contact";
+import Experience from "../components/sections/Experience";
+import HeroSection from "../components/sections/Hero";
+import { Stack } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
+import { NEXT_SEO_DEFAULT } from "../next-seo-config";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [selectedPage, setSelectedPage] = useState("home");
+  const [isTopOfPage, setIsTopOfPage] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsTopOfPage(true);
+        setSelectedPage("home");
+      }
+      if (window.scrollY !== 0) setIsTopOfPage(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div>
       {/* HEAD */}
-      <NextSeo {...NEXT_SEO_DEFAULT} useAppDir={false}/>
+      <NextSeo {...NEXT_SEO_DEFAULT} useAppDir={false} />
       <GTagManager />
 
       {/* BODY */}
-      <NavBar />
+      <NavBar
+        isTopOfPage={isTopOfPage}
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
       <HeroSection />
       <Stack
         spacing="1.5rem"
@@ -31,5 +50,5 @@ export default function Home() {
         <Contact />
       </Stack>
     </div>
-  )
+  );
 }
