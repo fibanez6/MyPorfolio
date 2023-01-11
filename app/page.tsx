@@ -7,13 +7,12 @@ import Contact from "../scenes/Contact";
 import Experience from "../scenes/Experience";
 import Hero from "../scenes/Hero";
 import { useEffect, useState } from "react";
-import useWindowDimensions from "../hooks/useWindowDimension";
 import DotNav from "../scenes/DotNav";
 
 const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
 export default function Home() {
-  const [selectedPage, setSelectedPage] = useState("home");
+  const [selectedPage, setSelectedPage] = useState("hero");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 1060px)");
 
@@ -24,7 +23,7 @@ export default function Home() {
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setIsTopOfPage(true);
-        setSelectedPage("home");
+        setSelectedPage("hero");
       }
       if (window.scrollY !== 0) setIsTopOfPage(false);
     };
@@ -38,13 +37,11 @@ export default function Home() {
         pages={Pages.slice(1)}
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
       />
       {isDesktop && (
         <DotNav
             pages={Pages.slice(1)}
             selectedPage={selectedPage}
-            setSelectedPage={setSelectedPage}
           />
         )}
       <Hero />

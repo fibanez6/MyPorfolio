@@ -13,14 +13,9 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { NavLinkProps, NavBarProps } from "../types/sections/NavBar";
+import { NavLinkProps, NavProps } from "../types/sections/Nav";
 
-const NavLink = ({
-  page,
-  isSelected,
-  setSelectedPage,
-  onHamburgerIcon,
-}: NavLinkProps) => {
+const NavLink = ({ page, isSelected, onHamburgerIcon }: NavLinkProps) => {
   const _page = page.toLowerCase();
 
   return (
@@ -38,7 +33,6 @@ const NavLink = ({
         if (typeof onHamburgerIcon == "function") {
           onHamburgerIcon();
         }
-        setSelectedPage(_page);
       }}
     >
       {page}
@@ -46,12 +40,7 @@ const NavLink = ({
   );
 };
 
-const NavBar = ({
-  pages,
-  isTopOfPage,
-  selectedPage,
-  setSelectedPage,
-}: NavBarProps) => {
+const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -60,7 +49,9 @@ const NavBar = ({
       position={"fixed"}
       top={0}
       bg={isTopOfPage ? "" : useColorModeValue("#02054B", "gray.900")}
-      color={isTopOfPage ? useColorModeValue("gray.100", "gray.900") : "gray.100"}
+      color={
+        isTopOfPage ? useColorModeValue("gray.100", "gray.900") : "gray.100"
+      }
       w={"full"}
       px={4}
       zIndex={10}
@@ -73,7 +64,9 @@ const NavBar = ({
           display={{ md: "none" }}
           onClick={isOpen ? onClose : onOpen}
         />
-        <Box>Logo</Box>
+        <Box>
+          <Link href={"#"}>Logo</Link>
+        </Box>
         <Stack direction={"row"} align={"center"}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {pages.map((page) => (
@@ -81,7 +74,6 @@ const NavBar = ({
                 key={page}
                 page={page}
                 isSelected={page.toLowerCase() === selectedPage}
-                setSelectedPage={setSelectedPage}
               />
             ))}
           </HStack>
@@ -99,7 +91,6 @@ const NavBar = ({
                 key={page}
                 page={page}
                 isSelected={page.toLowerCase() === selectedPage}
-                setSelectedPage={setSelectedPage}
                 onHamburgerIcon={isOpen ? onClose : onOpen}
               />
             ))}

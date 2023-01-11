@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
 export default function Home() {
-  const [selectedPage, setSelectedPage] = useState("home");
+  const [selectedPage, setSelectedPage] = useState("hero");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 1060px)");
 
@@ -26,7 +26,7 @@ export default function Home() {
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setIsTopOfPage(true);
-        setSelectedPage("home");
+        setSelectedPage("hero");
       }
       if (window.scrollY !== 0) setIsTopOfPage(false);
     };
@@ -45,13 +45,11 @@ export default function Home() {
         pages={Pages.slice(1)}
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
       />
       {isDesktop && (
         <DotNav
           pages={Pages}
           selectedPage={selectedPage}
-          setSelectedPage={setSelectedPage}
         />
       )}
       
