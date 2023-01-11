@@ -17,7 +17,9 @@ const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 export default function Home() {
   const [selectedPage, setSelectedPage] = useState("hero");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  const isDesktop = useMediaQuery("(min-width: 1060px)");
+  const [isDesktop] = useMediaQuery("(min-width: 1060px)");
+
+  console.log("isDesktop: " + isDesktop);
 
   const { width, height } = useWindowDimensions();
   console.log("width: " + width + " height: " + height);
@@ -46,18 +48,14 @@ export default function Home() {
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
       />
-      {isDesktop && (
-        <DotNav
-          pages={Pages}
-          selectedPage={selectedPage}
-        />
-      )}
-      
+      {isDesktop && <DotNav pages={Pages} selectedPage={selectedPage} />}
+
       <motion.div
-          viewport={{ amount: "all" }}
-          onViewportEnter={() => setSelectedPage("hero")}>
-          <Hero />
-        </motion.div>
+        viewport={{ amount: "all" }}
+        onViewportEnter={() => setSelectedPage("hero")}
+      >
+        <Hero />
+      </motion.div>
       <Stack
         as="main"
         minH="100vh"
@@ -69,17 +67,20 @@ export default function Home() {
       >
         <motion.div
           viewport={{ amount: "all" }}
-          onViewportEnter={() => setSelectedPage("experience")}>
+          onViewportEnter={() => setSelectedPage("experience")}
+        >
           <Experience />
         </motion.div>
         <motion.div
           viewport={{ amount: "all" }}
-          onViewportEnter={() => setSelectedPage("certificates")}>
+          onViewportEnter={() => setSelectedPage("certificates")}
+        >
           <Certificates />
         </motion.div>
         <motion.div
           viewport={{ amount: "all" }}
-          onViewportEnter={() => setSelectedPage("contact")}>
+          onViewportEnter={() => setSelectedPage("contact")}
+        >
           <Contact />
         </motion.div>
       </Stack>

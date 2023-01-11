@@ -14,7 +14,7 @@ const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 export default function Home() {
   const [selectedPage, setSelectedPage] = useState("hero");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  const isDesktop = useMediaQuery("(min-width: 1060px)");
+  const [isDesktop] = useMediaQuery("(min-width: 1060px)");
 
   // const { width, height } = useWindowDimensions();
   // console.log("width: " + width + " height: " + height);

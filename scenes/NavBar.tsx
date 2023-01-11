@@ -54,7 +54,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
       }
       w={"full"}
       px={4}
-      zIndex={10}
+      zIndex={40}
     >
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         <IconButton
