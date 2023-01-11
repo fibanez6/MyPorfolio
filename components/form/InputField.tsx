@@ -3,17 +3,15 @@ import {
   FormErrorMessage,
   FormLabel,
 } from "@chakra-ui/form-control";
-import { Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react";
-import { FieldHookConfig, useField } from "formik";
-import React, { ReactNode } from "react";
-
-
-type InputFieldProps = FieldHookConfig<string> & {
-  label: string;
-  placeholder?: string;
-  leftElement?: ReactNode;
-  rightElement?: ReactNode;
-};
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+} from "@chakra-ui/react";
+import { useField } from "formik";
+import React from "react";
+import { InputFieldProps } from "../../types/components/form";
 
 export const InputField = ({
   label,
@@ -27,18 +25,20 @@ export const InputField = ({
 
   const renderLeftElement = () => {
     if (leftElement)
-      return <InputLeftElement
-        pointerEvents="none">
-        {leftElement}
-      </InputLeftElement>;
-  }
+      return (
+        <InputLeftElement pointerEvents="none">{leftElement}</InputLeftElement>
+      );
+  };
 
   const renderRightElement = () => {
     if (rightElement)
-      return <InputRightElement
-        pointerEvents="none"
-      > {leftElement} </InputRightElement>;
-  }
+      return (
+        <InputRightElement pointerEvents="none">
+          {" "}
+          {leftElement}{" "}
+        </InputRightElement>
+      );
+  };
 
   return (
     <FormControl isInvalid={hasError}>

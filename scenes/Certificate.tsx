@@ -18,18 +18,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { Section } from "../components/layout/Section";
-
-interface CertProps {
-  title: string;
-  subtitle: string;
-  description: string;
-  credentialId: string;
-  date: string;
-  image: string;
-  link: string;
-  alt: string;
-  index: number;
-}
+import { CertProps } from "../types/sections/certificate";
 
 const Certificate = ({
   title,

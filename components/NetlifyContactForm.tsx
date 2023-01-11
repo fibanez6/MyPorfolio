@@ -8,12 +8,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
-
-interface FormProps {
-  name: string;
-  email: string;
-  message: string;
-}
+import { ContactFormProps } from "../types/components/form";
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -30,20 +25,19 @@ const initialValues = {
   message: "",
 };
 
-const NetlifyContactForm = () => {  
-  const handleFormSubmit = async (formData: FormProps) => {
-
-    const resp = await fetch('/api/email', {
-      method: 'POST',
+const NetlifyContactForm = () => {
+  const handleFormSubmit = async (formData: ContactFormProps) => {
+    const resp = await fetch("/api/email", {
+      method: "POST",
       body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
 
     const response = await resp.json();
     console.log(response);
-  }
+  };
 
   return (
     <Formik
@@ -53,8 +47,10 @@ const NetlifyContactForm = () => {
       validateOnMount={true}
     >
       {({ values, isValid, handleSubmit }) => (
-        <form name="contact" onSubmit={handleSubmit} 
-          data-netlify="true" 
+        <form
+          name="contact"
+          onSubmit={handleSubmit}
+          data-netlify="true"
           netlify-honeypot="bot-field"
           data-netlify-recaptcha="true"
         >

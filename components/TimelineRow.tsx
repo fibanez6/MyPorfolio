@@ -10,14 +10,7 @@ import {
   AccordionPanel,
 } from "@chakra-ui/react";
 import React from "react";
-
-interface TimelineRowProps {
-  title: string;
-  date: string;
-  description: string;
-  index: number;
-  arrLength: number;
-}
+import { TimelineRowProps } from "../types/components/Timeline";
 
 const TimelineRow = ({ title, date, description }: TimelineRowProps) => {
   const textColor = useColorModeValue("gray.700", "white.300");

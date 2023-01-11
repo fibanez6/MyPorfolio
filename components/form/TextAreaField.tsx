@@ -4,14 +4,9 @@ import {
   FormLabel,
 } from "@chakra-ui/form-control";
 import { Textarea } from "@chakra-ui/react";
-import { FieldHookConfig, useField } from "formik";
+import { useField } from "formik";
 import React from "react";
-
-
-type TextAreaFieldProps = FieldHookConfig<string> & {
-  label: string;
-  placeholder?: string;
-};
+import { TextAreaFieldProps } from "../../types/components/form";
 
 export const TextAreaField = ({
   label,

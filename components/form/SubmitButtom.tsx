@@ -1,21 +1,10 @@
-import { Box, Button, ButtonProps } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { getRandom } from "../../utils/random";
 import { FiSend } from "react-icons/fi";
 import { BeatLoader } from "react-spinners";
 import { suspension, fly, slideX } from "../../styles/theme/frames";
-
-type SubmitButtomProps = ButtonProps & {
-  label: string;
-  dodge?: boolean;
-  isSuccess?: boolean;
-  isLoading?: boolean;
-};
-
-type Position = {
-  x: number | undefined;
-  y: number | undefined;
-};
+import { SubmitButtomProps, Position } from "../../types/components/form";
 
 export const SubmitButtom = ({
   label,

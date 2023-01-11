@@ -1,19 +1,12 @@
 import {
   forwardRef,
   omitThemingProps,
-  ThemingProps,
   useStyleConfig,
-  HTMLChakraProps,
 } from "@chakra-ui/system";
 import { cx } from "@chakra-ui/shared-utils";
 import { Center, Heading, Stack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
-export interface SectionProps
-  extends HTMLChakraProps<"div">,
-    ThemingProps<"Container"> {
-  title?: string;
-}
+import { SectionProps } from "../../types/components/layout";
 
 export const Section = forwardRef<SectionProps, "section">((props, ref) => {
   const { className, title, children, ...rest } = omitThemingProps(props);

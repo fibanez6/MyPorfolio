@@ -1,6 +1,5 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
 import {
   Box,
   Flex,
@@ -14,20 +13,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-
-interface NavBarProps {
-  pages: string[];
-  isTopOfPage: boolean;
-  selectedPage: string;
-  setSelectedPage: Dispatch<SetStateAction<string>>;
-}
-
-interface NavLinkProps {
-  page: string;
-  isSelected: boolean;
-  setSelectedPage: Dispatch<SetStateAction<string>>;
-  onHamburgerIcon?: () => void;
-}
+import { NavLinkProps, NavBarProps } from "../types/sections/NavBar";
 
 const NavLink = ({
   page,
@@ -35,7 +21,6 @@ const NavLink = ({
   setSelectedPage,
   onHamburgerIcon,
 }: NavLinkProps) => {
-  
   const _page = page.toLowerCase();
 
   return (
@@ -50,9 +35,9 @@ const NavLink = ({
       variant={isSelected ? "selected" : undefined}
       href={`#${_page}`}
       onClick={() => {
-        if (typeof onHamburgerIcon == 'function') {
+        if (typeof onHamburgerIcon == "function") {
           onHamburgerIcon();
-        } 
+        }
         setSelectedPage(_page);
       }}
     >
@@ -107,7 +92,7 @@ const NavBar = ({
                 page={page}
                 isSelected={page.toLowerCase() === selectedPage}
                 setSelectedPage={setSelectedPage}
-                onHamburgerIcon={isOpen ? onClose : onOpen }
+                onHamburgerIcon={isOpen ? onClose : onOpen}
               />
             ))}
           </Stack>
