@@ -34,6 +34,7 @@ export const Section = forwardRef<SectionProps, "section">((props, ref) => {
         as="section"
         className={cx("custom-section", className)}
         ref={ref}
+        p={"3rem 0"}
         {...rest}
         __css={{
           ...(styles && {

@@ -97,7 +97,7 @@ const ContactSection = () => {
             />
           </HStack>
         </VStack>
-        <VStack flex="1 1 auto" minW="35rem">
+        <VStack flex="1 1 auto" minW={{base: "35rem", sm: "27rem"}}>
           <Box bg="white" borderRadius="lg" p={8} w="full">
             <Box color="#0B0E3F">
               <motion.div

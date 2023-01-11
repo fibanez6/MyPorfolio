@@ -52,7 +52,7 @@ const Certificate = ({
         visible: { opacity: 1, scale: 1 },
       }}
     >
-      <Card align="center" justify={"center"} variant="unstyled" w="22rem">
+      <Card align="center" justify={"center"} variant="unstyled" minW="22rem">
         <CardHeader>
           <VStack>
             <Heading size={{ base: "md", sm: "sm", lg: "md" }}>{title}</Heading>
@@ -106,6 +106,7 @@ const CertificateSection = () => {
       <Flex
         alignItems="center"
         justifyContent="center"
+        flexWrap={"wrap"}
         gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}
       >
         <Certificate

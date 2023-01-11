@@ -25,18 +25,35 @@ interface NavLinkProps {
   page: string;
   isSelected: boolean;
   setSelectedPage: Dispatch<SetStateAction<string>>;
-  onClick?: () => void;
+  onHamburgerIcon?: () => void;
 }
 
-const Pages = ["About", "Experience", "Certificates", "Contact"];
+const Pages = ["Experience", "Certificates", "Contact"];
 
 const NavLink = ({
   page,
   isSelected,
   setSelectedPage,
-  onClick,
+  onHamburgerIcon,
 }: NavLinkProps) => {
+  
   const _page = page.toLowerCase();
+
+  const smoothScroll = (hashId: string): void => {
+    if (typeof window !== "undefined") {
+      console.log({ location: window.location, hashId });
+      if (hashId) {
+        const element = document.querySelector(hashId);
+        console.log({ element });
+  
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }
+    }
+  }
 
   return (
     <Link
@@ -50,10 +67,11 @@ const NavLink = ({
       variant={isSelected ? "selected" : undefined}
       href={`#${_page}`}
       onClick={() => {
-        if (typeof onClick == 'function') {
-          onClick();
+        if (typeof onHamburgerIcon == 'function') {
+          onHamburgerIcon();
         } 
         setSelectedPage(_page);
+        // smoothScroll(`#${_page}`); 
       }}
     >
       {page}
@@ -106,7 +124,7 @@ const NavBar = ({
                 page={page}
                 isSelected={page.toLowerCase() === selectedPage}
                 setSelectedPage={setSelectedPage}
-                onClick={isOpen ? onClose : onOpen }
+                onHamburgerIcon={isOpen ? onClose : onOpen }
               />
             ))}
           </Stack>

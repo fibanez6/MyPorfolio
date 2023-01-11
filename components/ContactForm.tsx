@@ -64,7 +64,7 @@ const ContactForm = () => {
       validationSchema={contactSchema}
       validateOnMount={true}
     >
-      {({ values, isValid, isSubmitting, dirty, handleSubmit }) => (
+      {({ values, isValid, isSubmitting, isValidating, errors, handleSubmit }) => (
         <form name="contact" onSubmit={handleSubmit}>
           <VStack spacing={5} align="stretch">
             <InputField
@@ -97,7 +97,7 @@ const ContactForm = () => {
                   label="Send"
                   dodge={!isValid}
                   isSuccess={isSuccess}
-                  isLoading={isSubmitting}
+                  isLoading={isSubmitting && !isValidating && !errors}
                 />
               </FormControl>
             </Flex>
