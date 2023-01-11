@@ -1,13 +1,14 @@
-'use client';
+"use client";
 
-import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react'
-import theme from '../theme/theme'
+import '../styles/globals.css'
+import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../styles/theme/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider resetCSS theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
-  )
+  );
 }

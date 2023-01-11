@@ -17,8 +17,8 @@ export default function Home() {
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 1060px)");
 
-  const { width, height } = useWindowDimensions();
-  console.log("width: " + width + " height: " + height);
+  // const { width, height } = useWindowDimensions();
+  // console.log("width: " + width + " height: " + height);
 
   useEffect(() => {
     const handleScroll = () => {

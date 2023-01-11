@@ -3,15 +3,23 @@ import NavBar from "../scenes/NavBar";
 import Certificates from "../scenes/Certificate";
 import Contact from "../scenes/Contact";
 import Experience from "../scenes/Experience";
-import HeroSection from "../scenes/Hero";
-import { Stack } from "@chakra-ui/react";
+import Hero from "../scenes/Hero";
+import { Stack, useMediaQuery } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import { NEXT_SEO_DEFAULT } from "../next-seo-config";
 import { useEffect, useState } from "react";
+import useWindowDimensions from "../hooks/useWindowDimension";
+import DotNav from "../scenes/DotNav";
+
+const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
 export default function Home() {
   const [selectedPage, setSelectedPage] = useState("home");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
+  const isDesktop = useMediaQuery("(min-width: 1060px)");
+
+  const { width, height } = useWindowDimensions();
+  console.log("width: " + width + " height: " + height);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,29 +34,39 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       {/* HEAD */}
       <NextSeo {...NEXT_SEO_DEFAULT} useAppDir={false} />
       <GTagManager />
 
       {/* BODY */}
       <NavBar
+        pages={Pages.slice(1)}
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
-      <HeroSection />
+      {isDesktop && (
+        <DotNav
+          pages={Pages.slice(1)}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+      )}
+      <Hero />
       <Stack
-        spacing="1.5rem"
-        maxW={"8xl"}
+        as="main"
+        minH="100vh"
+        maxW={"6xl"}
         m="0 auto"
-        p={{ sm: 5, md: 5, lg: 16 }}
-        overflow="hidden"
+        gap={2}
+        px={{ base: 5, sm: 5, md: 10, lg: 16 }}
+        _last={{ pb: 10 }}
       >
         <Experience />
         <Certificates />
         <Contact />
       </Stack>
-    </div>
+    </>
   );
 }
