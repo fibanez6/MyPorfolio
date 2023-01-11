@@ -10,6 +10,7 @@ import { NEXT_SEO_DEFAULT } from "../next-seo-config";
 import { useEffect, useState } from "react";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import DotNav from "../scenes/DotNav";
+import { motion } from "framer-motion";
 
 const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
@@ -48,12 +49,17 @@ export default function Home() {
       />
       {isDesktop && (
         <DotNav
-          pages={Pages.slice(1)}
+          pages={Pages}
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}
         />
       )}
-      <Hero />
+      
+      <motion.div
+          viewport={{ amount: "all" }}
+          onViewportEnter={() => setSelectedPage("hero")}>
+          <Hero />
+        </motion.div>
       <Stack
         as="main"
         minH="100vh"
@@ -63,9 +69,21 @@ export default function Home() {
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
         _last={{ pb: 10 }}
       >
-        <Experience />
-        <Certificates />
-        <Contact />
+        <motion.div
+          viewport={{ amount: "all" }}
+          onViewportEnter={() => setSelectedPage("experience")}>
+          <Experience />
+        </motion.div>
+        <motion.div
+          viewport={{ amount: "all" }}
+          onViewportEnter={() => setSelectedPage("certificates")}>
+          <Certificates />
+        </motion.div>
+        <motion.div
+          viewport={{ amount: "all" }}
+          onViewportEnter={() => setSelectedPage("contact")}>
+          <Contact />
+        </motion.div>
       </Stack>
     </>
   );

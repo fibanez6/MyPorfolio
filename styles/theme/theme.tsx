@@ -10,9 +10,16 @@ const theme = extendTheme({
     global: (props: StyleFunctionProps) => ({
       body: {
         color: mode('gray.800', 'whiteAlpha.900')(props),
-        bg: mode('white', 'gray.800')(props),
+        bg: mode('whiteAlpha.900', 'gray.800')(props),
         lineHeight: 'base',
       },
+      nav: {
+        color: 'whiteAlpha.900',
+        fontWeight: "extrabold",
+        lineHeight: '1.5',
+        letterSpacing: '2px'
+
+      }
     }),
   },
   fonts: {
