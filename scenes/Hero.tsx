@@ -12,7 +12,7 @@ import {
 const HeroSection = () => {
 
   return (
-    <section className="section-hero">
+    <section id="hero" className="section-hero">
       <Flex
         w={'full'}
         h={'100vh'}

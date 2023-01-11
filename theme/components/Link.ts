@@ -1,5 +1,15 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
+import { ComponentSingleStyleConfig, keyframes } from '@chakra-ui/react';
 import { theme } from "@chakra-ui/react";
+
+const jello = keyframes`
+      0% { transform: scale3d(1, 1, 1); }
+      30% { transform: scale3d(1.25, 0.75, 1); }
+      40% { transform: scale3d(0.75, 1.25, 1); }
+      50% { transform: scale3d(1.15, 0.85, 1); }
+      65% { transform: scale3d(0.95, 1.05, 1); }
+      75% { transform: scale3d(1.05, 0.95, 1); }
+      100% { transform: scale3d(1, 1, 1); }
+`;
 
 const Link = {
   variants: {
@@ -26,9 +36,36 @@ const Link = {
       borderRadius: "var(--chakra-radii-md)",
       border: "solid 2px",
       borderColor: colorMode === 'light' ? '#0D74FF' : '#FF5430',
-      fontWeight:"bold"
-    })
-    
+      fontWeight: "bold"
+    }),
+    dot: ({ colorMode }) => ({
+      bg: colorMode === 'light' ? '#0D74FF' : '#FF5430',
+      opacity: "1",
+      borderRadius: "50%",
+      h: "0.75rem",
+      w: "0.75rem",
+    }),
+    dotSelected: ({ colorMode }) => ({
+      position: "relative",
+      bg: colorMode === 'light' ? '#FF5430' : '#0D74FF',
+      opacity: "1",
+      borderRadius: "50%",
+      h: "0.75rem",
+      w: "0.75rem",
+      animation: `${jello} 1.5s ease 0s 1 normal forwards`,
+      _before: {
+        content: "''",
+        position: "absolute",
+        h: "1.5rem",
+        w: "1.5rem",
+        left: "-50%",
+        top: "-50%",
+        borderWidth: "2px",
+        borderRadius: "50%",
+        borderColor: colorMode === 'light' ? '#FF5430' : '#0D74FF',
+      }
+    }),
+
   }
 } as ComponentSingleStyleConfig;
 

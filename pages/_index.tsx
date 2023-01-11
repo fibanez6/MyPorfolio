@@ -1,5 +1,5 @@
 import { GTagManager } from "../components/google/GTagManager";
-import NavBar from "../components/NavBar";
+import NavBar from "../scenes/NavBar";
 import Certificates from "../scenes/Certificate";
 import Contact from "../scenes/Contact";
 import Experience from "../scenes/Experience";

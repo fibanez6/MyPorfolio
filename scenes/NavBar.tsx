@@ -16,6 +16,7 @@ import {
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 interface NavBarProps {
+  pages: string[];
   isTopOfPage: boolean;
   selectedPage: string;
   setSelectedPage: Dispatch<SetStateAction<string>>;
@@ -28,8 +29,6 @@ interface NavLinkProps {
   onHamburgerIcon?: () => void;
 }
 
-const Pages = ["Experience", "Certificates", "Contact"];
-
 const NavLink = ({
   page,
   isSelected,
@@ -38,22 +37,6 @@ const NavLink = ({
 }: NavLinkProps) => {
   
   const _page = page.toLowerCase();
-
-  const smoothScroll = (hashId: string): void => {
-    if (typeof window !== "undefined") {
-      console.log({ location: window.location, hashId });
-      if (hashId) {
-        const element = document.querySelector(hashId);
-        console.log({ element });
-  
-        if (element) {
-          element.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
-      }
-    }
-  }
 
   return (
     <Link
@@ -71,7 +54,6 @@ const NavLink = ({
           onHamburgerIcon();
         } 
         setSelectedPage(_page);
-        // smoothScroll(`#${_page}`); 
       }}
     >
       {page}
@@ -80,6 +62,7 @@ const NavLink = ({
 };
 
 const NavBar = ({
+  pages,
   isTopOfPage,
   selectedPage,
   setSelectedPage,
@@ -100,7 +83,7 @@ const NavBar = ({
         <Box>Logo</Box>
         <Stack direction={"row"} align={"center"}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            {Pages.map((page) => (
+            {pages.map((page) => (
               <NavLink
                 key={page}
                 page={page}
@@ -118,7 +101,7 @@ const NavBar = ({
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
           <Stack as={"nav"} spacing={4}>
-            {Pages.map((page) => (
+            {pages.map((page) => (
               <NavLink
                 key={page}
                 page={page}
