@@ -25,13 +25,6 @@ const Link = {
       },
 
     }),
-    selected: ({ colorMode }) => ({
-      ...theme.components.Link.defaultProps,
-      borderRadius: "var(--chakra-radii-md)",
-      border: "solid 2px",
-      borderColor: colorMode === 'light' ? 'primary.main' : '#FF5430',
-      fontWeight: "bold"
-    }),
     dot: ({ colorMode }) => ({
       ...bgMode(colorMode),
       opacity: "1",

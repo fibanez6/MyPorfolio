@@ -14,20 +14,21 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLinkProps, NavProps } from "../types/sections/Nav";
+import { useEffect, useState } from "react";
 
 const NavLink = ({ page, isSelected, onHamburgerIcon }: NavLinkProps) => {
   const _page = page.toLowerCase();
 
   return (
     <Link
-      px={2}
-      py={1}
+      p={2}
+      w={"9rem"}
+      textAlign="center"
       rounded={"md"}
       _hover={{
         textDecoration: "none",
         bg: useColorModeValue("gray.200", "gray.700"),
       }}
-      variant={isSelected ? "selected" : undefined}
       href={`#${_page}`}
       onClick={() => {
         if (typeof onHamburgerIcon == "function") {
@@ -43,6 +44,12 @@ const NavLink = ({ page, isSelected, onHamburgerIcon }: NavLinkProps) => {
 const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const slideSpan = () => {
+    const capitalized = selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1);
+    const idx = pages.indexOf(capitalized)
+    return idx * 8 + idx
+  }
 
   const navStyles = () => {
     let styles = {};
@@ -62,8 +69,6 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
         h: "100vh"
       }
     }
-
-
     return styles;
   }
 
@@ -99,7 +104,13 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
           <Link href={"#"}>Logo</Link>
         </Box>
         <Stack direction={"row"} align={"center"}>
-          <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+          <HStack 
+            as={"nav"} 
+            display={{ base: "none", md: "flex" }} 
+            position="relative"
+            spacing={0}
+            overflow="hidden"
+            >
             {pages.map((page) => (
               <NavLink
                 key={page}
@@ -107,6 +118,18 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
                 isSelected={page.toLowerCase() === selectedPage}
               />
             ))}
+            <Box
+              as="span"
+              position="absolute"
+              bg="primary.main"
+              bottom={0.4}
+              left={`${slideSpan()}rem`}
+              h="0.175rem"
+              w={"9rem"}
+              borderRadius="50%"
+              transition="left 0.3s ease"
+              boxShadow={"0px 10px 10px 5px #569eff"}
+            />
           </HStack>
           <Button
             opacity={isOpen ? 0 : 1}
@@ -143,6 +166,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
             />
           ))}
         </Stack>
+
       </Box>
 
     </Box>

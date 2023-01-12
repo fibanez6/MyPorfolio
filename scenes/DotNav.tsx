@@ -5,7 +5,6 @@ import { NavLinkProps, NavProps } from "../types/sections/Nav";
 
 const DotLink = ({ page, isSelected }: NavLinkProps) => {
   const _page = page.toLowerCase();
-
   return (
     <Link href={`#${_page}`} variant={isSelected ? "dotSelected" : "dot"} />
   );
