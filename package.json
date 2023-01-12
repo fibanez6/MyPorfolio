@@ -35,6 +35,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "styled-components": "^5.3.6",
+    "@types/styled-components": "^5.1.26",
     "sass": "^1.57.1"
   }
 }

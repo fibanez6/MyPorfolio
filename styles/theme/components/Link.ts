@@ -1,12 +1,13 @@
 import { ComponentSingleStyleConfig, keyframes } from '@chakra-ui/react';
 import { theme } from "@chakra-ui/react";
+import { bgMode, useColorMode, useHoverColorMode } from '../color';
 import { jello } from '../frames';
 
 const Link = {
   variants: {
     solid: ({ colorMode }) => ({
+      bg: useColorMode(colorMode),
       display: "inline-flex",
-      bg: colorMode === 'light' ? '#0D74FF' : '#FF5430',
       color: "var(--chakra-colors-white)",
       borderRadius: "var(--chakra-radii-md)",
       paddingInlineStart: "var(--chakra-space-4)",
@@ -19,18 +20,20 @@ const Link = {
       verticalAlign: "middle",
       alignItems: "center",
       _hover: {
-        bg: colorMode === 'light' ? '#FF5430' : '#0D74FF',
-      }
+        textDecoration: "none",
+        bg: useHoverColorMode(colorMode),
+      },
+
     }),
     selected: ({ colorMode }) => ({
       ...theme.components.Link.defaultProps,
       borderRadius: "var(--chakra-radii-md)",
       border: "solid 2px",
-      borderColor: colorMode === 'light' ? '#0D74FF' : '#FF5430',
+      borderColor: colorMode === 'light' ? 'primary.main' : '#FF5430',
       fontWeight: "bold"
     }),
     dot: ({ colorMode }) => ({
-      bg: colorMode === 'light' ? '#0D74FF' : '#FF5430',
+      ...bgMode(colorMode),
       opacity: "1",
       borderRadius: "50%",
       h: "0.75rem",
@@ -38,7 +41,7 @@ const Link = {
     }),
     dotSelected: ({ colorMode }) => ({
       position: "relative",
-      bg: colorMode === 'light' ? '#FF5430' : '#0D74FF',
+      bg: colorMode === 'light' ? 'secundary.main' : 'primary.main',
       opacity: "1",
       borderRadius: "50%",
       h: "0.75rem",
@@ -53,7 +56,7 @@ const Link = {
         top: "-50%",
         borderWidth: "2px",
         borderRadius: "50%",
-        borderColor: colorMode === 'light' ? '#FF5430' : '#0D74FF',
+        borderColor: colorMode === 'light' ? 'secundary.main' : 'primary.main',
       }
     }),
 

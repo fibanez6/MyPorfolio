@@ -85,13 +85,14 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
         {/* Mobile */}
         <IconButton
           size={"md"}
+          variant="ghost"
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={"Open Menu"}
           display={{ md: "none" }}
-          zIndex="100"
+          zIndex="docked"
           onClick={isOpen ? onClose : onOpen}
         />
-        <Box 
+        <Box
           opacity={isOpen ? 0 : 1}
           transition=".25s ease-in-out"
         >
@@ -110,7 +111,9 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
           <Button
             opacity={isOpen ? 0 : 1}
             transition=".25s ease-in-out"
-            onClick={toggleColorMode} variant="ghost">
+            onClick={toggleColorMode}
+            variant="ghost"
+          >
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>
         </Stack>
@@ -147,3 +150,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
 };
 
 export default NavBar;
+function chakra(Button: ComponentWithAs<"button", ButtonProps>, arg1: { baseStyle: { background: string; }; }) {
+  throw new Error("Function not implemented.");
+}
+

@@ -11,7 +11,6 @@ export const SubmitButtom = ({
   dodge,
   isSuccess,
   isLoading,
-  ...props
 }: SubmitButtomProps) => {
   const buttomRef = useRef<HTMLButtonElement>(null);
   const [pos, setPos] = useState<Position>({
@@ -109,7 +108,7 @@ export const SubmitButtom = ({
 
   const background = () => {
     if (!isLoading && isSuccess !== undefined) {
-      return { bg: isSuccess ? "#44d8a4" : "#FF5430" };
+      return { bg: isSuccess ? 'tertiary.main' : 'secundary.main'};
     }
     return {};
   };
@@ -120,13 +119,9 @@ export const SubmitButtom = ({
       {...background()}
       isLoading={isLoading}
       spinner={<BeatLoader size={8} color="white" />}
+      variant="submit"
       type="submit"
       role="group"
-      transition="all 0.6s"
-      overflow="hidden"
-      _active={{
-        transform: "scale(0.95)",
-      }}
       onMouseOver={dodgeMouse}
     >
       {isSuccess === undefined ? renderInitButton() : renderCallbackButton()}

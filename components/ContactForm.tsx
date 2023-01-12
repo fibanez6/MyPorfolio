@@ -100,7 +100,7 @@ const ContactForm = () => {
                   label="Send"
                   dodge={!isValid}
                   isSuccess={isSuccess}
-                  isLoading={isSubmitting && !isValidating && !errors}
+                  isLoading={isSubmitting}
                 />
               </FormControl>
             </Flex>
