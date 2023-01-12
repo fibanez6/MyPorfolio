@@ -44,27 +44,57 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const navStyles = () => {
+    let styles = {};
+
+    if (!isTopOfPage) {
+      styles = {
+        ...styles,
+        bg: useColorModeValue("#02054Bc9", "gray.900"),
+        backdropFilter: "blur(7.6px)"
+      }
+    }
+    if (isOpen) {
+      styles = {
+        ...styles,
+        bg: useColorModeValue("#02054Bc9", "gray.900"),
+        backdropFilter: "blur(7.6px)",
+        h: "100vh"
+      }
+    }
+
+
+    return styles;
+  }
+
   return (
     <Box
       position={"fixed"}
       top={0}
-      bg={isTopOfPage ? "" : useColorModeValue("#02054B", "gray.900")}
       color={
         isTopOfPage ? useColorModeValue("gray.100", "gray.900") : "gray.100"
       }
       w={"full"}
+      h="4.3rem"
       px={4}
       zIndex={40}
+      transition=".5s ease-in-out"
+      {...navStyles()}
     >
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        {/* Mobile */}
         <IconButton
           size={"md"}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={"Open Menu"}
           display={{ md: "none" }}
+          zIndex="100"
           onClick={isOpen ? onClose : onOpen}
         />
-        <Box>
+        <Box 
+          opacity={isOpen ? 0 : 1}
+          transition=".25s ease-in-out"
+        >
           <Link href={"#"}>Logo</Link>
         </Box>
         <Stack direction={"row"} align={"center"}>
@@ -77,26 +107,41 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
               />
             ))}
           </HStack>
-          <Button onClick={toggleColorMode} variant="ghost">
+          <Button
+            opacity={isOpen ? 0 : 1}
+            transition=".25s ease-in-out"
+            onClick={toggleColorMode} variant="ghost">
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>
         </Stack>
       </Flex>
 
-      {isOpen ? (
-        <Box pb={4} display={{ md: "none" }}>
-          <Stack as={"nav"} spacing={4}>
-            {pages.map((page) => (
-              <NavLink
-                key={page}
-                page={page}
-                isSelected={page.toLowerCase() === selectedPage}
-                onHamburgerIcon={isOpen ? onClose : onOpen}
-              />
-            ))}
-          </Stack>
-        </Box>
-      ) : null}
+      {/* Mobile Content */}
+      <Box
+        pb={4}
+        display={{ md: "none" }}
+        zIndex={1}
+      >
+        <Stack
+          as={"nav"}
+          spacing={4}
+          alignItems="center"
+          gap={"2rem"}
+          opacity={isOpen ? 1 : 0}
+          transform={isOpen ? "" : "translate(0, -150%)"}
+          transition=".5s .1s ease-in-out"
+        >
+          {pages.map((page) => (
+            <NavLink
+              key={page}
+              page={page}
+              isSelected={page.toLowerCase() === selectedPage}
+              onHamburgerIcon={isOpen ? onClose : onOpen}
+            />
+          ))}
+        </Stack>
+      </Box>
+
     </Box>
   );
 };
