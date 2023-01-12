@@ -150,7 +150,3 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
 };
 
 export default NavBar;
-function chakra(Button: ComponentWithAs<"button", ButtonProps>, arg1: { baseStyle: { background: string; }; }) {
-  throw new Error("Function not implemented.");
-}
-
