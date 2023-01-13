@@ -22,7 +22,7 @@ const ParticlesComponent = ({ id }: ParticleProps) => {
         return {
             particles: {
                 number: {
-                    value: 50,
+                    value: 80,
                     density: {
                         enable: true,
                         value_area: 800
@@ -30,6 +30,7 @@ const ParticlesComponent = ({ id }: ParticleProps) => {
                 },
                 move: {
                     enable: true,
+                    speed: 1,
                 },
                 links: {
                     enable: true,
@@ -43,7 +44,7 @@ const ParticlesComponent = ({ id }: ParticleProps) => {
                     value: { min: 0.2, max: 0.7 }
                 },
                 color: {
-                    value: dot_color,
+                    value: [dot_color],
                 },
             },
             fullScreen: {
