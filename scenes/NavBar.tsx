@@ -80,9 +80,9 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
         isTopOfPage ? useColorModeValue("gray.100", "gray.900") : "gray.100"
       }
       w={"full"}
-      h="4.3rem"
+      h="3.6rem"
       px={4}
-      zIndex={40}
+      zIndex={"sticky"}
       transition=".5s ease-in-out"
       boxShadow= {isTopOfPage ? "none" : "0px 1px 6px 4px #02054bc9"}
       {...navStyles()}

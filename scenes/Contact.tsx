@@ -24,7 +24,8 @@ const ContactSection = () => {
         bg={useColorModeValue("#9DC4FB", "gray.900")}
         w="100%"
         borderRadius="lg"
-        p={{ base: 10, sm: 5, md: 10 }}
+        px={{ base: 4, md: 10 }}
+        py={10}
         gap={10}
         color="white"
         flexWrap="wrap"
@@ -97,7 +98,9 @@ const ContactSection = () => {
             />
           </HStack>
         </VStack>
-        <VStack flex="1 1 auto" minW={{base: "35rem", sm: "27rem"}}>
+        {/* <VStack flex="1 1 auto" minW={{base: "35rem", sm: "27rem"}}> */}
+        <VStack flex="1 1 auto"
+          minW={{ base: "auto", sm: "27rem", md: "35rem" }}>
           <Box bg="white" borderRadius="lg" p={8} w="full">
             <Box color="#0B0E3F">
               <motion.div

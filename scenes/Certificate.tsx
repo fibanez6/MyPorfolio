@@ -96,7 +96,7 @@ const CertificateSection = () => {
         alignItems="center"
         justifyContent="center"
         flexWrap={"wrap"}
-        gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}
+        gap={{ base: "5rem", sm: "10rem", md: "7rem", lg: "10rem" }}
       >
         <Certificate
           title="AWS Certified Developer"
