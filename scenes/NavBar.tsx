@@ -84,6 +84,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
       px={4}
       zIndex={40}
       transition=".5s ease-in-out"
+      boxShadow= {isTopOfPage ? "none" : "0px 1px 6px 4px #02054bc9"}
       {...navStyles()}
     >
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
