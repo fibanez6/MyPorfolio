@@ -1,7 +1,7 @@
 "use client";
 
 import { Formik, FormikHelpers } from "formik";
-import { FormControl, VStack, Flex, Spacer, Text } from "@chakra-ui/react";
+import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
@@ -9,12 +9,7 @@ import { InputField } from "./form/InputField";
 import { TextAreaField } from "./form/TextAreaField";
 import { SubmitButtom } from "./form/SubmitButtom";
 import { useState } from "react";
-
-interface FormProps {
-  name: string;
-  email: string;
-  message: string;
-}
+import { ContactFormProps } from "../types/components/form";
 
 const initialValues = {
   name: "",
@@ -31,31 +26,32 @@ const contactSchema = yup.object().shape({
   message: yup.string().trim().required("Please enter a message"),
 });
 
-const ContactForm = () => {  
+const ContactForm = () => {
   const [isSuccess, setSuccess] = useState<boolean | undefined>();
 
-  const handleFormSubmit = async (formData: FormProps, {
-    setStatus,
-    resetForm
-  }: FormikHelpers<any>) => {
+  const handleFormSubmit = async (
+    formData: ContactFormProps,
+    { setStatus, resetForm }: FormikHelpers<any>
+  ) => {
+    const resp = await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-      const resp = await fetch('/api/email', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+    const response = await resp.json();
+    console.log(response);
 
-      const response = await resp.json();
-      console.log(response);
-    
-      setSuccess(resp.ok)
-      setStatus({ message: response });
-      resetForm();
-    
-      setTimeout(() => { setSuccess(undefined) }, 5000);
-  }
+    setSuccess(resp.ok);
+    setStatus({ message: response });
+    resetForm();
+
+    setTimeout(() => {
+      setSuccess(undefined);
+    }, 5000);
+  };
 
   return (
     <Formik
@@ -64,7 +60,14 @@ const ContactForm = () => {
       validationSchema={contactSchema}
       validateOnMount={true}
     >
-      {({ values, isValid, isSubmitting, dirty, handleSubmit }) => (
+      {({
+        values,
+        isValid,
+        isSubmitting,
+        isValidating,
+        errors,
+        handleSubmit,
+      }) => (
         <form name="contact" onSubmit={handleSubmit}>
           <VStack spacing={5} align="stretch">
             <InputField

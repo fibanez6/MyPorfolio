@@ -8,17 +8,24 @@ import {
   VStack,
   useBreakpointValue,
 } from '@chakra-ui/react';
+import Particles from "../components/Particles";
 
 const HeroSection = () => {
 
   return (
-    <section className="section-hero">
+    <section id="hero" className="section-hero">
+      
+      
       <Flex
         w={'full'}
         h={'100vh'}
         backgroundImage={'url(./media/hero.jpg)'}
         backgroundSize={'cover'}
-        backgroundPosition={'center center'}>
+        backgroundPosition={'center center'}
+        position={"relative"}
+        zIndex={10}
+        >
+        <Particles id="particles-js" />
         <VStack
           w={'full'}
           justify={'center'}

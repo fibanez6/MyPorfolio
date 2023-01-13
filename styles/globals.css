@@ -27,15 +27,13 @@ Paragraph default: 1.6
 - PRIMARY: 9DC4FB
 -   TINTS: 8EE1FF, C0EEFF <-> 63D4FF, 38C6FC
 -          9DC4FB, 
--          02054B (strong blue)
+-          02054B (strong blue) - 0D74FF
 
 - SECONDARY-1: FF9E89
 -       TINTS: FDE5E0, FFC9BD <-> FF795D, FF5430
 
 - SECONDARY-2: FFDD89
 -       TINTS: FFF9E9, FFECBD <-> FFD05D, FFC330
-
-- GREEN: 44d8a4
 
 -  SHADES:  
 - ACCENTS:  FBFDFF
@@ -64,31 +62,29 @@ Default: 9px
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
-*:focus {
+/* *:focus {
   outline: none;
   box-shadow: 0 0 0 8px rgba(230, 125, 34, 0.5)
-}
+} */
 
 html,
 body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
   /* font-size: 10px */
   /* Percentage of user's font-size setting */
   /* font-size: 62.5%; */
-  font-weight: 400;
-  font-family: "Source Sans Pro", Roboto, sans-serif;
-  line-height: 1;
+  /* font-weight: 400; */
+  /* font-family: "Source Sans Pro", Roboto, sans-serif; */
+  /* line-height: 1; */
 }
 
-/* a {
-  color: inherit;
-  text-decoration: none;
+#particles-js canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-
-.container {
-  max-width: 120rem;
-  padding: 0 3.2rem;
-  margin: 0 auto;
-} */

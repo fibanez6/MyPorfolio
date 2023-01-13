@@ -1,32 +1,16 @@
-import {
-  Box,
-  Button,
-  ButtonProps,
-  keyframes,
-} from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import { getRandom } from "../../helper/random";
+import { getRandom } from "../../utils/random";
 import { FiSend } from "react-icons/fi";
 import { BeatLoader } from "react-spinners";
-
-type SubmitButtomProps = ButtonProps & {
-  label: string;
-  dodge?: boolean;
-  isSuccess?: boolean;
-  isLoading?: boolean;
-};
-
-type Position = {
-  x: number | undefined;
-  y: number | undefined;
-};
+import { suspension, fly, slideX } from "../../styles/theme/frames";
+import { SubmitButtomProps, Position } from "../../types/components/form";
 
 export const SubmitButtom = ({
   label,
   dodge,
   isSuccess,
   isLoading,
-  ...props
 }: SubmitButtomProps) => {
   const buttomRef = useRef<HTMLButtonElement>(null);
   const [pos, setPos] = useState<Position>({
@@ -57,21 +41,6 @@ export const SubmitButtom = ({
       buttomRef.current!.style.transform = `translate(${-posX}px, ${-posY}px)`;
     }
   };
-
-  const suspension = keyframes`
-        from {transform: translateY(0.1em);}
-        to {transform: translateY(-0.1em)}
-    `;
-
-  const fly = keyframes`
-      from {transform: translateX(-6.5m) rotate(45deg) scale(1);}
-      to {transform: translateX(3em) rotate(45deg) scale(1.3)}
-  `;
-
-  const flyText = keyframes`
-    from {transform: translateX(-7.5em);}
-    to {transform: translateX(0.5em)}
-  `;
 
   const renderInitButton = () => {
     return (
@@ -117,7 +86,7 @@ export const SubmitButtom = ({
           ml="0.3em"
           transform="translateX(-7.5em) "
           transition="all 0.3s ease-in-out"
-          animation={`${flyText} 0.5s ease-in-out normal forwards`}
+          animation={`${slideX} 0.5s ease-in-out normal forwards`}
         >
           {isSuccess ? "Sent" : "Failed"}
         </Box>
@@ -139,7 +108,7 @@ export const SubmitButtom = ({
 
   const background = () => {
     if (!isLoading && isSuccess !== undefined) {
-      return { bg: isSuccess ? "#44d8a4" : "#FF5430" };
+      return { bg: isSuccess ? 'tertiary.main' : 'secundary.main'};
     }
     return {};
   };
@@ -150,19 +119,12 @@ export const SubmitButtom = ({
       {...background()}
       isLoading={isLoading}
       spinner={<BeatLoader size={8} color="white" />}
+      variant="submit"
       type="submit"
       role="group"
-      transition="all 0.6s"
-      overflow="hidden"
-      _active={{
-        transform: "scale(0.95)",
-      }}
       onMouseOver={dodgeMouse}
     >
-      {isSuccess === undefined ?
-        renderInitButton() :
-        renderCallbackButton()
-      }
+      {isSuccess === undefined ? renderInitButton() : renderCallbackButton()}
     </Button>
   );
 };

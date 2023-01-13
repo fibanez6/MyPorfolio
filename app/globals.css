@@ -72,7 +72,9 @@ Default: 9px
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+
   /* font-size: 10px */
   /* Percentage of user's font-size setting */
   /* font-size: 62.5%; */

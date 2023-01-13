@@ -13,13 +13,13 @@ import {
 } from "@chakra-ui/react";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs";
-import ContactForm from "../ContactForm";
+import ContactForm from "../components/ContactForm";
 import { motion } from "framer-motion";
-import { Section } from "../layout/Section";
+import { Section } from "../components/layout/Section";
 
 const ContactSection = () => {
   return (
-    <Section className="section-contact">
+    <Section id="contact" className="section-contact">
       <Flex
         bg={useColorModeValue("#9DC4FB", "gray.900")}
         w="100%"
@@ -41,7 +41,6 @@ const ContactSection = () => {
                 height="48px"
                 width="200px"
                 variant="ghost"
-                // color="#DCE2FF"
                 _hover={{ border: "2px solid #1C6FEB" }}
                 leftIcon={<MdEmail color="#1970F1" size="20px" />}
               >
@@ -98,7 +97,7 @@ const ContactSection = () => {
             />
           </HStack>
         </VStack>
-        <VStack flex="1 1 auto" minW="35rem">
+        <VStack flex="1 1 auto" minW={{base: "35rem", sm: "27rem"}}>
           <Box bg="white" borderRadius="lg" p={8} w="full">
             <Box color="#0B0E3F">
               <motion.div

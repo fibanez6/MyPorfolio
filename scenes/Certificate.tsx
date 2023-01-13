@@ -17,19 +17,8 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
-import { Section } from "../layout/Section";
-
-interface CertProps {
-  title: string;
-  subtitle: string;
-  description: string;
-  credentialId: string;
-  date: string;
-  image: string;
-  link: string;
-  alt: string;
-  index: number;
-}
+import { Section } from "../components/layout/Section";
+import { CertProps } from "../types/sections/certificate";
 
 const Certificate = ({
   title,
@@ -52,7 +41,7 @@ const Certificate = ({
         visible: { opacity: 1, scale: 1 },
       }}
     >
-      <Card align="center" justify={"center"} variant="unstyled" w="22rem">
+      <Card align="center" justify={"center"} variant="unstyled" minW="22rem">
         <CardHeader>
           <VStack>
             <Heading size={{ base: "md", sm: "sm", lg: "md" }}>{title}</Heading>
@@ -102,8 +91,13 @@ const Certificate = ({
 
 const CertificateSection = () => {
   return (
-    <Section title="Certificates">
-      <Flex alignItems="center" justifyContent="center" gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}>
+    <Section id="certificates" title="Certificates">
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        flexWrap={"wrap"}
+        gap={{ sm: "5rem", md: "7rem", lg: "10rem" }}
+      >
         <Certificate
           title="AWS Certified Developer"
           subtitle="Associate (DVA-C01)"
