@@ -35,11 +35,11 @@ export const Section = forwardRef<SectionProps, "section">((props, ref) => {
           }),
         }}
       >
-        (title) {
+        {title && (
           <Center pb={10}>
             <Heading fontSize="3xl">{title}</Heading>
           </Center>
-        }
+        )}
         {children}
       </Stack>
     </motion.div>
