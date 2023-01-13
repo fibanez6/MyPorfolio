@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLinkProps, NavProps } from "../types/sections/Nav";
-import { useEffect, useState } from "react";
+import TabSlider from "../components/TabSlider";
 
 const NavLink = ({ page, isSelected, onHamburgerIcon }: NavLinkProps) => {
   const _page = page.toLowerCase();
@@ -45,7 +45,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const slideSpan = () => {
+  const moveSlider = () => {
     const capitalized = selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1);
     const idx = pages.indexOf(capitalized)
     return idx * 8 + idx
@@ -118,18 +118,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
                 isSelected={page.toLowerCase() === selectedPage}
               />
             ))}
-            <Box
-              as="span"
-              position="absolute"
-              bg="primary.main"
-              bottom={0.4}
-              left={`${slideSpan()}rem`}
-              h="0.175rem"
-              w={"9rem"}
-              borderRadius="50%"
-              transition="left 0.3s ease"
-              boxShadow={"0px 10px 10px 5px #569eff"}
-            />
+            <TabSlider left={`${moveSlider()}rem`}  w="9rem" />
           </HStack>
           <Button
             opacity={isOpen ? 0 : 1}

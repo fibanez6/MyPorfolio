@@ -1,9 +1,9 @@
 import Link from './Link'; 
 import Button from './Button'; 
-import Span from './Span';
+import TabSlider from './TabSlider';
 
 export default {
   Button,
   Link,
-  Span,
+  TabSlider,
 }
