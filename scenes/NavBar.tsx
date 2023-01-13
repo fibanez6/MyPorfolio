@@ -22,9 +22,9 @@ const NavLink = ({ page, isSelected, onHamburgerIcon }: NavLinkProps) => {
   return (
     <Link
       p={2}
-      w={"9rem"}
+      w="9rem"
       textAlign="center"
-      rounded={"md"}
+      rounded="md"
       _hover={{
         textDecoration: "none",
         bg: useColorModeValue("gray.200", "gray.700"),

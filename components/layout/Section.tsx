@@ -25,7 +25,7 @@ export const Section = forwardRef<SectionProps, "section">((props, ref) => {
     >
       <Stack
         as="section"
-        className={cx("custom-section", className)}
+        className={cx("fibanez-section", className)}
         ref={ref}
         p={"3rem 0"}
         {...rest}
