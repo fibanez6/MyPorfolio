@@ -6,16 +6,12 @@ import {
   AccordionItem,
   AccordionIcon,
   Box,
-  useColorModeValue,
   AccordionPanel,
 } from "@chakra-ui/react";
 import React from "react";
 import { TimelineRowProps } from "../types/components/Timeline";
 
 const TimelineRow = ({ title, date, description }: TimelineRowProps) => {
-  const textColor = useColorModeValue("gray.700", "white.300");
-  const bgIconColor = useColorModeValue("white.300", "gray.700");
-
   return (
     <Box
       h="100%"

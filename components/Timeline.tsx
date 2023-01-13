@@ -2,7 +2,6 @@
 
 import {
   Flex,
-  useColorModeValue,
   Box,
 } from "@chakra-ui/react";
 import TimelineRow from "./TimelineRow";
@@ -35,9 +34,6 @@ const timelineData = [
 ];
 
 const Timeline = () => {
-  const textColor = useColorModeValue("gray.700", "white.300");
-  const bgIconColor = useColorModeValue("white.300", "gray.700");
-  const bg = useColorModeValue("gray.50", "gray.700");
   return (
     <Box
       className="container-timeline"

@@ -1,5 +1,4 @@
 import { ComponentSingleStyleConfig, keyframes } from '@chakra-ui/react';
-import { theme } from "@chakra-ui/react";
 import { bgMode, useColorMode, useHoverColorMode } from '../color';
 import { jello } from '../frames';
 
