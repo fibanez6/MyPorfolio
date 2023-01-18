@@ -23,9 +23,9 @@ const HeroSection = () => {
         backgroundPosition={'center center'}
         position={"relative"}
         zIndex={10}
-        >4
-        {isDesktop && 
-          <Particles id="particles-js" /> 
+      >4
+        {isDesktop &&
+          <Particles id="particles-js" />
         }
         <VStack
           w={'full'}
@@ -38,17 +38,17 @@ const HeroSection = () => {
               color={'gray.100'}
               fontWeight={800}
               lineHeight={1.2}
-              fontSize={{ base: '3xl', sm: '5xl', md: '6xl'}}
+              fontSize={{ base: '3xl', sm: '5xl', md: '6xl' }}
               letterSpacing="0.2rem"
               textShadow={"4px 3px 0px #4A5568"}
             >
               Fernando Ibanez
             </Text>
-            <Text 
+            <Text
               color={'gray.100'}
               fontWeight={700}
               lineHeight={1.2}
-              fontSize={{ base: 'lg', md: '4xl' }}
+              fontSize={{ base: 'lg', sm: '3xl', md: '4xl' }}
               letterSpacing="0.05rem"
               textShadow={"4px 3px 0px #4A5568"}
             >
