@@ -4,36 +4,12 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/react";
+import { TimelineListProps } from "../types/components/Timeline";
 import TimelineRow from "./TimelineRow";
 
-const timelineData = [
-  {
-    title: "Job 1",
-    date: "Apr 2022",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    title: "Job 2",
-    date: "Apr 2022",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    title: "Job 3",
-    date: "Apr 2022",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    title: "Job 4",
-    date: "Apr 2022",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-];
 
-const Timeline = () => {
+const Timeline = ({data}: TimelineListProps) => {
+
   return (
     <Box
       className="container-timeline"
@@ -53,13 +29,15 @@ const Timeline = () => {
           position: "absolute",
         }}
       >
-        {timelineData.map((row, index, arr) => {
+        {data.map((row, index, arr) => {
           return (
             <TimelineRow
               key={index}
               title={row.title}
+              subtitle={row.subtitle}
               date={row.date}
-              description={row.description}
+              location={row.location}
+              content={row.content}
               index={index}
               arrLength={arr.length}
             />

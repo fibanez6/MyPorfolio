@@ -6,12 +6,17 @@ import {
   AccordionItem,
   AccordionIcon,
   Box,
+  Text,
   AccordionPanel,
+  Flex,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { TimelineRowProps } from "../types/components/Timeline";
 
-const TimelineRow = ({ title, date, description }: TimelineRowProps) => {
+const TimelineRow = ({ title, subtitle, date, location, content }: TimelineRowProps) => {
+  const titleColor = useColorModeValue("primary.400", "secundary.main")
+
   return (
     <Box
       h="100%"
@@ -32,7 +37,6 @@ const TimelineRow = ({ title, date, description }: TimelineRowProps) => {
         textIndent: "-70px",
         border: "2px solid #fff",
         borderRadius: "50%",
-        color: "rgba(134, 134, 134, 0.7)",
         bg: "linear-gradient(to bottom, #a0aee3 0%, #516acc 100%);",
       }}
     >
@@ -40,20 +44,23 @@ const TimelineRow = ({ title, date, description }: TimelineRowProps) => {
         <AccordionItem>
           <h2>
             <AccordionButton>
-              <Box as="span" flex="1" textAlign="left" fontWeight="semibold">
-                {title}
-              </Box>
+              <Flex flex="1" textAlign="left" fontWeight="semibold" flexDir="column">
+                <Text fontSize="xl" color={titleColor}>{title}</Text>
+                <Flex justifyContent="space-between">
+                  <Text fontSize="sm">{subtitle}</Text>
+                  <Text fontSize="sm">{location}</Text>
+                </Flex>
+              </Flex>
               <AccordionIcon />
             </AccordionButton>
           </h2>
           <AccordionPanel
             pb={4}
             fontSize="sm"
-            color="gray.400"
             fontWeight="normal"
             fontFamily="Source Sans Pro"
           >
-            {description}
+            {content}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

@@ -8,10 +8,34 @@ import Experience from "../scenes/Experience";
 import Hero from "../scenes/Hero";
 import { useEffect, useState } from "react";
 import DotNav from "../scenes/DotNav";
+import glob from 'glob';
+import fs from 'fs';
+import matter from 'gray-matter'
+import { MarkdownProps } from "../types/sections/experience";
+import { sort_by_date } from "../utils/date";
 
 const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
-export default function Home() {
+const getStaticProps = async () => {
+  const jobs: MarkdownProps[] = glob.sync("docs/jobs/**/*.md").map(file => {
+    const slug = file.replace('.md', '');
+    const readFile = fs.readFileSync(file, 'utf-8');
+    const { data, content } = matter(readFile);
+    return { 
+      slug,
+      frontmatter: data, 
+      html: content 
+    }
+  });
+
+  return {
+    props: {
+      jobs: jobs.sort(sort_by_date)
+    }
+  }
+}
+
+export default function Home({ jobs }: any) {
   const [selectedPage, setSelectedPage] = useState("hero");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery("(min-width: 1060px)");
@@ -38,12 +62,12 @@ export default function Home() {
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
       />
-      {isDesktop && (
+      {isDesktop &&
         <DotNav
             pages={Pages.slice(1)}
             selectedPage={selectedPage}
           />
-        )}
+      }
       <Hero />
       <Stack
         as="main"
@@ -54,7 +78,7 @@ export default function Home() {
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
         _last={{ pb: 10 }}
       >
-        <Experience />
+        <Experience jobs={jobs}/>
         <Certificates />
         <Contact />
       </Stack>
