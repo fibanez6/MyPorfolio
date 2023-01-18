@@ -16,19 +16,13 @@ import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLinkProps, NavProps } from "../types/sections/Nav";
 import TabSlider from "../components/TabSlider";
 
-const NavLink = ({ page, isSelected, onHamburgerIcon }: NavLinkProps) => {
+const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
   const _page = page.toLowerCase();
 
   return (
     <Link
       p={2}
-      w="9rem"
-      textAlign="center"
-      rounded="md"
-      _hover={{
-        textDecoration: "none",
-        bg: useColorModeValue("gray.200", "gray.700"),
-      }}
+      minW="9rem"
       href={`#${_page}`}
       onClick={() => {
         if (typeof onHamburgerIcon == "function") {
@@ -84,7 +78,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
       px={4}
       zIndex={"sticky"}
       transition=".5s ease-in-out"
-      boxShadow= {isTopOfPage ? "none" : "0px 1px 6px 4px #02054bc9"}
+      boxShadow={isTopOfPage ? "none" : "0px 1px 6px 4px #02054bc9"}
       {...navStyles()}
     >
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
@@ -102,16 +96,22 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
           opacity={isOpen ? 0 : 1}
           transition=".25s ease-in-out"
         >
-          <Link href={"#"}>Logo</Link>
+          <Link 
+            href={"#"} 
+            p={2}
+            minW="9rem"
+            >
+              Home
+            </Link>
         </Box>
         <Stack direction={"row"} align={"center"}>
-          <HStack 
-            as={"nav"} 
-            display={{ base: "none", md: "flex" }} 
+          <HStack
+            as={"nav"}
+            display={{ base: "none", md: "flex" }}
             position="relative"
             spacing={0}
             overflow="hidden"
-            >
+          >
             {pages.map((page) => (
               <NavLink
                 key={page}
@@ -119,13 +119,14 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
                 isSelected={page.toLowerCase() === selectedPage}
               />
             ))}
-            <TabSlider left={`${moveSlider()}rem`}  w="9rem" />
+            <TabSlider left={`${moveSlider()}rem`} w="9rem" />
           </HStack>
           <Button
             opacity={isOpen ? 0 : 1}
             transition=".25s ease-in-out"
             onClick={toggleColorMode}
             variant="ghost"
+            aria-label={colorMode === "light" ? "Light mode" : "Dark mode"}
           >
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>

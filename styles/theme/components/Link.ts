@@ -3,6 +3,14 @@ import { bgMode, useColorMode, useHoverColorMode } from '../color';
 import { jello } from '../frames';
 
 const Link = {
+  baseStyle: ({ colorMode }) => ({
+    textAlign: "center",
+    rounded: "md",
+    _hover: {
+      textDecoration: "none",
+      bg: colorMode === 'light' ? 'primary.200' : 'secundary.200'
+    },
+  }),
   variants: {
     solid: ({ colorMode }) => ({
       bg: useColorMode(colorMode),
@@ -19,7 +27,6 @@ const Link = {
       verticalAlign: "middle",
       alignItems: "center",
       _hover: {
-        textDecoration: "none",
         bg: useHoverColorMode(colorMode),
       },
 

@@ -5,12 +5,11 @@ import {
   Flex,
   Text,
   VStack,
-  useBreakpointValue,
   useMediaQuery,
 } from '@chakra-ui/react';
 import Particles from "../components/Particles";
 
-const HeroSection = () => {
+const Hero = () => {
   const [isDesktop] = useMediaQuery("(min-width: 1060px)");
 
   return (
@@ -23,7 +22,7 @@ const HeroSection = () => {
         backgroundPosition={'center center'}
         position={"relative"}
         zIndex={10}
-      >4
+      >
         {isDesktop &&
           <Particles id="particles-js" />
         }
@@ -61,4 +60,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection;
+export default Hero;

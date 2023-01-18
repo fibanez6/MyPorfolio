@@ -1,6 +1,6 @@
 import { GTagManager } from "../components/google/GTagManager";
 import NavBar from "../scenes/NavBar";
-import Certificates from "../scenes/Certificate";
+import Certificates from "../scenes/Certificates";
 import Contact from "../scenes/Contact";
 import Experience from "../scenes/Experience";
 import Hero from "../scenes/Hero";
@@ -21,7 +21,7 @@ const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
 
 export const getStaticProps = async () => {
-  const jobs: MarkdownProps[] = glob.sync("docs/jobs/**/*.md").map(file => {
+  const jobs: MarkdownProps[] = glob.sync("content/jobs/**/*.md").map(file => {
     const slug = file.replace('.md', '');
     const readFile = fs.readFileSync(file, 'utf-8');
     const { data, content } = matter(readFile);

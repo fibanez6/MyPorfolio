@@ -1,0 +1,64 @@
+{
+  "certificates": [
+    {
+      "title": "AWS Certified Developer",
+      "subtitle": "Associate (DVA-C01)",
+      "description": "Amazon Web Services (AWS)",
+      "credentialId": "FXHJ72T1Q111Q3WY",
+      "image": "/media/AWS-Certified-Developer-Associate.png",
+      "alt": "AWS Certified Developer Associate",
+      "date": "August 2022",
+      "link": "https://aw.certmetrics.com/amazon/public/verification.aspx"
+    },
+    {
+      "title": "AWS Certified Solutions Architect",
+      "subtitle": "Associate (SAA-C02)",
+      "description": "Amazon Web Services (AWS)",
+      "credentialId": "MNW36P7BNEEQQPSW",
+      "image": "/media/AWS-Certified-Solutions-Architect-Associate.png",
+      "alt": "AWS Certified Solutions Architect Associate",
+      "date": "August 2022",
+      "link": "https://aw.certmetrics.com/amazon/public/verification.aspx"
+    }
+  ],
+  "education": [
+    {
+      "title": "MSc. in Artificial Intelligence",
+      "location": "Madrid, Spain",
+      "institution": "Universidad Politécnica de Madrid",
+      "year": 2014,
+      "image": "/media/upm_logo.png",
+      "website": "https://www.upm.es/"
+    },
+    {
+      "title": "Bachelor's Degree in Computer Science",
+      "location": "Madrid, Spain",
+      "institution": "Universidad Politécnica de Madrid",
+      "year": 2011,
+      "image": "/media/upm_logo.png",
+      "website": "https://www.upm.es/"
+    }
+  ],
+  "contact": {
+    "email": "fibanez84@gmail.com",
+    "location": "Melbourne, Australia",
+    "social": [
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/ibanezf/"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/fibanez6"
+      },
+      {
+        "name": "twitter",
+        "url": "https://twitter.com/Fibanez84"
+      },
+      {
+        "name": "instagram",
+        "url": "https://www.instagram.com/fibanez84/"
+      }
+    ]
+  }
+}

@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import { TimelineProps } from "../types/components/Timeline";
 import { ExpProps } from "../types/sections/experience";
 
-const ExperienceSection = ({jobs} : ExpProps) => {
+const Experience = ({jobs} : ExpProps) => {
 
   const timelineData: TimelineProps[] = useMemo(() => {
     return jobs.reduce((acc, curr) => {
@@ -28,4 +28,4 @@ const ExperienceSection = ({jobs} : ExpProps) => {
   );
 };
 
-export default ExperienceSection;
+export default Experience;

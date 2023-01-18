@@ -4,7 +4,7 @@ company: 'GLORIA project UPM'
 location: 'Madrid, Spain'
 start: 'Nov 2010'
 end: 'Dec 2012'
-url: 'https://www.upm.es/'
+website: 'https://www.upm.es/'
 ---
 
 - Responsible for the coordination between partners, administered and proofread all documents in the evaluation for the European Commission.

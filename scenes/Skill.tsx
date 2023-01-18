@@ -1,6 +1,6 @@
 'use client';
 
-const SkillsSection = () => {
+const Skills = () => {
   return (
     <section className='section-skill'>
       <div className="container">
@@ -10,4 +10,4 @@ const SkillsSection = () => {
   )
 }
 
-export default SkillsSection;
+export default Skills;

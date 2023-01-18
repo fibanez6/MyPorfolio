@@ -19,6 +19,7 @@ import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { Section } from "../components/layout/Section";
 import { CertProps } from "../types/sections/certificate";
+import profileData from "../content/profile-data.json";
 
 const Certificate = ({
   title,
@@ -89,7 +90,9 @@ const Certificate = ({
   );
 };
 
-const CertificateSection = () => {
+const Certificates = () => {
+  const certs = profileData.certificates;
+
   return (
     <Section id="certificates" title="Certificates">
       <Flex
@@ -98,31 +101,16 @@ const CertificateSection = () => {
         flexWrap={"wrap"}
         gap={{ base: "5rem", sm: "10rem", md: "7rem", lg: "10rem" }}
       >
-        <Certificate
-          title="AWS Certified Developer"
-          subtitle="Associate (DVA-C01)"
-          description="Amazon Web Services (AWS)"
-          credentialId="FXHJ72T1Q111Q3WY"
-          image={"/media/AWS-Certified-Developer-Associate.png"}
-          alt={"AWS Certified Developer Associate"}
-          link="https://aw.certmetrics.com/amazon/public/verification.aspx"
-          date={"August 2022"}
-          index={1}
-        />
-        <Certificate
-          title="AWS Certified Solutions Architect"
-          subtitle="Associate (SAA-C02)"
-          description="Amazon Web Services (AWS)"
-          credentialId="MNW36P7BNEEQQPSW"
-          image={"/media/AWS-Certified-Solutions-Architect-Associate.png"}
-          alt={"AWS Certified Solutions Architect Associate"}
-          date={"August 2022"}
-          link="https://aw.certmetrics.com/amazon/public/verification.aspx"
-          index={2}
-        />
+        {certs.map((e, index) => {
+          return <Certificate
+            key={index}
+            index={index}
+            {...e}
+          />
+        })}
       </Flex>
     </Section>
   );
 };
 
-export default CertificateSection;
+export default Certificates;

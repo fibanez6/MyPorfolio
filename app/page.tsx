@@ -2,7 +2,7 @@
 
 import { Stack, useMediaQuery } from "@chakra-ui/react";
 import NavBar from "../scenes/NavBar";
-import Certificates from "../scenes/Certificate";
+import Certificates from "../scenes/Certificates";
 import Contact from "../scenes/Contact";
 import Experience from "../scenes/Experience";
 import Hero from "../scenes/Hero";
