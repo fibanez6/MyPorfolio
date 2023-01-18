@@ -11,10 +11,36 @@ import { useEffect, useState } from "react";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import DotNav from "../scenes/DotNav";
 import { motion } from "framer-motion";
+import glob from 'glob';
+import fs from 'fs';
+import matter from 'gray-matter'
+import { MarkdownProps } from "../types/sections/experience";
+import { sort_by_date } from "../utils/date";
 
 const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
-export default function Home() {
+
+export const getStaticProps = async () => {
+  const jobs: MarkdownProps[] = glob.sync("docs/jobs/**/*.md").map(file => {
+    const slug = file.replace('.md', '');
+    const readFile = fs.readFileSync(file, 'utf-8');
+    const { data, content } = matter(readFile);
+    return { 
+      slug,
+      frontmatter: data, 
+      html: content 
+    }
+  });
+
+  return {
+    props: {
+      jobs: jobs.sort(sort_by_date)
+    }
+  }
+}
+
+
+export default function Home({ jobs }: any) {
   const [selectedPage, setSelectedPage] = useState("hero");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery("(min-width: 1060px)");
@@ -69,7 +95,7 @@ export default function Home() {
           viewport={{ amount: "all" }}
           onViewportEnter={() => setSelectedPage("experience")}
         >
-          <Experience />
+          <Experience jobs={jobs}/>
         </motion.div>
         <motion.div
           viewport={{ amount: "all" }}

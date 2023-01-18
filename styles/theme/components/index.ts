@@ -1,9 +1,3 @@
-import Link from './Link'; 
-import Button from './Button'; 
-import TabSlider from './TabSlider';
-
-export default {
-  Button,
-  Link,
-  TabSlider,
-}
+export { default as Link } from './Link'; 
+export { default as Button } from './Button'; 
+export { default as TabSlider } from './TabSlider';
