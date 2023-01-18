@@ -29,7 +29,9 @@ const ICON_MAP: { [name: string]: JSX.Element } = {
 
 const Contact = () => {
   const { social, email, location } = profileData.contact;
-  const bgColor = useColorModeValue("#9DC4FB", "gray.900");
+  const bgColor = useColorModeValue("primary.70", "gray.500");
+  const contactColor = useColorModeValue("gray.50", "gray.500");
+  const subtitleColor = useColorModeValue("primary.700", "secundary.600");
   const IconColor = useColorModeValue("#1970F1", "gray.900");
   const socialColor = useColorModeValue("#0D74FF", "gray.900");
   const formTextColor = useColorModeValue("#0B0E3F", "gray.900");
@@ -43,12 +45,12 @@ const Contact = () => {
         px={{ base: 4, md: 10 }}
         py={10}
         gap={10}
-        color="white"
+        color={contactColor}
         flexWrap="wrap"
       >
         <VStack flex="1 1 0">
           <Heading>Get in Touch</Heading>
-          <Text mt={{ sm: 3, md: 3, lg: 5 }} color="primary.600">
+          <Text mt={{ sm: 3, md: 3, lg: 5 }} color={subtitleColor}>
             Fill up the form below to contact
           </Text>
           <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
