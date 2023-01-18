@@ -8,7 +8,7 @@ import { Stack, useMediaQuery } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import { NEXT_SEO_DEFAULT } from "../next-seo-config";
 import { useEffect, useState } from "react";
-import useWindowDimensions from "../hooks/useWindowDimension";
+import useWindowDimension from "../hooks/useWindowDimension";
 import DotNav from "../scenes/DotNav";
 import { motion } from "framer-motion";
 import glob from 'glob';
@@ -25,10 +25,10 @@ export const getStaticProps = async () => {
     const slug = file.replace('.md', '');
     const readFile = fs.readFileSync(file, 'utf-8');
     const { data, content } = matter(readFile);
-    return { 
+    return {
       slug,
-      frontmatter: data, 
-      html: content 
+      frontmatter: data,
+      html: content
     }
   });
 
@@ -47,7 +47,7 @@ export default function Home({ jobs }: any) {
 
   console.log("isDesktop: " + isDesktop);
 
-  const { width, height } = useWindowDimensions();
+  const { width, height } = useWindowDimension();
   console.log("width: " + width + " height: " + height);
 
   useEffect(() => {
@@ -74,7 +74,9 @@ export default function Home({ jobs }: any) {
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
       />
-      {isDesktop && <DotNav pages={Pages} selectedPage={selectedPage} />}
+      {isDesktop &&
+        <DotNav pages={Pages} selectedPage={selectedPage} />
+      }
 
       <motion.div
         viewport={{ amount: "all" }}
@@ -95,7 +97,7 @@ export default function Home({ jobs }: any) {
           viewport={{ amount: "all" }}
           onViewportEnter={() => setSelectedPage("experience")}
         >
-          <Experience jobs={jobs}/>
+          <Experience jobs={jobs} />
         </motion.div>
         <motion.div
           viewport={{ amount: "all" }}
