@@ -1,10 +1,10 @@
 import { Box, Button } from '@chakra-ui/react';
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
-import { getRandom } from 'utils/random';
 import { FiSend } from 'react-icons/fi';
 import { BeatLoader } from 'react-spinners';
-import { suspension, fly, slideX } from 'styles/theme/frames';
-import { SubmitButtomProps, Position } from 'types/components/form';
+import { fly, slideX, suspension } from 'styles/theme/frames';
+import { Position, SubmitButtomProps } from 'types/components/form';
+import { getRandom } from 'utils/random';
 
 export const SubmitButtom = ({
   label,

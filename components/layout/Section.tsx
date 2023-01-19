@@ -1,10 +1,10 @@
+import { Center, Heading, Stack } from '@chakra-ui/react';
+import { cx } from '@chakra-ui/shared-utils';
 import {
   forwardRef,
   omitThemingProps,
   useStyleConfig
 } from '@chakra-ui/system';
-import { cx } from '@chakra-ui/shared-utils';
-import { Center, Heading, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { SectionProps } from 'types/components/layout';
 

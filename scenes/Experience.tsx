@@ -1,7 +1,7 @@
 'use client';
 
-import Timeline from 'components/Timeline';
 import { Section } from 'components/layout/Section';
+import Timeline from 'components/Timeline';
 import { ReactElement, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { TimelineProps } from 'types/components/Timeline';

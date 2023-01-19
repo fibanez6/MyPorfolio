@@ -1,21 +1,21 @@
 'use client';
 
+import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
   Box,
-  Flex,
-  Link,
   Button,
-  useDisclosure,
-  useColorModeValue,
+  Flex,
+  HStack,
+  IconButton,
+  Link,
   Stack,
   useColorMode,
-  IconButton,
-  HStack
+  useColorModeValue,
+  useDisclosure
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { NavLinkProps, NavProps } from 'types/sections/Nav';
 import TabSlider from 'components/TabSlider';
 import { ReactElement } from 'react';
+import { NavLinkProps, NavProps } from 'types/sections/Nav';
 
 const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
   const _page = page.toLowerCase();

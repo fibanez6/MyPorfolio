@@ -1,15 +1,15 @@
 'use client';
 
+import { Flex, FormControl, Spacer, VStack } from '@chakra-ui/react';
+import { InputField } from 'components/form/InputField';
+import { SubmitButtom } from 'components/form/SubmitButtom';
+import { TextAreaField } from 'components/form/TextAreaField';
 import { Formik, FormikHelpers } from 'formik';
-import { FormControl, VStack, Flex, Spacer } from '@chakra-ui/react';
-import * as yup from 'yup';
+import { ReactElement, useState } from 'react';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
-import { InputField } from 'components/form/InputField';
-import { TextAreaField } from 'components/form/TextAreaField';
-import { SubmitButtom } from 'components/form/SubmitButtom';
-import { ReactElement, useState } from 'react';
 import { ContactFormProps } from 'types/components/form';
+import * as yup from 'yup';
 
 const initialValues = {
   name: '',

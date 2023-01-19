@@ -1,26 +1,26 @@
 'use client';
 
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
-  Text,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Center,
   Flex,
   Heading,
   Link,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  VStack,
   SimpleGrid,
-  Center
+  Text,
+  VStack
 } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Section } from 'components/layout/Section';
+import profileData from 'content/profile-data.json';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { motion } from 'framer-motion';
-import { Section } from 'components/layout/Section';
-import { CertProps } from 'types/sections/certificate';
-import profileData from 'content/profile-data.json';
 import { ReactElement } from 'react';
+import { CertProps } from 'types/sections/certificate';
 
 const Certificate = ({
   title,

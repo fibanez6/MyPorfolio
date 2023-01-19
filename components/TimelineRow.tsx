@@ -3,12 +3,12 @@
 import {
   Accordion,
   AccordionButton,
-  AccordionItem,
   AccordionIcon,
-  Box,
-  Text,
+  AccordionItem,
   AccordionPanel,
+  Box,
   Flex,
+  Text,
   useColorModeValue
 } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';

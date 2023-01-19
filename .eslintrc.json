@@ -20,9 +20,14 @@
     "sourceType": "module",
     "project": ["tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint", "prettier", "react"],
+  "plugins": [
+    "@next/next",
+    "@typescript-eslint",
+    "prettier",
+    "react",
+    "simple-import-sort"
+  ],
   "rules": {
-    "@typescript-eslint/strict-boolean-expressions": 0,
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       { "allowExpressions": true }
@@ -30,6 +35,11 @@
     "@typescript-eslint/no-confusing-void-expression": [
       "error",
       { "ignoreArrowShorthand": true }
-    ]
+    ],
+    "@typescript-eslint/strict-boolean-expressions": 0,
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error"
   }
 }

@@ -1,16 +1,16 @@
 'use client';
 
 import { Stack, useMediaQuery } from '@chakra-ui/react';
-import NavBar from 'scenes/NavBar';
+import fs from 'fs';
+import glob from 'glob';
+import matter from 'gray-matter';
+import { ReactElement, useEffect, useState } from 'react';
 import Certificates from 'scenes/Certificates';
 import Contact from 'scenes/Contact';
+import DotNav from 'scenes/DotNav';
 import Experience from 'scenes/Experience';
 import Hero from 'scenes/Hero';
-import { ReactElement, useEffect, useState } from 'react';
-import DotNav from 'scenes/DotNav';
-import glob from 'glob';
-import fs from 'fs';
-import matter from 'gray-matter';
+import NavBar from 'scenes/NavBar';
 import { MarkdownProps } from 'types/sections/experience';
 import { sortbByDate } from 'utils/date';
 

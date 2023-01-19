@@ -1,20 +1,20 @@
-import NavBar from 'scenes/NavBar';
+import { Stack, useMediaQuery } from '@chakra-ui/react';
+import { GTagManager } from 'components/google/GTagManager';
+import seoData from 'content/seo-data.json';
+import { motion } from 'framer-motion';
+import fs from 'fs';
+import glob from 'glob';
+import matter from 'gray-matter';
+import { NextSeo } from 'next-seo';
+import { ReactElement, useEffect, useState } from 'react';
 import Certificates from 'scenes/Certificates';
 import Contact from 'scenes/Contact';
+import DotNav from 'scenes/DotNav';
 import Experience from 'scenes/Experience';
 import Hero from 'scenes/Hero';
-import { Stack, useMediaQuery } from '@chakra-ui/react';
-import { NextSeo } from 'next-seo';
-import seoData from 'content/seo-data.json';
-import { ReactElement, useEffect, useState } from 'react';
-import DotNav from 'scenes/DotNav';
-import { motion } from 'framer-motion';
-import glob from 'glob';
-import fs from 'fs';
-import matter from 'gray-matter';
+import NavBar from 'scenes/NavBar';
 import { MarkdownProps } from 'types/sections/experience';
 import { sortbByDate } from 'utils/date';
-import { GTagManager } from 'components/google/GTagManager';
 
 const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];
 

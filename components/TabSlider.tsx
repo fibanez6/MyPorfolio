@@ -1,13 +1,13 @@
 'use client';
 
+import { cx } from '@chakra-ui/shared-utils';
 import {
   chakra,
   forwardRef,
+  HTMLChakraProps,
   ThemingProps,
-  useStyleConfig,
-  HTMLChakraProps
+  useStyleConfig
 } from '@chakra-ui/system';
-import { cx } from '@chakra-ui/shared-utils';
 
 export interface TabSliderProps
   extends HTMLChakraProps<'span'>,

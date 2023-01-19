@@ -1,6 +1,6 @@
 'use client';
 
-import { Stack, Flex, Text, VStack, useMediaQuery } from '@chakra-ui/react';
+import { Flex, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react';
 import Particles from 'components/Particles';
 import { ReactElement } from 'react';
 
