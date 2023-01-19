@@ -5,7 +5,7 @@ import Experience from 'scenes/Experience';
 import Hero from 'scenes/Hero';
 import { Stack, useMediaQuery } from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
-import { NEXT_SEO_DEFAULT } from 'next-seo-config';
+import seoData from 'content/seo-data.json';
 import { ReactElement, useEffect, useState } from 'react';
 import DotNav from 'scenes/DotNav';
 import { motion } from 'framer-motion';
@@ -59,7 +59,7 @@ export default function Home({ jobs }: any): ReactElement {
   return (
     <>
       {/* HEAD */}
-      <NextSeo {...NEXT_SEO_DEFAULT} useAppDir={false} />
+      <NextSeo {...seoData} useAppDir={false} />
       <GTagManager />
 
       {/* BODY */}
