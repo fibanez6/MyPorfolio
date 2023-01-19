@@ -1,4 +1,3 @@
-import { GTagManager } from 'components/google/GTagManager';
 import NavBar from 'scenes/NavBar';
 import Certificates from 'scenes/Certificates';
 import Contact from 'scenes/Contact';
@@ -15,6 +14,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { MarkdownProps } from 'types/sections/experience';
 import { sortbByDate } from 'utils/date';
+import { GTagManager } from 'components/google/GTagManager';
 
 const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];
 
