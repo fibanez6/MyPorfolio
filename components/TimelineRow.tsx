@@ -12,7 +12,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
-import { TimelineRowProps } from "../types/components/Timeline";
+import { TimelineRowProps } from "types/components/Timeline";
 
 const TimelineRow = ({ title, subtitle, date, location, content }: TimelineRowProps) => {
   const titleColor = useColorModeValue("primary.400", "secundary.main")

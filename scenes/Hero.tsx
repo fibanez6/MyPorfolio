@@ -7,7 +7,7 @@ import {
   VStack,
   useMediaQuery,
 } from '@chakra-ui/react';
-import Particles from "../components/Particles";
+import Particles from "components/Particles";
 
 const Hero = () => {
   const [isDesktop] = useMediaQuery("(min-width: 1060px)");

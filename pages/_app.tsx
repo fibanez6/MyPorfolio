@@ -1,9 +1,9 @@
 "use client";
 
-import '../styles/globals.css'
+import 'styles/globals.scss'
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../styles/theme/theme";
+import theme from "styles/theme/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

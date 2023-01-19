@@ -1,10 +1,10 @@
 import { Box, Button } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import { getRandom } from "../../utils/random";
+import { getRandom } from "utils/random";
 import { FiSend } from "react-icons/fi";
 import { BeatLoader } from "react-spinners";
-import { suspension, fly, slideX } from "../../styles/theme/frames";
-import { SubmitButtomProps, Position } from "../../types/components/form";
+import { suspension, fly, slideX } from "styles/theme/frames";
+import { SubmitButtomProps, Position } from "types/components/form";
 
 export const SubmitButtom = ({
   label,
@@ -116,6 +116,7 @@ export const SubmitButtom = ({
   return (
     <Button
       ref={buttomRef}
+      aria-label="submit"
       {...background()}
       isLoading={isLoading}
       spinner={<BeatLoader size={8} color="white" />}

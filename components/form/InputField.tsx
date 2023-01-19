@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useField } from "formik";
 import React from "react";
-import { InputFieldProps } from "../../types/components/form";
+import { InputFieldProps } from "types/components/form";
 
 export const InputField = ({
   label,

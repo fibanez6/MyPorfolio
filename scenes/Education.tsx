@@ -1,7 +1,7 @@
 "use client";
 
-import { Section } from "../components/layout/Section";
-import { ExpProps } from "../types/sections/experience";
+import { Section } from "components/layout/Section";
+import { ExpProps } from "types/sections/experience";
 
 const Education = ({jobs} : ExpProps) => {
 

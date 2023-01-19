@@ -5,11 +5,11 @@ import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
 import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
-import { InputField } from "./form/InputField";
-import { TextAreaField } from "./form/TextAreaField";
-import { SubmitButtom } from "./form/SubmitButtom";
+import { InputField } from "components/form/InputField";
+import { TextAreaField } from "components/form/TextAreaField";
+import { SubmitButtom } from "components/form/SubmitButtom";
 import { useState } from "react";
-import { ContactFormProps } from "../types/components/form";
+import { ContactFormProps } from "types/components/form";
 
 const initialValues = {
   name: "",

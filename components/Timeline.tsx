@@ -4,8 +4,8 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/react";
-import { TimelineListProps } from "../types/components/Timeline";
-import TimelineRow from "./TimelineRow";
+import { TimelineListProps } from "types/components/Timeline";
+import TimelineRow from "components/TimelineRow";
 
 
 const Timeline = ({data}: TimelineListProps) => {

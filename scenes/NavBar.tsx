@@ -13,8 +13,8 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { NavLinkProps, NavProps } from "../types/sections/Nav";
-import TabSlider from "../components/TabSlider";
+import { NavLinkProps, NavProps } from "types/sections/Nav";
+import TabSlider from "components/TabSlider";
 
 const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
   const _page = page.toLowerCase();

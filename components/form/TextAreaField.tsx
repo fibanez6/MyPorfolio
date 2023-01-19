@@ -6,7 +6,7 @@ import {
 import { Textarea } from "@chakra-ui/react";
 import { useField } from "formik";
 import React from "react";
-import { TextAreaFieldProps } from "../../types/components/form";
+import { TextAreaFieldProps } from "types/components/form";
 
 export const TextAreaField = ({
   label,

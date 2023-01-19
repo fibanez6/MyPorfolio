@@ -17,9 +17,9 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
-import { Section } from "../components/layout/Section";
-import { CertProps } from "../types/sections/certificate";
-import profileData from "../content/profile-data.json";
+import { Section } from "components/layout/Section";
+import { CertProps } from "types/sections/certificate";
+import profileData from "content/profile-data.json";
 
 const Certificate = ({
   title,

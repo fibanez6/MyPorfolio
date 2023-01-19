@@ -6,9 +6,9 @@ import * as yup from "yup";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { InputField } from "./form/InputField";
-import { TextAreaField } from "./form/TextAreaField";
-import { SubmitButtom } from "./form/SubmitButtom";
-import { ContactFormProps } from "../types/components/form";
+import { TextAreaField } from "components/form/TextAreaField";
+import { SubmitButtom } from "components/form/SubmitButtom";
+import { ContactFormProps } from "types/components/form";
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),

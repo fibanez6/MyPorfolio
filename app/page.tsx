@@ -1,18 +1,18 @@
 "use client";
 
 import { Stack, useMediaQuery } from "@chakra-ui/react";
-import NavBar from "../scenes/NavBar";
-import Certificates from "../scenes/Certificates";
-import Contact from "../scenes/Contact";
-import Experience from "../scenes/Experience";
-import Hero from "../scenes/Hero";
+import NavBar from "scenes/NavBar";
+import Certificates from "scenes/Certificates";
+import Contact from "scenes/Contact";
+import Experience from "scenes/Experience";
+import Hero from "scenes/Hero";
 import { useEffect, useState } from "react";
-import DotNav from "../scenes/DotNav";
+import DotNav from "scenes/DotNav";
 import glob from 'glob';
 import fs from 'fs';
 import matter from 'gray-matter'
-import { MarkdownProps } from "../types/sections/experience";
-import { sort_by_date } from "../utils/date";
+import { MarkdownProps } from "types/sections/experience";
+import { sort_by_date } from "utils/date";
 
 const Pages = ["Hero", "Experience", "Certificates", "Contact"];
 
