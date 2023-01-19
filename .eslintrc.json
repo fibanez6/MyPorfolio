@@ -20,11 +20,7 @@
     "sourceType": "module",
     "project": ["tsconfig.json"]
   },
-  "plugins": [
-    "@typescript-eslint", 
-    "prettier", 
-    "react"
-  ],
+  "plugins": ["@typescript-eslint", "prettier", "react"],
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": 0,
     "@typescript-eslint/explicit-function-return-type": [

@@ -1,4 +1,6 @@
-export const getOffsetPage = (el: HTMLElement): {
+export const getOffsetPage = (
+  el: HTMLElement
+): {
   left: number;
   top: number;
 } => {
@@ -9,7 +11,9 @@ export const getOffsetPage = (el: HTMLElement): {
   };
 };
 
-export const getOffset = (el: HTMLElement): {
+export const getOffset = (
+  el: HTMLElement
+): {
   left: number;
   top: number;
 } => {

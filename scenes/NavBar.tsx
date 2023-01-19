@@ -36,7 +36,11 @@ const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
   );
 };
 
-const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps): ReactElement => {
+const NavBar = ({
+  pages,
+  isTopOfPage,
+  selectedPage
+}: NavProps): ReactElement => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
