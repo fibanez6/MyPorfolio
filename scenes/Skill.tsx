@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 const Skills = () => {
   return (
@@ -10,4 +10,4 @@ const Skills = () => {
   )
 }
 
-export default Skills;
+export default Skills

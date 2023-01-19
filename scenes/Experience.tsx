@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import Timeline from "components/Timeline";
-import { Section } from "components/layout/Section";
-import { useMemo } from "react";
+import Timeline from "components/Timeline"
+import { Section } from "components/layout/Section"
+import { useMemo } from "react"
 import ReactMarkdown from 'react-markdown'
-import { TimelineProps } from "types/components/Timeline";
-import { ExpProps } from "types/sections/experience";
+import { TimelineProps } from "types/components/Timeline"
+import { ExpProps } from "types/sections/experience"
 
 const Experience = ({jobs} : ExpProps) => {
 
@@ -17,15 +17,15 @@ const Experience = ({jobs} : ExpProps) => {
         date: curr.frontmatter.start,
         location: curr.frontmatter.location,
         content: <ReactMarkdown>{curr.html}</ReactMarkdown>,
-      } as any); 
-    }, []);
-  }, [jobs]);
+      } as any) 
+    }, [])
+  }, [jobs])
 
   return (
     <Section id="experience" title="Experience">
       <Timeline data={timelineData}/>
     </Section>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

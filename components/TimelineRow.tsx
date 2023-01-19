@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import {
   Accordion,
@@ -10,11 +10,11 @@ import {
   AccordionPanel,
   Flex,
   useColorModeValue,
-} from "@chakra-ui/react";
-import React from "react";
-import { TimelineRowProps } from "types/components/Timeline";
+} from "@chakra-ui/react"
+import React, { ReactElement } from "react"
+import { TimelineRowProps } from "types/components/Timeline"
 
-const TimelineRow = ({ title, subtitle, date, location, content }: TimelineRowProps) => {
+const TimelineRow = ({ title, subtitle, date, location, content }: TimelineRowProps): ReactElement => {
   const titleColor = useColorModeValue("primary.400", "secundary.main")
 
   return (
@@ -37,7 +37,7 @@ const TimelineRow = ({ title, subtitle, date, location, content }: TimelineRowPr
         textIndent: "-70px",
         border: "2px solid #fff",
         borderRadius: "50%",
-        bg: "linear-gradient(to bottom, #a0aee3 0%, #516acc 100%);",
+        bg: "linear-gradient(to bottom, #a0aee3 0%, #516acc 100%)",
       }}
     >
       <Accordion allowToggle>
@@ -65,7 +65,7 @@ const TimelineRow = ({ title, subtitle, date, location, content }: TimelineRowPr
         </AccordionItem>
       </Accordion>
     </Box>
-  );
-};
+  )
+}
 
-export default TimelineRow;
+export default TimelineRow

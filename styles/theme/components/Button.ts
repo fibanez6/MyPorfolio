@@ -1,6 +1,6 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
-import { theme } from "@chakra-ui/react";
-import { bgMode } from '../color';
+import { ComponentSingleStyleConfig } from '@chakra-ui/react'
+import { theme } from "@chakra-ui/react"
+import { bgMode } from '@theme/color'
 
 const Button = {
   baseStyle: ({ colorMode }) => ({
@@ -26,6 +26,6 @@ const Button = {
       },
     }),
   }
-} as ComponentSingleStyleConfig;
+} as ComponentSingleStyleConfig
 
-export default Button;
+export default Button

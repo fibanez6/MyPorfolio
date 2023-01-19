@@ -1,23 +1,23 @@
-import { ReactElement } from "react";
+import { ReactElement } from "react"
 
 export interface TimelineListProps {
- data: TimelineProps[];
+ data: TimelineProps[]
 }
 
 export interface TimelineProps {
   title: string,
   subtitle: string,
   date: string,
-  location: string;
+  location: string
   content: ReactElement | string,
 }
 
 export interface TimelineRowProps {
-  title: string;
-  subtitle: string;
-  date: string;
-  location: string;
-  content: ReactElement | string;
-  index: number;
-  arrLength: number;
+  title: string
+  subtitle: string
+  date: string
+  location: string
+  content: ReactElement | string
+  index: number
+  arrLength: number
 }

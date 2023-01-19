@@ -1,36 +1,35 @@
-import { GTagManager } from "components/google/GTagManager";
-import NavBar from "scenes/NavBar";
-import Certificates from "scenes/Certificates";
-import Contact from "scenes/Contact";
-import Experience from "scenes/Experience";
-import Hero from "scenes/Hero";
-import { Stack, useMediaQuery } from "@chakra-ui/react";
-import { NextSeo } from "next-seo";
-import { NEXT_SEO_DEFAULT } from "next-seo-config";
-import { useEffect, useState } from "react";
-import useWindowDimension from "hooks/useWindowDimension";
-import DotNav from "scenes/DotNav";
-import { motion } from "framer-motion";
-import glob from 'glob';
-import fs from 'fs';
+import { GTagManager } from "components/google/GTagManager"
+import NavBar from "scenes/NavBar"
+import Certificates from "scenes/Certificates"
+import Contact from "scenes/Contact"
+import Experience from "scenes/Experience"
+import Hero from "scenes/Hero"
+import { Stack, useMediaQuery } from "@chakra-ui/react"
+import { NextSeo } from "next-seo"
+import { NEXT_SEO_DEFAULT } from "next-seo-config"
+import { ReactElement, useEffect, useState } from "react"
+import DotNav from "scenes/DotNav"
+import { motion } from "framer-motion"
+import glob from 'glob'
+import fs from 'fs'
 import matter from 'gray-matter'
-import { MarkdownProps } from "types/sections/experience";
-import { sort_by_date } from "utils/date";
+import { MarkdownProps } from "types/sections/experience"
+import { sort_by_date } from "utils/date"
 
-const Pages = ["Hero", "Experience", "Certificates", "Contact"];
+const Pages = ["Hero", "Experience", "Certificates", "Contact"]
 
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (): Promise<any> => {
   const jobs: MarkdownProps[] = glob.sync("content/jobs/**/*.md").map(file => {
-    const slug = file.replace('.md', '');
-    const readFile = fs.readFileSync(file, 'utf-8');
-    const { data, content } = matter(readFile);
+    const slug = file.replace('.md', '')
+    const readFile = fs.readFileSync(file, 'utf-8')
+    const { data, content } = matter(readFile)
     return {
       slug,
       frontmatter: data,
       html: content
     }
-  });
+  })
 
   return {
     props: {
@@ -40,27 +39,22 @@ export const getStaticProps = async () => {
 }
 
 
-export default function Home({ jobs }: any) {
-  const [selectedPage, setSelectedPage] = useState("hero");
-  const [isTopOfPage, setIsTopOfPage] = useState(true);
-  const [isDesktop] = useMediaQuery("(min-width: 1060px)");
-
-  console.log("isDesktop: " + isDesktop);
-
-  const { width, height } = useWindowDimension();
-  console.log("width: " + width + " height: " + height);
+export default function Home({ jobs }: any): ReactElement {
+  const [selectedPage, setSelectedPage] = useState("hero")
+  const [isTopOfPage, setIsTopOfPage] = useState(true)
+  const [isDesktop] = useMediaQuery("(min-width: 1060px)")
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       if (window.scrollY === 0) {
-        setIsTopOfPage(true);
-        setSelectedPage("hero");
+        setIsTopOfPage(true)
+        setSelectedPage("hero")
       }
-      if (window.scrollY !== 0) setIsTopOfPage(false);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      if (window.scrollY !== 0) setIsTopOfPage(false)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
@@ -113,5 +107,5 @@ export default function Home({ jobs }: any) {
         </motion.div>
       </Stack>
     </>
-  );
+  )
 }

@@ -3,8 +3,8 @@ import type { StyleFunctionProps } from '@chakra-ui/styled-system'
 import { mode } from '@chakra-ui/theme-tools'
 import '@fontsource/open-sans/700.css'
 import '@fontsource/raleway/400.css'
-import components from './components';
-import colors from './color';
+import components from './components'
+import colors from './color'
 
 const theme = extendTheme({
   styles: {
@@ -32,4 +32,4 @@ const theme = extendTheme({
   withDefaultColorScheme({ colorScheme: 'primary' })
 )
 
-export default theme;
+export default theme

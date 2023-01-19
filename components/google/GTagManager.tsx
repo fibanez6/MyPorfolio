@@ -1,6 +1,7 @@
 import Script from 'next/script'
+import { ReactElement } from 'react'
 
-export const GTagManager = () => (
+export const GTagManager = (): ReactElement => (
   <Script
     id='google-tag-manager'
     strategy="afterInteractive"
@@ -15,7 +16,7 @@ export const GTagManager = () => (
   />
 )
 
-export const GTagManagerBody = () => (
+export const GTagManagerBody = (): ReactElement => (
   <noscript>
     <iframe id="asd" src="https://www.googletagmanager.com/ns.html?id=GTM-MQQFNVH"
       height="0" width="0" hidden={true} >

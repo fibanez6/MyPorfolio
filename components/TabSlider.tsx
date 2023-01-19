@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import {
     chakra,
@@ -13,15 +13,15 @@ import { cx } from "@chakra-ui/shared-utils"
 export interface TabSliderProps extends HTMLChakraProps<"span">, ThemingProps<"TabSlider"> { }
 
 export const TabSlider = forwardRef<TabSliderProps, "span">((props, ref) => {
-    const { className, variant, ...rest } = props;
-    const styles = useStyleConfig("TabSlider", { variant });
+    const { className, variant, ...rest } = props
+    const styles = useStyleConfig("TabSlider", { variant })
 
     return <chakra.span
         ref={ref}
         className={cx("fibanez-tabSlider", props.className)}
         __css={styles}
         {...rest}
-    />;
-});
+    />
+})
 
-export default TabSlider;
+export default TabSlider

@@ -1,6 +1,6 @@
-import Link from './Link'; 
-import Button from './Button'; 
-import TabSlider from './TabSlider';
+import Link from './Link' 
+import Button from './Button' 
+import TabSlider from './TabSlider'
 
 export default {
   Button,

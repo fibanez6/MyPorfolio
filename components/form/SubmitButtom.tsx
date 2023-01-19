@@ -1,48 +1,53 @@
-import { Box, Button } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
-import { getRandom } from "utils/random";
-import { FiSend } from "react-icons/fi";
-import { BeatLoader } from "react-spinners";
-import { suspension, fly, slideX } from "styles/theme/frames";
-import { SubmitButtomProps, Position } from "types/components/form";
+import { Box, Button } from "@chakra-ui/react"
+import React, { ReactElement, useEffect, useRef, useState } from "react"
+import { getRandom } from "utils/random"
+import { FiSend } from "react-icons/fi"
+import { BeatLoader } from "react-spinners"
+import { suspension, fly, slideX } from "styles/theme/frames"
+import { SubmitButtomProps, Position } from "types/components/form"
 
 export const SubmitButtom = ({
   label,
   dodge,
   isSuccess,
   isLoading,
-}: SubmitButtomProps) => {
-  const buttomRef = useRef<HTMLButtonElement>(null);
+}: SubmitButtomProps): ReactElement => {
+  const buttomRef = useRef<HTMLButtonElement>()
   const [pos, setPos] = useState<Position>({
     x: undefined,
     y: undefined,
-  });
+  })
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: NodeJS.Timeout
     if (pos.x !== 0 || pos.y !== 0) {
       timer = setTimeout(() => {
-        buttomRef.current!.style.transform = `translate(0px, 0px)`;
-      }, 1000);
+        if (buttomRef.current) {
+          buttomRef.current.style.transform = `translate(0px, 0px)`
+        }
+      }, 1000)
     }
 
     return () => {
-      clearTimeout(timer);
-    };
-  }, [isLoading, isSuccess, pos]);
-
-  var posX: number;
-  var posY: number;
-  const dodgeMouse = () => {
-    if (dodge) {
-      posX ? (posX = 0) : (posX = getRandom(0, 300));
-      posY ? (posY = 0) : (posY = getRandom(0, 300));
-      setPos({ x: posX, y: posY });
-      buttomRef.current!.style.transform = `translate(${-posX}px, ${-posY}px)`;
+      clearTimeout(timer)
     }
-  };
+  }, [isLoading, isSuccess, pos])
 
-  const renderInitButton = () => {
+  let posX: number
+  let posY: number
+  const dodgeMouse = (): void => {
+    if (dodge) {
+      posX ? (posX = 0) : (posX = getRandom(0, 300))
+      posY ? (posY = 0) : (posY = getRandom(0, 300))
+      setPos({ x: posX, y: posY })
+      if (buttomRef.current) {
+        buttomRef.current.style.transform = `translate(${-posX}px, ${-posY}px)`
+      }
+
+    }
+  }
+
+  const renderInitButton = (): ReactElement => {
     return (
       <>
         <Box
@@ -75,10 +80,10 @@ export const SubmitButtom = ({
           {label}
         </Box>
       </>
-    );
-  };
+    )
+  }
 
-  const renderCallbackButton = () => {
+  const renderCallbackButton = (): ReactElement => {
     return (
       <>
         <Box
@@ -103,15 +108,15 @@ export const SubmitButtom = ({
           </Box>
         </Box>
       </>
-    );
-  };
+    )
+  }
 
-  const background = () => {
+  const background = (): any => {
     if (!isLoading && isSuccess !== undefined) {
-      return { bg: isSuccess ? 'tertiary.main' : 'secundary.main'};
+      return { bg: isSuccess ? 'tertiary.main' : 'secundary.main' }
     }
-    return {};
-  };
+    return {}
+  }
 
   return (
     <Button
@@ -127,5 +132,5 @@ export const SubmitButtom = ({
     >
       {isSuccess === undefined ? renderInitButton() : renderCallbackButton()}
     </Button>
-  );
-};
+  )
+}

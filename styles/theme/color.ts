@@ -1,4 +1,4 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
+import { ComponentSingleStyleConfig } from '@chakra-ui/react'
 
 
 export const useColorMode = (colorMode: "light" | "dark") => {
@@ -67,6 +67,6 @@ const Colors = {
         900: "#071610"
     }
 
-} as ComponentSingleStyleConfig;
+} as ComponentSingleStyleConfig
 
-export default Colors;	
+export default Colors	

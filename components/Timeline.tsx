@@ -1,14 +1,15 @@
-'use client';
+'use client'
 
 import {
   Flex,
   Box,
-} from "@chakra-ui/react";
-import { TimelineListProps } from "types/components/Timeline";
-import TimelineRow from "components/TimelineRow";
+} from "@chakra-ui/react"
+import { TimelineListProps } from "types/components/Timeline"
+import TimelineRow from "components/TimelineRow"
+import { ReactElement } from "react"
 
 
-const Timeline = ({data}: TimelineListProps) => {
+const Timeline = ({data}: TimelineListProps): ReactElement => {
 
   return (
     <Box
@@ -41,11 +42,11 @@ const Timeline = ({data}: TimelineListProps) => {
               index={index}
               arrLength={arr.length}
             />
-          );
+          )
         })}
       </Flex>
     </Box>
-  );
-};
+  )
+}
 
-export default Timeline;
+export default Timeline

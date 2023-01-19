@@ -1,6 +1,6 @@
-import { ComponentSingleStyleConfig, keyframes } from '@chakra-ui/react';
-import { bgMode, useColorMode, useHoverColorMode } from '../color';
-import { jello } from '../frames';
+import { ComponentSingleStyleConfig } from '@chakra-ui/react'
+import { bgMode, useColorMode, useHoverColorMode } from '@theme/color'
+import { jello } from '@theme/frames'
 
 const Link = {
   baseStyle: ({ colorMode }) => ({
@@ -60,6 +60,6 @@ const Link = {
     }),
 
   }
-} as ComponentSingleStyleConfig;
+} as ComponentSingleStyleConfig
 
-export default Link;
+export default Link

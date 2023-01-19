@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Accordion,
@@ -8,8 +8,9 @@ import {
   AccordionIcon,
   Box,
 } from '@chakra-ui/react'
+import { ReactElement } from 'react'
 
-const Accordion2 = () => {
+const Accordion2 = (): ReactElement => {
   return (
     <Accordion>
       <AccordionItem>
@@ -46,7 +47,7 @@ const Accordion2 = () => {
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
-  );
-};
+  )
+}
 
-export default Accordion2;
+export default Accordion2

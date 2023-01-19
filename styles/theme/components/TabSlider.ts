@@ -1,5 +1,5 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
-import { bgMode } from '../color';
+import { ComponentSingleStyleConfig } from '@chakra-ui/react'
+import { bgMode } from '@theme/color'
 
 const TabSlider = {
   baseStyle: ({ colorMode }) => ({
@@ -11,6 +11,6 @@ const TabSlider = {
     transition: "left 0.2s ease",
     boxShadow: "0px 10px 10px 5px #569eff",
   })
-} as ComponentSingleStyleConfig;
+} as ComponentSingleStyleConfig
 
-export default TabSlider;
+export default TabSlider

@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import { Formik, FormikHelpers } from "formik";
-import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
-import * as yup from "yup";
-import { BsPerson } from "react-icons/bs";
-import { MdOutlineEmail } from "react-icons/md";
-import { InputField } from "components/form/InputField";
-import { TextAreaField } from "components/form/TextAreaField";
-import { SubmitButtom } from "components/form/SubmitButtom";
-import { useState } from "react";
-import { ContactFormProps } from "types/components/form";
+import { Formik, FormikHelpers } from "formik"
+import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react"
+import * as yup from "yup"
+import { BsPerson } from "react-icons/bs"
+import { MdOutlineEmail } from "react-icons/md"
+import { InputField } from "components/form/InputField"
+import { TextAreaField } from "components/form/TextAreaField"
+import { SubmitButtom } from "components/form/SubmitButtom"
+import { ReactElement, useState } from "react"
+import { ContactFormProps } from "types/components/form"
 
 const initialValues = {
   name: "",
   email: "",
   message: "",
-};
+}
 
 const contactSchema = yup.object().shape({
   name: yup.string().required("Please enter a name"),
@@ -24,34 +24,34 @@ const contactSchema = yup.object().shape({
     .email("Please enter a valid email")
     .required("Please enter an email"),
   message: yup.string().trim().required("Please enter a message"),
-});
+})
 
-const ContactForm = () => {
-  const [isSuccess, setSuccess] = useState<boolean | undefined>();
+const ContactForm = (): ReactElement => {
+  const [isSuccess, setSuccess] = useState<boolean | undefined>()
 
   const handleFormSubmit = async (
     formData: ContactFormProps,
     { setStatus, resetForm }: FormikHelpers<any>
-  ) => {
+  ): Promise<void> => {
     const resp = await fetch("/api/email", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    })
 
-    const response = await resp.json();
-    console.log(response);
+    const response = await resp.json()
+    console.log(response)
 
-    setSuccess(resp.ok);
-    setStatus({ message: response });
-    resetForm();
+    setSuccess(resp.ok)
+    setStatus({ message: response })
+    resetForm()
 
     setTimeout(() => {
-      setSuccess(undefined);
-    }, 5000);
-  };
+      setSuccess(undefined)
+    }, 5000)
+  }
 
   return (
     <Formik
@@ -64,8 +64,6 @@ const ContactForm = () => {
         values,
         isValid,
         isSubmitting,
-        isValidating,
-        errors,
         handleSubmit,
       }) => (
         <form name="contact" onSubmit={handleSubmit}>
@@ -108,7 +106,7 @@ const ContactForm = () => {
         </form>
       )}
     </Formik>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Text,
@@ -12,14 +12,14 @@ import {
   VStack,
   SimpleGrid,
   Center,
-} from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import Image from "next/image";
-import NextLink from "next/link";
-import { motion } from "framer-motion";
-import { Section } from "components/layout/Section";
-import { CertProps } from "types/sections/certificate";
-import profileData from "content/profile-data.json";
+} from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
+import Image from "next/image"
+import NextLink from "next/link"
+import { motion } from "framer-motion"
+import { Section } from "components/layout/Section"
+import { CertProps } from "types/sections/certificate"
+import profileData from "content/profile-data.json"
 
 const Certificate = ({
   title,
@@ -87,11 +87,11 @@ const Certificate = ({
         </CardFooter>
       </Card>
     </motion.div>
-  );
-};
+  )
+}
 
 const Certificates = () => {
-  const certs = profileData.certificates;
+  const certs = profileData.certificates
 
   return (
     <Section id="certificates" title="Certificates">
@@ -110,7 +110,7 @@ const Certificates = () => {
         })}
       </Flex>
     </Section>
-  );
-};
+  )
+}
 
-export default Certificates;
+export default Certificates

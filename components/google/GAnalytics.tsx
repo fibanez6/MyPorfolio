@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-export const GAnalitycs = () => (
+export const GAnalitycs = (): JSX.Element => (
   <>
     <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-K2L5D9XGMB" />
     <Script

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Box,
@@ -11,13 +11,13 @@ import {
   useColorMode,
   IconButton,
   HStack,
-} from "@chakra-ui/react";
-import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { NavLinkProps, NavProps } from "types/sections/Nav";
-import TabSlider from "components/TabSlider";
+} from "@chakra-ui/react"
+import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
+import { NavLinkProps, NavProps } from "types/sections/Nav"
+import TabSlider from "components/TabSlider"
 
 const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
-  const _page = page.toLowerCase();
+  const _page = page.toLowerCase()
 
   return (
     <Link
@@ -26,27 +26,27 @@ const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
       href={`#${_page}`}
       onClick={() => {
         if (typeof onHamburgerIcon == "function") {
-          onHamburgerIcon();
+          onHamburgerIcon()
         }
       }}
     >
       {page}
     </Link>
-  );
-};
+  )
+}
 
 const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode()
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const moveSlider = () => {
-    const capitalized = selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1);
+    const capitalized = selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1)
     const idx = pages.indexOf(capitalized)
     return idx * 8 + idx
   }
 
   const navStyles = () => {
-    let styles = {};
+    let styles = {}
 
     if (!isTopOfPage) {
       styles = {
@@ -63,7 +63,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
         h: "100vh"
       }
     }
-    return styles;
+    return styles
   }
 
   return (
@@ -161,7 +161,7 @@ const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
       </Box>
 
     </Box>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

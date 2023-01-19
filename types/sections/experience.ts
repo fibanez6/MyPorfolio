@@ -1,11 +1,11 @@
 export interface ExpProps {
-  jobs: MarkdownProps[];
+  jobs: MarkdownProps[]
 }
 
 export interface MarkdownProps {
-  slug: string;
+  slug: string
   frontmatter: {
-    [key: string]: any;
-  };
-  html: string;
+    [key: string]: any
+  }
+  html: string
 }

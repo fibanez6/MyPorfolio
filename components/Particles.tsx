@@ -1,23 +1,22 @@
-'use client';
+'use client'
 
-import { useColorModeValue } from "@chakra-ui/react";
-import React, { useCallback, useMemo } from "react";
-import Particles from "react-particles";
-import type { Engine } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
-import { useToken } from '@chakra-ui/react'
+import { useColorModeValue, useToken } from "@chakra-ui/react"
+import React, { ReactElement, useCallback, useMemo } from "react"
+import Particles from "react-particles"
+import type { Engine } from "tsparticles-engine"
+import { loadSlim } from "tsparticles-slim"
 
 interface ParticleProps {
-    id: string;
+    id: string
 }
 
-const ParticlesComponent = ({ id }: ParticleProps) => {
-    const [dot_light, dot_dark, link_light, link_dark] = useToken('colors', [
+const ParticlesComponent = ({ id }: ParticleProps): ReactElement => {
+    const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [
         'primary.60', 'secundary.200',
         'primary.50', 'secundary.100'
     ])
-    const dot_color = useColorModeValue(dot_light, dot_dark);
-    const link_color = useColorModeValue(link_light, link_dark);
+    const dotcolor = useColorModeValue(dotlight, dotdark)
+    const linkcolor = useColorModeValue(linklight, linkdark)
     const options = useMemo(() => {
         return {
             particles: {
@@ -35,7 +34,7 @@ const ParticlesComponent = ({ id }: ParticleProps) => {
                 links: {
                     enable: true,
                     speed: { min: 1, max: 3 },
-                    color: link_color,
+                    color: linkcolor,
                 },
                 size: {
                     value: { min: 1, max: 3 }
@@ -44,7 +43,7 @@ const ParticlesComponent = ({ id }: ParticleProps) => {
                     value: { min: 0.2, max: 0.7 }
                 },
                 color: {
-                    value: [dot_color],
+                    value: [dotcolor],
                 },
             },
             fullScreen: {
@@ -85,16 +84,16 @@ const ParticlesComponent = ({ id }: ParticleProps) => {
                 }
             },
             retina_detect: true
-        };
-    }, [dot_color]);
+        }
+    }, [dotcolor, linkcolor])
 
     const particlesInit = useCallback(async (engine: Engine) => {
-        await loadSlim(engine);
-    }, []);
+        await loadSlim(engine)
+    }, [])
 
     return (
         <Particles id={id} init={particlesInit} options={options}/>
     )
-};
+}
 
-export default ParticlesComponent;
+export default ParticlesComponent

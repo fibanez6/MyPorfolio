@@ -1,10 +1,11 @@
-'use client';
+'use client'
 
-import { Button, Flex, Heading, Input, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Button, Flex, Heading, Input, useColorMode, useColorModeValue } from "@chakra-ui/react"
+import { ReactElement } from "react"
 
-const LoginForm = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const formBackground = useColorModeValue("gray.100", "gray.700");
+const LoginForm = (): ReactElement => {
+  const { toggleColorMode } = useColorMode()
+  const formBackground = useColorModeValue("gray.100", "gray.700")
 
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center">
@@ -20,4 +21,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm;
+export default LoginForm

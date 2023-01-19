@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Box,
@@ -10,17 +10,18 @@ import {
   HStack,
   useColorModeValue,
   Flex,
-} from "@chakra-ui/react";
-import { MdEmail, MdLocationOn } from "react-icons/md";
-import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs";
-import ContactForm from "components/ContactForm";
-import { motion } from "framer-motion";
-import { Section } from "components/layout/Section";
-import Link from "next/link";
-import profileData from "content/profile-data.json";
+} from "@chakra-ui/react"
+import { MdEmail, MdLocationOn } from "react-icons/md"
+import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from "react-icons/bs"
+import ContactForm from "components/ContactForm"
+import { motion } from "framer-motion"
+import { Section } from "components/layout/Section"
+import Link from "next/link"
+import profileData from "content/profile-data.json"
+import { ReactElement } from "react"
 
 
-const ICON_MAP: { [name: string]: JSX.Element } = {
+const ICON_MAP: { [name: string]: ReactElement } = {
   "linkedin": <BsLinkedin size="28px" />,
   "github": <BsGithub size="28px" />,
   "twitter": <BsTwitter size="28px" />,
@@ -28,13 +29,13 @@ const ICON_MAP: { [name: string]: JSX.Element } = {
 }
 
 const Contact = () => {
-  const { social, email, location } = profileData.contact;
-  const bgColor = useColorModeValue("primary.70", "gray.500");
-  const contactColor = useColorModeValue("gray.50", "gray.500");
-  const subtitleColor = useColorModeValue("primary.700", "secundary.600");
-  const IconColor = useColorModeValue("#1970F1", "gray.900");
-  const socialColor = useColorModeValue("#0D74FF", "gray.900");
-  const formTextColor = useColorModeValue("#0B0E3F", "gray.900");
+  const { social, email, location } = profileData.contact
+  const bgColor = useColorModeValue("primary.70", "gray.500")
+  const contactColor = useColorModeValue("gray.50", "gray.500")
+  const subtitleColor = useColorModeValue("primary.700", "secundary.600")
+  const IconColor = useColorModeValue("#1970F1", "gray.900")
+  const socialColor = useColorModeValue("#0D74FF", "gray.900")
+  const formTextColor = useColorModeValue("#0B0E3F", "gray.900")
 
   return (
     <Section id="contact" className="section-contact">
@@ -85,6 +86,7 @@ const Contact = () => {
             {social.map(s => {
               return (
                 <Link
+                  key={s.name}
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -123,7 +125,7 @@ const Contact = () => {
         </VStack>
       </Flex>
     </Section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

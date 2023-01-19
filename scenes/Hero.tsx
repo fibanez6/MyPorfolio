@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import {
   Stack,
@@ -6,11 +6,11 @@ import {
   Text,
   VStack,
   useMediaQuery,
-} from '@chakra-ui/react';
-import Particles from "components/Particles";
+} from '@chakra-ui/react'
+import Particles from "components/Particles"
 
 const Hero = () => {
-  const [isDesktop] = useMediaQuery("(min-width: 1060px)");
+  const [isDesktop] = useMediaQuery("(min-width: 1060px)")
 
   return (
     <section id="hero" className="section-hero">
@@ -60,4 +60,4 @@ const Hero = () => {
   )
 }
 
-export default Hero;
+export default Hero
