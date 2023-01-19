@@ -1,6 +1,6 @@
 "use client";
 
-import "./globals.css";
+import "./globals.scss";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "styles/theme/theme";
 import { GTagManager } from "components/google/GTagManager";

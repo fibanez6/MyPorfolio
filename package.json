@@ -15,7 +15,7 @@
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint --report-unused-disable-directives .",
-    "stylelint": "stylelint **/*.css"
+    "stylelint": "stylelint **/*.scss"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.15",
