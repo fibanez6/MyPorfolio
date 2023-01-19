@@ -1,23 +1,21 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
-
-export const useColorMode = (colorMode: 'light' | 'dark'): string => {
+export const getColorMode = (colorMode: 'light' | 'dark'): string => {
   return colorMode === 'light' ? 'primary.main' : 'secundary.main';
 };
 
-export const useHoverColorMode = (colorMode: 'light' | 'dark'): string => {
+export const getHoverColorMode = (colorMode: 'light' | 'dark'): string => {
   return colorMode === 'light' ? 'primary.50' : 'secundary.50';
 };
 
 export const bgMode = (colorMode: 'light' | 'dark'): any => {
   return {
-    bg: useColorMode(colorMode),
+    bg: getColorMode(colorMode),
     _hover: {
-      bg: useHoverColorMode(colorMode)
+      bg: getHoverColorMode(colorMode)
     }
   };
 };
 
-const Colors: ComponentSingleStyleConfig = {
+const Colors: any = {
   primary: {
     main: '#0D74FF',
     50: '#86baff',
@@ -65,6 +63,6 @@ const Colors: ComponentSingleStyleConfig = {
     800: '#0e2b21',
     900: '#071610'
   }
-} as ComponentSingleStyleConfig;
+};
 
 export default Colors;

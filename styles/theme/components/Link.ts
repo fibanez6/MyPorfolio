@@ -1,5 +1,5 @@
 import { ComponentSingleStyleConfig } from '@chakra-ui/react';
-import { bgMode, useColorMode, useHoverColorMode } from '@theme/color';
+import { bgMode, getColorMode, getHoverColorMode } from '@theme/color';
 import { jello } from '@theme/frames';
 
 const Link: ComponentSingleStyleConfig = {
@@ -13,7 +13,7 @@ const Link: ComponentSingleStyleConfig = {
   }),
   variants: {
     solid: ({ colorMode }) => ({
-      bg: useColorMode(colorMode),
+      bg: getColorMode(colorMode),
       display: 'inline-flex',
       color: 'var(--chakra-colors-white)',
       borderRadius: 'var(--chakra-radii-md)',
@@ -27,7 +27,7 @@ const Link: ComponentSingleStyleConfig = {
       verticalAlign: 'middle',
       alignItems: 'center',
       _hover: {
-        bg: useHoverColorMode(colorMode)
+        bg: getHoverColorMode(colorMode)
       }
     }),
     dot: ({ colorMode }) => ({
