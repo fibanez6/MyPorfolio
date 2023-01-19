@@ -1,14 +1,12 @@
-import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { ColorModeScript } from "@chakra-ui/react";
-import { GTagManager } from "../components/google/GTagManager";
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import { ColorModeScript } from '@chakra-ui/react';
 
 export default class Document extends NextDocument {
-  render() {
+  render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="en">
         <Head />
         <body>
-          <GTagManager />
           <ColorModeScript />
           <Main />
           <NextScript />

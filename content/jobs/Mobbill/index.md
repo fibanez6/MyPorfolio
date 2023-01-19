@@ -4,7 +4,7 @@ company: 'Mobbill UK LTD'
 location: 'London, United Kingdom'
 start: 'Apr 2016'
 end: 'Jan 2018'
-url: 'http://www.mobbill.com/'
+website: 'http://www.mobbill.com/'
 ---
 
 - Responsible for designing and implementing a single API integration to provide mobile payment technologies in different countries.

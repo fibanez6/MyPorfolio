@@ -4,7 +4,7 @@ company: 'BJSS UK'
 location: 'London, United Kingdom'
 start: 'Jan 2018'
 end: 'Apr 2022'
-url: 'https://www.bjss.com/'
+website: 'https://www.bjss.com/'
 ---
 
 - Valuable contribution in government and financial projects.

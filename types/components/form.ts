@@ -1,6 +1,6 @@
-import { ButtonProps } from "@chakra-ui/react";
-import { FieldHookConfig } from "formik";
-import { ReactNode } from "react";
+import { ButtonProps } from '@chakra-ui/react';
+import { FieldHookConfig } from 'formik';
+import { ReactNode } from 'react';
 
 export interface ContactFormProps {
   name: string;
@@ -27,7 +27,7 @@ export type SubmitButtomProps = ButtonProps & {
   isLoading?: boolean;
 };
 
-export type Position = {
+export interface Position {
   x: number | undefined;
   y: number | undefined;
-};
+}

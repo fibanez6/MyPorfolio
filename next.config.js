@@ -3,11 +3,14 @@ const path = require('path');
 
 const nextConfig = {
   experimental: {
-    appDir: false,
+    appDir: false
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, 'styles')]
   },
-}
+  eslint: {
+    dirs: ['pages', 'components', 'lib', 'utils', 'types', 'scenes', 'hooks', 'styles']
+  }
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

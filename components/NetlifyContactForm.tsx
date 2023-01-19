@@ -1,38 +1,41 @@
-"use client";
+'use client';
 
-import { Formik } from "formik";
-import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react";
-import * as yup from "yup";
-import { BsPerson } from "react-icons/bs";
-import { MdOutlineEmail } from "react-icons/md";
-import { InputField } from "./form/InputField";
-import { TextAreaField } from "./form/TextAreaField";
-import { SubmitButtom } from "./form/SubmitButtom";
-import { ContactFormProps } from "../types/components/form";
+import { Formik } from 'formik';
+import { FormControl, VStack, Flex, Spacer } from '@chakra-ui/react';
+import * as yup from 'yup';
+import { BsPerson } from 'react-icons/bs';
+import { MdOutlineEmail } from 'react-icons/md';
+import { InputField } from './form/InputField';
+import { TextAreaField } from 'components/form/TextAreaField';
+import { SubmitButtom } from 'components/form/SubmitButtom';
+import { ContactFormProps } from 'types/components/form';
+import { ReactElement } from 'react';
 
 const contactSchema = yup.object().shape({
-  name: yup.string().required("Please enter a name"),
+  name: yup.string().required('Please enter a name'),
   email: yup
     .string()
-    .email("Please enter a valid email")
-    .required("Please enter an email"),
-  message: yup.string().trim().required("Please enter a message"),
+    .email('Please enter a valid email')
+    .required('Please enter an email'),
+  message: yup.string().trim().required('Please enter a message')
 });
 
 const initialValues = {
-  name: "",
-  email: "",
-  message: "",
+  name: '',
+  email: '',
+  message: ''
 };
 
-const NetlifyContactForm = () => {
-  const handleFormSubmit = async (formData: ContactFormProps) => {
-    const resp = await fetch("/api/email", {
-      method: "POST",
+const NetlifyContactForm = (): ReactElement => {
+  const handleFormSubmit = async (
+    formData: ContactFormProps
+  ): Promise<void> => {
+    const resp = await fetch('/api/email', {
+      method: 'POST',
       body: JSON.stringify(formData),
       headers: {
-        "Content-Type": "application/json",
-      },
+        'Content-Type': 'application/json'
+      }
     });
 
     const response = await resp.json();

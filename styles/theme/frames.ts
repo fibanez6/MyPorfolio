@@ -1,4 +1,4 @@
-import { keyframes } from "@emotion/react";
+import { keyframes } from '@emotion/react';
 
 export const jello = keyframes`
       0% { transform: scale3d(1, 1, 1); }

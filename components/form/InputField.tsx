@@ -1,17 +1,17 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormLabel,
-} from "@chakra-ui/form-control";
+  FormLabel
+} from '@chakra-ui/form-control';
 import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
-} from "@chakra-ui/react";
-import { useField } from "formik";
-import React from "react";
-import { InputFieldProps } from "../../types/components/form";
+  InputRightElement
+} from '@chakra-ui/react';
+import { useField } from 'formik';
+import React, { ReactElement } from 'react';
+import { InputFieldProps } from 'types/components/form';
 
 export const InputField = ({
   label,
@@ -19,23 +19,23 @@ export const InputField = ({
   leftElement,
   rightElement,
   ...props
-}: InputFieldProps) => {
+}: InputFieldProps): ReactElement => {
   const [field, meta] = useField(props);
   const hasError = Boolean(meta.touched && meta.error);
 
-  const renderLeftElement = () => {
+  const renderLeftElement = (): ReactElement | undefined => {
     if (leftElement)
       return (
         <InputLeftElement pointerEvents="none">{leftElement}</InputLeftElement>
       );
   };
 
-  const renderRightElement = () => {
+  const renderRightElement = (): ReactElement | undefined => {
     if (rightElement)
       return (
         <InputRightElement pointerEvents="none">
-          {" "}
-          {leftElement}{" "}
+          {' '}
+          {leftElement}{' '}
         </InputRightElement>
       );
   };

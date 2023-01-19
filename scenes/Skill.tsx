@@ -1,13 +1,15 @@
 'use client';
 
-const SkillsSection = () => {
+import { ReactElement } from 'react';
+
+const Skills = (): ReactElement => {
   return (
-    <section className='section-skill'>
+    <section className="section-skill">
       <div className="container">
         <h1>Skill</h1>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SkillsSection;
+export default Skills;
