@@ -22,6 +22,7 @@
     "@chakra-ui/icons": "^2.0.15",
     "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@fontsource/open-sans": "^4.5.13",
     "@fontsource/raleway": "^4.5.11",
     "@next/font": "^13.1.1",
@@ -35,6 +36,7 @@
     "react-particles": "^2.7.1",
     "react-spinners": "^0.13.7",
     "react-tsparticles": "^2.7.1",
+    "sharp": "^0.31.3",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -57,15 +59,15 @@
     "glob": "^8.1.0",
     "gray-matter": "^4.0.3",
     "husky": "^8.0.3",
+    "next-seo": "^5.15.0",
     "prettier": "2.8.3",
     "sass": "^1.57.1",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-sass-guidelines": "^9.0.1",
-    "typescript": "^4.9.4",
-    "next-seo": "^5.15.0",
     "tsparticles": "^2.7.1",
-    "tsparticles-engine": "^2.7.1"
+    "tsparticles-engine": "^2.7.1",
+    "typescript": "^4.9.4"
   }
 }
