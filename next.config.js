@@ -3,11 +3,11 @@ const path = require('path');
 
 const nextConfig = {
   experimental: {
-    appDir: false,
+    appDir: false
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-}
+    includePaths: [path.join(__dirname, 'styles')]
+  }
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

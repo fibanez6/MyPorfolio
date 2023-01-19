@@ -15,10 +15,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Stack
 
-* [Next 13.0.1](https://nextjs.org/)
-* [React 18.2.0](https://reactjs.org/)
-* [Typescript 4.8.4](https://www.typescriptlang.org/)
-* [Chakra-ui 2.4.6](https://chakra-ui.com/)
+- [Next 13.0.1](https://nextjs.org/)
+- [React 18.2.0](https://reactjs.org/)
+- [Typescript 4.8.4](https://www.typescriptlang.org/)
+- [Chakra-ui 2.4.6](https://chakra-ui.com/)
 
 ## Getting Started
 

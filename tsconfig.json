@@ -20,9 +20,9 @@
         "name": "next"
       }
     ],
-    "paths" : {
+    "paths": {
       "@/*": ["./src/*"],
-      "@theme/*": ["styles/theme/*"],
+      "@theme/*": ["styles/theme/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,11 +1,11 @@
 export interface NavProps {
-  pages: string[]
-  isTopOfPage?: boolean
-  selectedPage: string
+  pages: string[];
+  isTopOfPage?: boolean;
+  selectedPage: string;
 }
 
 export interface NavLinkProps {
-  page: string
-  isSelected: boolean
-  onHamburgerIcon?: () => void
+  page: string;
+  isSelected: boolean;
+  onHamburgerIcon?: () => void;
 }

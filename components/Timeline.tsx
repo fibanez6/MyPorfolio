@@ -1,33 +1,24 @@
-'use client'
+'use client';
 
-import {
-  Flex,
-  Box,
-} from "@chakra-ui/react"
-import { TimelineListProps } from "types/components/Timeline"
-import TimelineRow from "components/TimelineRow"
-import { ReactElement } from "react"
+import { Flex, Box } from '@chakra-ui/react';
+import { TimelineListProps } from 'types/components/Timeline';
+import TimelineRow from 'components/TimelineRow';
+import { ReactElement } from 'react';
 
-
-const Timeline = ({data}: TimelineListProps): ReactElement => {
-
+const Timeline = ({ data }: TimelineListProps): ReactElement => {
   return (
-    <Box
-      className="container-timeline"
-      p="1rem"
-      maxHeight="100%"
-    >
+    <Box className="container-timeline" p="1rem" maxHeight="100%">
       <Flex
         direction="column"
         position="relative"
         _after={{
-          bg: "linear-gradient(to top, rgba(134, 214, 243, 0) 0%, rgba(81, 106, 204, 1) 100%)",
+          bg: 'linear-gradient(to top, rgba(134, 214, 243, 0) 0%, rgba(81, 106, 204, 1) 100%)',
           content: '""',
-          left: "55px",
-          width: "2px",
+          left: '55px',
+          width: '2px',
           top: 0,
-          height: "100%",
-          position: "absolute",
+          height: '100%',
+          position: 'absolute'
         }}
       >
         {data.map((row, index, arr) => {
@@ -42,11 +33,11 @@ const Timeline = ({data}: TimelineListProps): ReactElement => {
               index={index}
               arrLength={arr.length}
             />
-          )
+          );
         })}
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

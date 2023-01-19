@@ -1,57 +1,57 @@
-"use client"
+'use client';
 
-import { Formik, FormikHelpers } from "formik"
-import { FormControl, VStack, Flex, Spacer } from "@chakra-ui/react"
-import * as yup from "yup"
-import { BsPerson } from "react-icons/bs"
-import { MdOutlineEmail } from "react-icons/md"
-import { InputField } from "components/form/InputField"
-import { TextAreaField } from "components/form/TextAreaField"
-import { SubmitButtom } from "components/form/SubmitButtom"
-import { ReactElement, useState } from "react"
-import { ContactFormProps } from "types/components/form"
+import { Formik, FormikHelpers } from 'formik';
+import { FormControl, VStack, Flex, Spacer } from '@chakra-ui/react';
+import * as yup from 'yup';
+import { BsPerson } from 'react-icons/bs';
+import { MdOutlineEmail } from 'react-icons/md';
+import { InputField } from 'components/form/InputField';
+import { TextAreaField } from 'components/form/TextAreaField';
+import { SubmitButtom } from 'components/form/SubmitButtom';
+import { ReactElement, useState } from 'react';
+import { ContactFormProps } from 'types/components/form';
 
 const initialValues = {
-  name: "",
-  email: "",
-  message: "",
-}
+  name: '',
+  email: '',
+  message: ''
+};
 
 const contactSchema = yup.object().shape({
-  name: yup.string().required("Please enter a name"),
+  name: yup.string().required('Please enter a name'),
   email: yup
     .string()
-    .email("Please enter a valid email")
-    .required("Please enter an email"),
-  message: yup.string().trim().required("Please enter a message"),
-})
+    .email('Please enter a valid email')
+    .required('Please enter an email'),
+  message: yup.string().trim().required('Please enter a message')
+});
 
 const ContactForm = (): ReactElement => {
-  const [isSuccess, setSuccess] = useState<boolean | undefined>()
+  const [isSuccess, setSuccess] = useState<boolean | undefined>();
 
   const handleFormSubmit = async (
     formData: ContactFormProps,
     { setStatus, resetForm }: FormikHelpers<any>
   ): Promise<void> => {
-    const resp = await fetch("/api/email", {
-      method: "POST",
+    const resp = await fetch('/api/email', {
+      method: 'POST',
       body: JSON.stringify(formData),
       headers: {
-        "Content-Type": "application/json",
-      },
-    })
+        'Content-Type': 'application/json'
+      }
+    });
 
-    const response = await resp.json()
-    console.log(response)
+    const response = await resp.json();
+    console.log(response);
 
-    setSuccess(resp.ok)
-    setStatus({ message: response })
-    resetForm()
+    setSuccess(resp.ok);
+    setStatus({ message: response });
+    resetForm();
 
     setTimeout(() => {
-      setSuccess(undefined)
-    }, 5000)
-  }
+      setSuccess(undefined);
+    }, 5000);
+  };
 
   return (
     <Formik
@@ -60,12 +60,7 @@ const ContactForm = (): ReactElement => {
       validationSchema={contactSchema}
       validateOnMount={true}
     >
-      {({
-        values,
-        isValid,
-        isSubmitting,
-        handleSubmit,
-      }) => (
+      {({ values, isValid, isSubmitting, handleSubmit }) => (
         <form name="contact" onSubmit={handleSubmit}>
           <VStack spacing={5} align="stretch">
             <InputField
@@ -106,7 +101,7 @@ const ContactForm = (): ReactElement => {
         </form>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

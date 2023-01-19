@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import "./globals.scss";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "styles/theme/theme";
-import { GTagManager } from "components/google/GTagManager";
+import './globals.scss';
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from 'styles/theme/theme';
+import { GTagManager } from 'components/google/GTagManager';
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

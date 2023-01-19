@@ -1,99 +1,99 @@
-'use client'
+'use client';
 
-import { useColorModeValue, useToken } from "@chakra-ui/react"
-import React, { ReactElement, useCallback, useMemo } from "react"
-import Particles from "react-particles"
-import type { Engine } from "tsparticles-engine"
-import { loadSlim } from "tsparticles-slim"
+import { useColorModeValue, useToken } from '@chakra-ui/react';
+import React, { ReactElement, useCallback, useMemo } from 'react';
+import Particles from 'react-particles';
+import type { Engine } from 'tsparticles-engine';
+import { loadSlim } from 'tsparticles-slim';
 
 interface ParticleProps {
-    id: string
+  id: string;
 }
 
 const ParticlesComponent = ({ id }: ParticleProps): ReactElement => {
-    const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [
-        'primary.60', 'secundary.200',
-        'primary.50', 'secundary.100'
-    ])
-    const dotcolor = useColorModeValue(dotlight, dotdark)
-    const linkcolor = useColorModeValue(linklight, linkdark)
-    const options = useMemo(() => {
-        return {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                },
-                links: {
-                    enable: true,
-                    speed: { min: 1, max: 3 },
-                    color: linkcolor,
-                },
-                size: {
-                    value: { min: 1, max: 3 }
-                },
-                opacity: {
-                    value: { min: 0.2, max: 0.7 }
-                },
-                color: {
-                    value: [dotcolor],
-                },
-            },
-            fullScreen: {
-                enable: false,
-            },
-            interactivity: {
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse"
-                    },
-                },
-                resize: true,
-            },
-            modes: {
-                grab: {
-                    distance: 400,
-                    line_linked: {
-                        opacity: 1
-                    }
-                },
-                bubble: {
-                    distance: 400,
-                    size: 40,
-                    duration: 2,
-                    opacity: 8,
-                    speed: 3
-                },
-                repulse: {
-                    distance: 200,
-                    duration: 0.4
-                },
-                push: {
-                    particles_nb: 4
-                },
-                remove: {
-                    particles_nb: 2
-                }
-            },
-            retina_detect: true
+  const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [
+    'primary.60',
+    'secundary.200',
+    'primary.50',
+    'secundary.100'
+  ]);
+  const dotcolor = useColorModeValue(dotlight, dotdark);
+  const linkcolor = useColorModeValue(linklight, linkdark);
+  const options = useMemo(() => {
+    return {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        move: {
+          enable: true,
+          speed: 1
+        },
+        links: {
+          enable: true,
+          speed: { min: 1, max: 3 },
+          color: linkcolor
+        },
+        size: {
+          value: { min: 1, max: 3 }
+        },
+        opacity: {
+          value: { min: 0.2, max: 0.7 }
+        },
+        color: {
+          value: [dotcolor]
         }
-    }, [dotcolor, linkcolor])
+      },
+      fullScreen: {
+        enable: false
+      },
+      interactivity: {
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'repulse'
+          }
+        },
+        resize: true
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1
+          }
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4
+        },
+        push: {
+          particles_nb: 4
+        },
+        remove: {
+          particles_nb: 2
+        }
+      },
+      retina_detect: true
+    };
+  }, [dotcolor, linkcolor]);
 
-    const particlesInit = useCallback(async (engine: Engine) => {
-        await loadSlim(engine)
-    }, [])
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
+  }, []);
 
-    return (
-        <Particles id={id} init={particlesInit} options={options}/>
-    )
-}
+  return <Particles id={id} init={particlesInit} options={options} />;
+};
 
-export default ParticlesComponent
+export default ParticlesComponent;

@@ -1,20 +1,20 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormLabel,
-} from "@chakra-ui/form-control"
-import { Textarea } from "@chakra-ui/react"
-import { useField } from "formik"
-import React, { ReactElement } from "react"
-import { TextAreaFieldProps } from "types/components/form"
+  FormLabel
+} from '@chakra-ui/form-control';
+import { Textarea } from '@chakra-ui/react';
+import { useField } from 'formik';
+import React, { ReactElement } from 'react';
+import { TextAreaFieldProps } from 'types/components/form';
 
 export const TextAreaField = ({
   label,
   placeholder,
   ...props
-}: TextAreaFieldProps) : ReactElement => {
-  const [field, meta] = useField(props)
-  const hasError = Boolean(meta.touched && meta.error)
+}: TextAreaFieldProps): ReactElement => {
+  const [field, meta] = useField(props);
+  const hasError = Boolean(meta.touched && meta.error);
 
   return (
     <FormControl isInvalid={hasError}>
@@ -29,5 +29,5 @@ export const TextAreaField = ({
       <Textarea id={field.name} placeholder={placeholder} {...field} />
       <FormErrorMessage>{meta.error}</FormErrorMessage>
     </FormControl>
-  )
-}
+  );
+};

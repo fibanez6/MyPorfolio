@@ -1,17 +1,17 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormLabel,
-} from "@chakra-ui/form-control"
+  FormLabel
+} from '@chakra-ui/form-control';
 import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
-} from "@chakra-ui/react"
-import { useField } from "formik"
-import React, { ReactElement } from "react"
-import { InputFieldProps } from "types/components/form"
+  InputRightElement
+} from '@chakra-ui/react';
+import { useField } from 'formik';
+import React, { ReactElement } from 'react';
+import { InputFieldProps } from 'types/components/form';
 
 export const InputField = ({
   label,
@@ -20,25 +20,25 @@ export const InputField = ({
   rightElement,
   ...props
 }: InputFieldProps): ReactElement => {
-  const [field, meta] = useField(props)
-  const hasError = Boolean(meta.touched && meta.error)
+  const [field, meta] = useField(props);
+  const hasError = Boolean(meta.touched && meta.error);
 
-  const renderLeftElement = (): ReactElement | undefined  => {
+  const renderLeftElement = (): ReactElement | undefined => {
     if (leftElement)
       return (
         <InputLeftElement pointerEvents="none">{leftElement}</InputLeftElement>
-      )
-  }
+      );
+  };
 
   const renderRightElement = (): ReactElement | undefined => {
     if (rightElement)
       return (
         <InputRightElement pointerEvents="none">
-          {" "}
-          {leftElement}{" "}
+          {' '}
+          {leftElement}{' '}
         </InputRightElement>
-      )
-  }
+      );
+  };
 
   return (
     <FormControl isInvalid={hasError}>
@@ -57,5 +57,5 @@ export const InputField = ({
       </InputGroup>
       <FormErrorMessage>{meta.error}</FormErrorMessage>
     </FormControl>
-  )
-}
+  );
+};

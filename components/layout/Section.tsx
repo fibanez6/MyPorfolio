@@ -2,20 +2,20 @@ import {
   forwardRef,
   omitThemingProps,
   useStyleConfig
-} from '@chakra-ui/system'
-import { cx } from '@chakra-ui/shared-utils'
-import { Center, Heading, Stack } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-import { SectionProps } from 'types/components/layout'
+} from '@chakra-ui/system';
+import { cx } from '@chakra-ui/shared-utils';
+import { Center, Heading, Stack } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { SectionProps } from 'types/components/layout';
 
 export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
-  const { className, title, children, ...rest } = omitThemingProps(props)
-  const styles = useStyleConfig('Section', props)
+  const { className, title, children, ...rest } = omitThemingProps(props);
+  const styles = useStyleConfig('Section', props);
 
   return (
     <motion.div
-      initial='hidden'
-      whileInView='visible'
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5 }}
       variants={{
@@ -24,7 +24,7 @@ export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
       }}
     >
       <Stack
-        as='section'
+        as="section"
         className={cx('fibanez-section', className)}
         ref={ref}
         p={'3rem 0'}
@@ -34,15 +34,15 @@ export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
           maxWidth: '100%'
         }}
       >
-        {title &&
+        {title && (
           <Center pb={10}>
-            <Heading fontSize='3xl'>{title}</Heading>
+            <Heading fontSize="3xl">{title}</Heading>
           </Center>
-        }
+        )}
         {children}
       </Stack>
     </motion.div>
-  )
-})
+  );
+});
 
-Section.displayName = 'Section'
+Section.displayName = 'Section';

@@ -1,22 +1,22 @@
-"use client"
+'use client';
 
-import { Link, VStack } from "@chakra-ui/react"
-import { NavLinkProps, NavProps } from "types/sections/Nav"
+import { Link, VStack } from '@chakra-ui/react';
+import { NavLinkProps, NavProps } from 'types/sections/Nav';
 
-const  DotLink = ({ page, isSelected }: NavLinkProps) => {
-  const _page = page.toLowerCase()
+const DotLink = ({ page, isSelected }: NavLinkProps) => {
+  const _page = page.toLowerCase();
   return (
-    <Link 
-      href={`#${_page}`} 
-      variant={isSelected ? "dotSelected" : "dot"} 
+    <Link
+      href={`#${_page}`}
+      variant={isSelected ? 'dotSelected' : 'dot'}
       aria-label={_page}
     />
-  )
-}
+  );
+};
 
 const DotNav = ({ pages, selectedPage }: NavProps) => {
   return (
-    <VStack position={"fixed"} gap={0.5} top="55%" right="1.75rem">
+    <VStack position={'fixed'} gap={0.5} top="55%" right="1.75rem">
       {pages.map((page) => (
         <DotLink
           key={page}
@@ -25,7 +25,7 @@ const DotNav = ({ pages, selectedPage }: NavProps) => {
         />
       ))}
     </VStack>
-  )
-}
+  );
+};
 
-export default DotNav
+export default DotNav;

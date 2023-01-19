@@ -15,7 +15,8 @@
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint --report-unused-disable-directives .",
-    "stylelint": "stylelint **/*.scss"
+    "stylelint": "stylelint **/*.scss",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.15",
@@ -59,6 +60,7 @@
     "eslint-plugin-react": "^7.32.1",
     "glob": "^8.1.0",
     "gray-matter": "^4.0.3",
+    "prettier": "2.8.3",
     "sass": "^1.57.1",
     "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0",
