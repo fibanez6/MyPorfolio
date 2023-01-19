@@ -4,3 +4,5 @@ out
 public
 scripts
 *.config.js
+_chakra-defautl.tsx
+next-env.d.ts

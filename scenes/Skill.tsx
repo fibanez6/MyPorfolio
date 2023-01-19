@@ -1,6 +1,8 @@
 'use client';
 
-const Skills = () => {
+import { ReactElement } from 'react';
+
+const Skills = (): ReactElement => {
   return (
     <section className="section-skill">
       <div className="container">

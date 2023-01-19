@@ -1,9 +1,10 @@
 'use client';
 
 import { Section } from 'components/layout/Section';
+import { ReactElement } from 'react';
 import { ExpProps } from 'types/sections/experience';
 
-const Education = ({ jobs }: ExpProps) => {
+const Education = ({ jobs }: ExpProps): ReactElement => {
   return <Section id="education" title="Education"></Section>;
 };
 

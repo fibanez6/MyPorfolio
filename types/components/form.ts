@@ -27,7 +27,7 @@ export type SubmitButtomProps = ButtonProps & {
   isLoading?: boolean;
 };
 
-export type Position = {
+export interface Position {
   x: number | undefined;
   y: number | undefined;
-};
+}

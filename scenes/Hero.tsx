@@ -2,8 +2,9 @@
 
 import { Stack, Flex, Text, VStack, useMediaQuery } from '@chakra-ui/react';
 import Particles from 'components/Particles';
+import { ReactElement } from 'react';
 
-const Hero = () => {
+const Hero = (): ReactElement => {
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
 
   return (

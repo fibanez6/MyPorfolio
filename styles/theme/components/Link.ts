@@ -2,7 +2,7 @@ import { ComponentSingleStyleConfig } from '@chakra-ui/react';
 import { bgMode, useColorMode, useHoverColorMode } from '@theme/color';
 import { jello } from '@theme/frames';
 
-const Link = {
+const Link: ComponentSingleStyleConfig = {
   baseStyle: ({ colorMode }) => ({
     textAlign: 'center',
     rounded: 'md',
@@ -58,6 +58,6 @@ const Link = {
       }
     })
   }
-} as ComponentSingleStyleConfig;
+};
 
 export default Link;

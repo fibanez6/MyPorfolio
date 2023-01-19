@@ -2,12 +2,12 @@
 
 import Timeline from 'components/Timeline';
 import { Section } from 'components/layout/Section';
-import { useMemo } from 'react';
+import { ReactElement, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { TimelineProps } from 'types/components/Timeline';
 import { ExpProps } from 'types/sections/experience';
 
-const Experience = ({ jobs }: ExpProps) => {
+const Experience = ({ jobs }: ExpProps): ReactElement => {
   const timelineData: TimelineProps[] = useMemo(() => {
     return jobs.reduce((acc, curr) => {
       return acc.concat({

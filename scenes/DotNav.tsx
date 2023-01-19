@@ -1,9 +1,10 @@
 'use client';
 
 import { Link, VStack } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 import { NavLinkProps, NavProps } from 'types/sections/Nav';
 
-const DotLink = ({ page, isSelected }: NavLinkProps) => {
+const DotLink = ({ page, isSelected }: NavLinkProps): ReactElement => {
   const _page = page.toLowerCase();
   return (
     <Link
@@ -14,14 +15,14 @@ const DotLink = ({ page, isSelected }: NavLinkProps) => {
   );
 };
 
-const DotNav = ({ pages, selectedPage }: NavProps) => {
+const DotNav = ({ pages, selectedPage }: NavProps): ReactElement => {
   return (
     <VStack position={'fixed'} gap={0.5} top="55%" right="1.75rem">
       {pages.map((page) => (
         <DotLink
           key={page}
           page={page}
-          isSelected={page.toLowerCase() == selectedPage}
+          isSelected={page.toLowerCase() === selectedPage}
         />
       ))}
     </VStack>

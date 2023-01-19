@@ -27,7 +27,7 @@ const ICON_MAP: { [name: string]: ReactElement } = {
   instagram: <BsInstagram size="28px" />
 };
 
-const Contact = () => {
+const Contact = (): ReactElement => {
   const { social, email, location } = profileData.contact;
   const bgColor = useColorModeValue('primary.70', 'gray.500');
   const contactColor = useColorModeValue('gray.50', 'gray.500');

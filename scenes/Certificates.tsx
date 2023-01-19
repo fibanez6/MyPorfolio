@@ -20,6 +20,7 @@ import { motion } from 'framer-motion';
 import { Section } from 'components/layout/Section';
 import { CertProps } from 'types/sections/certificate';
 import profileData from 'content/profile-data.json';
+import { ReactElement } from 'react';
 
 const Certificate = ({
   title,
@@ -30,7 +31,7 @@ const Certificate = ({
   image,
   link,
   index
-}: CertProps) => {
+}: CertProps): ReactElement => {
   return (
     <motion.div
       initial="hidden"
@@ -90,7 +91,7 @@ const Certificate = ({
   );
 };
 
-const Certificates = () => {
+const Certificates = (): ReactElement => {
   const certs = profileData.certificates;
 
   return (

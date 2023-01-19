@@ -1,4 +1,7 @@
-export const getOffsetPage = (el: HTMLElement) => {
+export const getOffsetPage = (el: HTMLElement): {
+  left: number;
+  top: number;
+} => {
   const rect = el.getBoundingClientRect();
   return {
     left: rect.left + window.scrollX,
@@ -6,7 +9,10 @@ export const getOffsetPage = (el: HTMLElement) => {
   };
 };
 
-export const getOffset = (el: HTMLElement) => {
+export const getOffset = (el: HTMLElement): {
+  left: number;
+  top: number;
+} => {
   const rect = el.getBoundingClientRect();
   return {
     left: rect.left,

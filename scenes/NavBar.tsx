@@ -15,8 +15,9 @@ import {
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { NavLinkProps, NavProps } from 'types/sections/Nav';
 import TabSlider from 'components/TabSlider';
+import { ReactElement } from 'react';
 
-const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
+const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
   const _page = page.toLowerCase();
 
   return (
@@ -25,7 +26,7 @@ const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
       minW="9rem"
       href={`#${_page}`}
       onClick={() => {
-        if (typeof onHamburgerIcon == 'function') {
+        if (typeof onHamburgerIcon === 'function') {
           onHamburgerIcon();
         }
       }}
@@ -35,18 +36,18 @@ const NavLink = ({ page, onHamburgerIcon }: NavLinkProps) => {
   );
 };
 
-const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps) => {
+const NavBar = ({ pages, isTopOfPage, selectedPage }: NavProps): ReactElement => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const moveSlider = () => {
+  const moveSlider = (): number => {
     const capitalized =
       selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1);
     const idx = pages.indexOf(capitalized);
     return idx * 8 + idx;
   };
 
-  const navStyles = () => {
+  const navStyles = (): any => {
     let styles = {};
 
     if (!isTopOfPage) {
