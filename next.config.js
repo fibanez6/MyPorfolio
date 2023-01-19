@@ -9,7 +9,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')]
   },
   eslint: {
-    dirs: ['pages', 'components', 'utils']
+    dirs: ['pages', 'components', 'utils', 'types', 'scenes', 'hooks']
   }
 };
 

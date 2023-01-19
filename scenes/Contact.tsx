@@ -20,7 +20,7 @@ import Link from 'next/link';
 import profileData from 'content/profile-data.json';
 import { ReactElement } from 'react';
 
-const ICON_MAP: { [name: string]: ReactElement } = {
+const ICON_MAP: { [name in string]: ReactElement } = {
   linkedin: <BsLinkedin size="28px" />,
   github: <BsGithub size="28px" />,
   twitter: <BsTwitter size="28px" />,

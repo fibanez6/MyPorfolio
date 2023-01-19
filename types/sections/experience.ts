@@ -5,7 +5,7 @@ export interface ExpProps {
 export interface MarkdownProps {
   slug: string;
   frontmatter: {
-    [key: string]: any;
+    [key in string]: any;
   };
   html: string;
 }

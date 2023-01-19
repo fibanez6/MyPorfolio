@@ -43,6 +43,8 @@ const NavBar = ({
 }: NavProps): ReactElement => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const bgColor = useColorModeValue('#02054Bc9', 'gray.900');
+  const topPageColor = useColorModeValue('gray.100', 'gray.900');
 
   const moveSlider = (): number => {
     const capitalized =
@@ -57,14 +59,14 @@ const NavBar = ({
     if (!isTopOfPage) {
       styles = {
         ...styles,
-        bg: useColorModeValue('#02054Bc9', 'gray.900'),
+        bg: bgColor,
         backdropFilter: 'blur(7.6px)'
       };
     }
     if (isOpen) {
       styles = {
         ...styles,
-        bg: useColorModeValue('#02054Bc9', 'gray.900'),
+        bg: bgColor,
         backdropFilter: 'blur(7.6px)',
         h: '100vh'
       };
@@ -76,9 +78,7 @@ const NavBar = ({
     <Box
       position={'fixed'}
       top={0}
-      color={
-        isTopOfPage ? useColorModeValue('gray.100', 'gray.900') : 'gray.100'
-      }
+      color={isTopOfPage ? topPageColor : 'gray.100'}
       w={'full'}
       h="3.6rem"
       px={4}
