@@ -8,8 +8,9 @@
   "extends": [
     "eslint:recommended",
     "standard-with-typescript",
-    "plugin:react/recommended",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended",
+    "plugin:react/recommended",
     "prettier",
     "next",
     "next/core-web-vitals",
@@ -24,6 +25,7 @@
   "plugins": [
     "@next/next",
     "@typescript-eslint",
+    "jest",
     "prettier",
     "react",
     "simple-import-sort"
