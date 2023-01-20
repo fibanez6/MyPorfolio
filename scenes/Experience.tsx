@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { TimelineProps } from 'types/components/Timeline';
 import { ExpProps } from 'types/sections/experience';
 
-const Experience = ({ jobs }: ExpProps): ReactElement => {
+const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
   const timelineData: TimelineProps[] = useMemo(() => {
     return jobs.reduce((acc, curr) => {
       return acc.concat({

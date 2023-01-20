@@ -13,7 +13,9 @@ const customJestConfig = {
     // Handle module aliases (this will be automatically configured for you soon)
     '^@/components/(.*)$': '<rootDir>/components/$1',
 
-    '^@/pages/(.*)$': '<rootDir>/pages/$1'
+    '^@/pages/(.*)$': '<rootDir>/pages/$1',
+    'react-markdown':
+      '<rootDir>/node_modules/react-markdown/react-markdown.min.js'
   },
   testEnvironment: 'jest-environment-jsdom'
 };
