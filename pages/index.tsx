@@ -1,11 +1,8 @@
 import { Stack, useMediaQuery } from '@chakra-ui/react';
-import { GTagManager } from 'components/google/GTagManager';
-import seoData from 'content/seo-data.json';
 import { motion } from 'framer-motion';
 import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
-import { NextSeo } from 'next-seo';
 import { ReactElement, useEffect, useState } from 'react';
 import Certificates from 'scenes/Certificates';
 import Contact from 'scenes/Contact';
@@ -58,11 +55,6 @@ export default function Home({ jobs }: any): ReactElement {
 
   return (
     <>
-      {/* HEAD */}
-      <NextSeo {...seoData} useAppDir={false} />
-      <GTagManager />
-
-      {/* BODY */}
       <NavBar
         pages={Pages.slice(1)}
         isTopOfPage={isTopOfPage}
