@@ -3,7 +3,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import TimelineRow from 'components/TimelineRow';
 import type { ReactElement } from 'react';
-import type { TimelineListProps } from 'types/components/Timeline';
+import type { TimelineListProps } from 'types/components/timeline';
 
 const Timeline = ({ data }: TimelineListProps): ReactElement => {
   return (

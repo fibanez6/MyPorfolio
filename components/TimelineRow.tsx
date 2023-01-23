@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import type { ReactElement } from 'react';
 import React from 'react';
-import type { TimelineRowProps } from 'types/components/Timeline';
+import type { TimelineRowProps } from 'types/components/timeline';
 
 const TimelineRow = ({
   title,

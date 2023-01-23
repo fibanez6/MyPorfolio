@@ -20,7 +20,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import type { ReactElement } from 'react';
-import type { CertProps } from 'types/sections/certificate';
+import type { CertProps } from 'types/scenes/certificate';
 
 const Certificate = ({
   title,

@@ -1,12 +1,8 @@
 'use client';
 
 import { cx } from '@chakra-ui/shared-utils';
-import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/system';
 import { chakra, forwardRef, useStyleConfig } from '@chakra-ui/system';
-
-export interface TabSliderProps
-  extends HTMLChakraProps<'span'>,
-    ThemingProps<'TabSlider'> {}
+import type { TabSliderProps } from 'types/components/tabSlider';
 
 export const TabSlider = forwardRef<TabSliderProps, 'span'>((props, ref) => {
   const { className, variant, ...rest } = props;

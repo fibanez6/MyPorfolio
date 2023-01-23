@@ -11,7 +11,7 @@ import DotNav from 'scenes/DotNav';
 import Experience from 'scenes/Experience';
 import Hero from 'scenes/Hero';
 import NavBar from 'scenes/NavBar';
-import type { MarkdownProps } from 'types/sections/experience';
+import type { MarkdownProps } from 'types/scenes/experience';
 import { sortbByDate } from 'utils/date';
 
 const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];

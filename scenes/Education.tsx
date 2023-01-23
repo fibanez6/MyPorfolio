@@ -2,7 +2,7 @@
 
 import { Section } from 'components/layout/Section';
 import type { ReactElement } from 'react';
-import type { ExpProps } from 'types/sections/experience';
+import type { ExpProps } from 'types/scenes/experience';
 
 const Education = ({ jobs }: ExpProps): ReactElement => {
   return <Section id="education" title="Education"></Section>;

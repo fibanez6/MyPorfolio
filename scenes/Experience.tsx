@@ -5,8 +5,8 @@ import Timeline from 'components/Timeline';
 import type { ReactElement } from 'react';
 import { useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
-import type { TimelineProps } from 'types/components/Timeline';
-import type { ExpProps } from 'types/sections/experience';
+import type { TimelineProps } from 'types/components/timeline';
+import type { ExpProps } from 'types/scenes/experience';
 
 const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
   const timelineData: TimelineProps[] = useMemo(() => {
