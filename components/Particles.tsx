@@ -3,7 +3,7 @@
 import { useColorModeValue, useToken } from '@chakra-ui/react';
 import type { ReactElement } from 'react';
 import React, { useCallback, useMemo } from 'react';
-import Particles from 'react-particles';
+import { Particles } from 'react-particles';
 import type { Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim';
 import type { ParticleProps } from 'types/components/particles';
