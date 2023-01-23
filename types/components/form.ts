@@ -1,6 +1,6 @@
-import { ButtonProps } from '@chakra-ui/react';
-import { FieldHookConfig } from 'formik';
-import { ReactNode } from 'react';
+import type { ButtonProps } from '@chakra-ui/react';
+import type { FieldHookConfig } from 'formik';
+import type { ReactNode } from 'react';
 
 export interface ContactFormProps {
   name: string;

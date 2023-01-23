@@ -6,7 +6,7 @@ import {
   useStyleConfig
 } from '@chakra-ui/system';
 import { motion } from 'framer-motion';
-import { SectionProps } from 'types/components/layout';
+import type { SectionProps } from 'types/components/layout';
 
 export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
   const { className, title, children, ...rest } = omitThemingProps(props);

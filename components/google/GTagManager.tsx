@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 export const GTagManager = (): ReactElement => (
   <Script

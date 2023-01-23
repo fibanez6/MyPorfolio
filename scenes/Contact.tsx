@@ -16,7 +16,7 @@ import { Section } from 'components/layout/Section';
 import profileData from 'content/profile-data.json';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { MdEmail, MdLocationOn } from 'react-icons/md';
 

@@ -19,8 +19,8 @@ import profileData from 'content/profile-data.json';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { ReactElement } from 'react';
-import { CertProps } from 'types/sections/certificate';
+import type { ReactElement } from 'react';
+import type { CertProps } from 'types/sections/certificate';
 
 const Certificate = ({
   title,

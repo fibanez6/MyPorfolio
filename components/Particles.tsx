@@ -1,7 +1,8 @@
 'use client';
 
 import { useColorModeValue, useToken } from '@chakra-ui/react';
-import React, { ReactElement, useCallback, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import Particles from 'react-particles';
 import type { Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim';

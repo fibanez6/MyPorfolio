@@ -2,13 +2,12 @@
 
 import 'styles/globals.scss';
 
-import { ChakraProvider } from '@chakra-ui/react';
 import { GTagManager } from 'components/google/GTagManager';
+import ChakraApp from 'components/pages/ChakraApp';
 import seoData from 'content/seo-data.json';
 import type { AppProps } from 'next/app';
 import { NextSeo } from 'next-seo';
-import { ReactElement } from 'react';
-import theme from 'styles/theme/theme';
+import type { ReactElement } from 'react';
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   return (
@@ -18,9 +17,9 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       <GTagManager />
 
       {/* BODY */}
-      <ChakraProvider resetCSS theme={theme}>
+      <ChakraApp>
         <Component {...pageProps} />
-      </ChakraProvider>
+      </ChakraApp>
     </>
   );
 }

@@ -8,7 +8,7 @@ import {
   useColorMode,
   useColorModeValue
 } from '@chakra-ui/react';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 const LoginForm = (): ReactElement => {
   const { toggleColorMode } = useColorMode();

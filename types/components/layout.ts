@@ -1,4 +1,4 @@
-import { HTMLChakraProps, ThemingProps } from '@chakra-ui/react';
+import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react';
 
 export interface SectionProps
   extends HTMLChakraProps<'div'>,

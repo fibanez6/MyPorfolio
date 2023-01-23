@@ -10,8 +10,9 @@ import {
   InputRightElement
 } from '@chakra-ui/react';
 import { useField } from 'formik';
-import React, { ReactElement } from 'react';
-import { InputFieldProps } from 'types/components/form';
+import type { ReactElement } from 'react';
+import React from 'react';
+import type { InputFieldProps } from 'types/components/form';
 
 export const InputField = ({
   label,

@@ -2,10 +2,11 @@
 
 import { Section } from 'components/layout/Section';
 import Timeline from 'components/Timeline';
-import { ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import { useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { TimelineProps } from 'types/components/Timeline';
-import { ExpProps } from 'types/sections/experience';
+import type { TimelineProps } from 'types/components/Timeline';
+import type { ExpProps } from 'types/sections/experience';
 
 const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
   const timelineData: TimelineProps[] = useMemo(() => {

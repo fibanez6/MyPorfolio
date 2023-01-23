@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
-import { ReactElement, useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
+import { useEffect, useState } from 'react';
 import Certificates from 'scenes/Certificates';
 import Contact from 'scenes/Contact';
 import DotNav from 'scenes/DotNav';
 import Experience from 'scenes/Experience';
 import Hero from 'scenes/Hero';
 import NavBar from 'scenes/NavBar';
-import { MarkdownProps } from 'types/sections/experience';
+import type { MarkdownProps } from 'types/sections/experience';
 import { sortbByDate } from 'utils/date';
 
 const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];

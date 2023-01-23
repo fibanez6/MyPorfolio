@@ -4,11 +4,13 @@ import { Flex, FormControl, Spacer, VStack } from '@chakra-ui/react';
 import { InputField } from 'components/form/InputField';
 import { SubmitButtom } from 'components/form/SubmitButtom';
 import { TextAreaField } from 'components/form/TextAreaField';
-import { Formik, FormikHelpers } from 'formik';
-import { ReactElement, useState } from 'react';
+import type { FormikHelpers } from 'formik';
+import { Formik } from 'formik';
+import type { ReactElement } from 'react';
+import { useState } from 'react';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
-import { ContactFormProps } from 'types/components/form';
+import type { ContactFormProps } from 'types/components/form';
 import * as yup from 'yup';
 
 const initialValues = {

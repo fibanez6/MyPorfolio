@@ -11,8 +11,9 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react';
-import React, { ReactElement } from 'react';
-import { TimelineRowProps } from 'types/components/Timeline';
+import type { ReactElement } from 'react';
+import React from 'react';
+import type { TimelineRowProps } from 'types/components/Timeline';
 
 const TimelineRow = ({
   title,
