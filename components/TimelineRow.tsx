@@ -70,7 +70,7 @@ const TimelineRow = ({
           </h2>
           <AccordionPanel
             pb={4}
-            fontSize="sm"
+            fontSize="md"
             fontWeight="normal"
             fontFamily="Source Sans Pro"
           >

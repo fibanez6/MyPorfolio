@@ -1,17 +1,11 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import type { FC } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import theme from 'styles/theme';
 
-interface Props {
-  children: React.ReactNode;
-}
+const StyledApp = ({ children }: { children: ReactNode }): ReactElement => (
+  <ChakraProvider resetCSS theme={theme}>
+    {children}
+  </ChakraProvider>
+);
 
-const ChakraApp: FC<Props> = ({ children }) => {
-  return (
-    <ChakraProvider resetCSS theme={theme}>
-      {children}
-    </ChakraProvider>
-  );
-};
-
-export default ChakraApp;
+export default StyledApp;

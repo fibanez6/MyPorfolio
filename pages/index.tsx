@@ -1,8 +1,9 @@
 import { Stack, useMediaQuery } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import SceneWithMotion from 'components/pages/SceneWithMotion';
 import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
+import type { GetStaticProps, InferGetServerSidePropsType } from 'next';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import Certificates from 'scenes/Certificates';
@@ -16,7 +17,7 @@ import { sortbByDate } from 'utils/date';
 
 const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];
 
-export const getStaticProps = async (): Promise<any> => {
+export const getStaticProps: GetStaticProps = async () => {
   const jobs: MarkdownProps[] = glob
     .sync('content/jobs/**/*.md')
     .map((file) => {
@@ -37,7 +38,9 @@ export const getStaticProps = async (): Promise<any> => {
   };
 };
 
-export default function Home({ jobs }: any): ReactElement {
+export default function Home({
+  jobs
+}: InferGetServerSidePropsType<typeof getStaticProps>): ReactElement {
   const [selectedPage, setSelectedPage] = useState('hero');
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
@@ -63,12 +66,9 @@ export default function Home({ jobs }: any): ReactElement {
       />
       {isDesktop && <DotNav pages={Pages} selectedPage={selectedPage} />}
 
-      <motion.div
-        viewport={{ amount: 'all' }}
-        onViewportEnter={() => setSelectedPage('hero')}
-      >
+      <SceneWithMotion onViewportEnter={() => setSelectedPage('hero')}>
         <Hero />
-      </motion.div>
+      </SceneWithMotion>
       <Stack
         as="main"
         minH="100vh"
@@ -78,24 +78,17 @@ export default function Home({ jobs }: any): ReactElement {
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
         _last={{ pb: 10 }}
       >
-        <motion.div
-          viewport={{ amount: 'all' }}
-          onViewportEnter={() => setSelectedPage('experience')}
-        >
+        <SceneWithMotion onViewportEnter={() => setSelectedPage('experience')}>
           <Experience jobs={jobs} />
-        </motion.div>
-        <motion.div
-          viewport={{ amount: 'all' }}
+        </SceneWithMotion>
+        <SceneWithMotion
           onViewportEnter={() => setSelectedPage('certificates')}
         >
           <Certificates />
-        </motion.div>
-        <motion.div
-          viewport={{ amount: 'all' }}
-          onViewportEnter={() => setSelectedPage('contact')}
-        >
+        </SceneWithMotion>
+        <SceneWithMotion onViewportEnter={() => setSelectedPage('contact')}>
           <Contact />
-        </motion.div>
+        </SceneWithMotion>
       </Stack>
     </>
   );
