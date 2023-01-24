@@ -39,7 +39,7 @@ export default function Home({
   const [selectedPage, setSelectedPage] = useState('hero');
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
-  const sections = Object.keys(SECTIONS);
+  const sectionNames = Object.keys(SECTIONS);
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -73,12 +73,12 @@ export default function Home({
   return (
     <>
       <NavBar
-        pages={sections.slice(1)}
+        pages={sectionNames.slice(1)}
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
       />
       {isDesktop && (
-        <DynamicDotNav pages={sections} selectedPage={selectedPage} />
+        <DynamicDotNav pages={sectionNames} selectedPage={selectedPage} />
       )}
       {renderSections({ hero: true })}
       <Stack

@@ -30,7 +30,7 @@ const ICON_MAP: { [name in string]: ReactElement } = {
 const Contact = (): ReactElement => {
   const { social, email, location } = profileData.contact;
   const bgColor = useColorModeValue('primary.70', 'gray.500');
-  const contactColor = useColorModeValue('gray.50', 'gray.500');
+  const contactColor = useColorModeValue('gray.50', 'whiteAlpha.900');
   const subtitleColor = useColorModeValue('primary.700', 'secundary.600');
   const IconColor = useColorModeValue('#1970F1', 'gray.900');
   const socialColor = useColorModeValue('#0D74FF', 'gray.900');
