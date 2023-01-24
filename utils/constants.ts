@@ -4,7 +4,7 @@ import type { Sections } from 'types/utils/sections';
 
 export const DEFAULT_LOCALE = 'en';
 
-export const SECTIONS_CONTENT: Sections = {
+export const SECTIONS: Sections = {
   hero: {
     Component: dynamic(() => import('scenes/Hero')),
     isHero: true

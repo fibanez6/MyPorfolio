@@ -9,7 +9,7 @@ import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import NavBar from 'scenes/NavBar';
 import type { MarkdownProps } from 'types/scenes/experience';
-import { SECTIONS_CONTENT } from 'utils/constants';
+import { SECTIONS } from 'utils/constants';
 import { sortbByDate } from 'utils/date';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -39,7 +39,7 @@ export default function Home({
   const [selectedPage, setSelectedPage] = useState('hero');
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
-  const sections = Object.keys(SECTIONS_CONTENT);
+  const sections = Object.keys(SECTIONS);
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -54,12 +54,12 @@ export default function Home({
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/promise-function-async
-  const DynamicDotNav = dynamic(() => import('../scenes/DotNav'), {
+  const DynamicDotNav = dynamic(() => import('scenes/DotNav'), {
     ssr: false
   });
 
   const renderSections = ({ hero = false }): ReactElement[] =>
-    Object.entries(SECTIONS_CONTENT)
+    Object.entries(SECTIONS)
       .filter(([_, { isHero }]) => (hero ? isHero : !isHero))
       .map(([id, { Component }]) => {
         const props = id === 'experience' ? { jobs } : {};
