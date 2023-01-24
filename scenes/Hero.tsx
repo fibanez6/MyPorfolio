@@ -12,7 +12,7 @@ const Hero = (): ReactElement => {
       <Flex
         w={'full'}
         h={'100vh'}
-        backgroundImage={'url(./media/hero.jpg)'}
+        backgroundImage={'url(./media/hero.webp)'}
         backgroundSize={'cover'}
         backgroundPosition={'center center'}
         position={'relative'}

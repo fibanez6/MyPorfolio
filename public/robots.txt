@@ -1,5 +1,2 @@
 User-agent: *
 Allow: /
-
-
-sitemap: /sitemap-file.xml

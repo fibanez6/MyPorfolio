@@ -4,18 +4,13 @@ import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
 import type { GetStaticProps, InferGetServerSidePropsType } from 'next';
+import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
-import Certificates from 'scenes/Certificates';
-import Contact from 'scenes/Contact';
-import DotNav from 'scenes/DotNav';
-import Experience from 'scenes/Experience';
-import Hero from 'scenes/Hero';
 import NavBar from 'scenes/NavBar';
 import type { MarkdownProps } from 'types/scenes/experience';
+import { SECTIONS_CONTENT } from 'utils/constants';
 import { sortbByDate } from 'utils/date';
-
-const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];
 
 export const getStaticProps: GetStaticProps = async () => {
   const jobs: MarkdownProps[] = glob
@@ -44,6 +39,7 @@ export default function Home({
   const [selectedPage, setSelectedPage] = useState('hero');
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
+  const sections = Object.keys(SECTIONS_CONTENT);
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -57,18 +53,34 @@ export default function Home({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
+  const DynamicDotNav = dynamic(() => import('../scenes/DotNav'), {
+    ssr: false
+  });
+
+  const renderSections = ({ hero = false }): ReactElement[] =>
+    Object.entries(SECTIONS_CONTENT)
+      .filter(([_, { isHero }]) => (hero ? isHero : !isHero))
+      .map(([id, { Component }]) => {
+        const props = id === 'experience' ? { jobs } : {};
+        return (
+          <SceneWithMotion key={id} onViewportEnter={() => setSelectedPage(id)}>
+            <Component {...props} />
+          </SceneWithMotion>
+        );
+      });
+
   return (
     <>
       <NavBar
-        pages={Pages.slice(1)}
+        pages={sections.slice(1)}
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
       />
-      {isDesktop && <DotNav pages={Pages} selectedPage={selectedPage} />}
-
-      <SceneWithMotion onViewportEnter={() => setSelectedPage('hero')}>
-        <Hero />
-      </SceneWithMotion>
+      {isDesktop && (
+        <DynamicDotNav pages={sections} selectedPage={selectedPage} />
+      )}
+      {renderSections({ hero: true })}
       <Stack
         as="main"
         minH="100vh"
@@ -78,17 +90,7 @@ export default function Home({
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
         _last={{ pb: 10 }}
       >
-        <SceneWithMotion onViewportEnter={() => setSelectedPage('experience')}>
-          <Experience jobs={jobs} />
-        </SceneWithMotion>
-        <SceneWithMotion
-          onViewportEnter={() => setSelectedPage('certificates')}
-        >
-          <Certificates />
-        </SceneWithMotion>
-        <SceneWithMotion onViewportEnter={() => setSelectedPage('contact')}>
-          <Contact />
-        </SceneWithMotion>
+        {renderSections({ hero: false })}
       </Stack>
     </>
   );

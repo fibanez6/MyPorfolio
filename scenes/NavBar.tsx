@@ -24,6 +24,7 @@ const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
     <Link
       p={2}
       minW="9rem"
+      textTransform="capitalize"
       href={`#${_page}`}
       onClick={() => {
         if (typeof onHamburgerIcon === 'function') {
@@ -47,9 +48,7 @@ const NavBar = ({
   const topPageColor = useColorModeValue('gray.100', 'gray.900');
 
   const moveSlider = (): number => {
-    const capitalized =
-      selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1);
-    const idx = pages.indexOf(capitalized);
+    const idx = pages.indexOf(selectedPage);
     return idx * 8 + idx;
   };
 
