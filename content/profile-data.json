@@ -5,7 +5,7 @@
       "subtitle": "Associate (DVA-C01)",
       "description": "Amazon Web Services (AWS)",
       "credentialId": "FXHJ72T1Q111Q3WY",
-      "image": "/media/AWS-Certified-Developer-Associate.png",
+      "image": "/media/AWS-Certified-Developer-Associate.webp",
       "alt": "AWS Certified Developer Associate",
       "date": "August 2022",
       "link": "https://aw.certmetrics.com/amazon/public/verification.aspx"
@@ -15,7 +15,7 @@
       "subtitle": "Associate (SAA-C02)",
       "description": "Amazon Web Services (AWS)",
       "credentialId": "MNW36P7BNEEQQPSW",
-      "image": "/media/AWS-Certified-Solutions-Architect-Associate.png",
+      "image": "/media/AWS-Certified-Solutions-Architect-Associate.webp",
       "alt": "AWS Certified Solutions Architect Associate",
       "date": "August 2022",
       "link": "https://aw.certmetrics.com/amazon/public/verification.aspx"
@@ -27,7 +27,7 @@
       "location": "Madrid, Spain",
       "institution": "Universidad Politécnica de Madrid",
       "year": 2014,
-      "image": "/media/upm_logo.png",
+      "image": "/media/upm_logo.webp",
       "website": "https://www.upm.es/"
     },
     {
@@ -35,7 +35,7 @@
       "location": "Madrid, Spain",
       "institution": "Universidad Politécnica de Madrid",
       "year": 2011,
-      "image": "/media/upm_logo.png",
+      "image": "/media/upm_logo.webp",
       "website": "https://www.upm.es/"
     }
   ],
