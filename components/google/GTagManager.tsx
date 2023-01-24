@@ -12,7 +12,7 @@ export const GTagManager = (): ReactElement => (
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${process.env.gTagManager}');`
+          })(window,document,'script','dataLayer','${process.env.G_TAG_MANAGER}');`
     }}
   />
 );
@@ -21,7 +21,7 @@ export const GTagManagerBody = (): ReactElement => (
   <noscript>
     <iframe
       id="asd"
-      src={`https://www.googletagmanager.com/ns.html?id=${process.env.gTagManager}`}
+      src={`https://www.googletagmanager.com/ns.html?id=${process.env.G_TAG_MANAGER}`}
       height="0"
       width="0"
       hidden={true}

@@ -2,11 +2,11 @@
 const path = require('path');
 
 const nextConfig = {
+  env: {
+    G_TAG_MANAGER: process.env.G_TAG_MANAGER
+  },
   experimental: {
     appDir: false
-  },
-  env: {
-    gTagManager: 'GTM-MQQFNVH'
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
