@@ -7,7 +7,8 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement
+  InputRightElement,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { useField } from 'formik';
 import type { ReactElement } from 'react';
@@ -23,23 +24,15 @@ export const InputField = ({
 }: InputFieldProps): ReactElement => {
   const [field, meta] = useField(props);
   const hasError = Boolean(meta.touched && meta.error);
+  const borderColor = useColorModeValue('inherit', 'gray.400');
 
-  const renderLeftElement = (): ReactElement | undefined => {
-    if (leftElement)
-      return (
-        <InputLeftElement pointerEvents="none">{leftElement}</InputLeftElement>
-      );
-  };
+  const renderLeftElement = (): ReactElement => (
+    <InputLeftElement pointerEvents="none">{leftElement}</InputLeftElement>
+  );
 
-  const renderRightElement = (): ReactElement | undefined => {
-    if (rightElement)
-      return (
-        <InputRightElement pointerEvents="none">
-          {' '}
-          {leftElement}{' '}
-        </InputRightElement>
-      );
-  };
+  const renderRightElement = (): ReactElement => (
+    <InputRightElement pointerEvents="none">{rightElement}</InputRightElement>
+  );
 
   return (
     <FormControl isInvalid={hasError}>
@@ -51,10 +44,10 @@ export const InputField = ({
       >
         {label}
       </FormLabel>
-      <InputGroup borderColor="#E0E1E7">
-        {renderLeftElement()}
+      <InputGroup borderColor={borderColor}>
+        {leftElement && renderLeftElement()}
         <Input id={field.name} placeholder={placeholder} {...field} />
-        {renderRightElement()}
+        {rightElement && renderRightElement()}
       </InputGroup>
       <FormErrorMessage>{meta.error}</FormErrorMessage>
     </FormControl>

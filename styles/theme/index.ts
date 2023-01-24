@@ -2,8 +2,6 @@ import '@fontsource/open-sans/700.css';
 import '@fontsource/raleway/400.css';
 
 import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
-import type { StyleFunctionProps } from '@chakra-ui/styled-system';
-import { mode } from '@chakra-ui/theme-tools';
 
 import colors from './color';
 import components from './components';
@@ -11,19 +9,36 @@ import components from './components';
 const theme = extendTheme(
   {
     styles: {
-      global: (props: StyleFunctionProps) => ({
+      global: {
         body: {
-          color: mode('gray.800', 'whiteAlpha.900')(props),
-          bg: mode('whiteAlpha.900', 'gray.800')(props),
-          lineHeight: 'base'
+          color: 'gray.800',
+          bg: 'whiteAlpha.900',
+          lineHeight: 'base',
+          _dark: {
+            color: 'whiteAlpha.900',
+            bg: 'gray.800'
+          }
         },
         nav: {
           color: 'whiteAlpha.900',
           fontWeight: 'extrabold',
           lineHeight: '1.5',
           letterSpacing: '2px'
+        },
+        input: {
+          _placeholder: {
+            color: 'gray.900'
+          }
+        },
+        textArea: {
+          _placeholder: {
+            color: 'gray.900'
+          },
+          _dark: {
+            borderColor: 'gray.400'
+          }
         }
-      })
+      }
     },
     fonts: {
       heading: `'Open Sans', sans-serif`,
