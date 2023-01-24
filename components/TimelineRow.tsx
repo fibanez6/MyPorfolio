@@ -3,16 +3,17 @@
 import {
   Accordion,
   AccordionButton,
-  AccordionItem,
   AccordionIcon,
-  Box,
-  Text,
+  AccordionItem,
   AccordionPanel,
+  Box,
   Flex,
+  Text,
   useColorModeValue
 } from '@chakra-ui/react';
-import React, { ReactElement } from 'react';
-import { TimelineRowProps } from 'types/components/Timeline';
+import type { ReactElement } from 'react';
+import React from 'react';
+import type { TimelineRowProps } from 'types/components/timeline';
 
 const TimelineRow = ({
   title,
@@ -69,7 +70,7 @@ const TimelineRow = ({
           </h2>
           <AccordionPanel
             pb={4}
-            fontSize="sm"
+            fontSize="md"
             fontWeight="normal"
             fontFamily="Source Sans Pro"
           >

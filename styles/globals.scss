@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -13,8 +13,10 @@ body {
   scroll-behavior: smooth;
 }
 
-#particles-js canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
+#particles-js {
+  canvas {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
 }

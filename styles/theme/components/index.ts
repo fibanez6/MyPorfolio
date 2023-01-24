@@ -1,5 +1,5 @@
-import Link from './Link';
 import Button from './Button';
+import Link from './Link';
 import TabSlider from './TabSlider';
 
 const components = {

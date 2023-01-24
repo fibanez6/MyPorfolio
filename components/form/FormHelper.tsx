@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React from 'react';
 
 export const DisplayFormikState = (props: any): ReactElement => (
   <div style={{ margin: '1rem 0' }}>

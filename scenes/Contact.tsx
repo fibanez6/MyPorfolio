@@ -2,23 +2,23 @@
 
 import {
   Box,
-  Heading,
-  Text,
-  IconButton,
   Button,
-  VStack,
+  Flex,
+  Heading,
   HStack,
+  IconButton,
+  Text,
   useColorModeValue,
-  Flex
+  VStack
 } from '@chakra-ui/react';
-import { MdEmail, MdLocationOn } from 'react-icons/md';
-import { BsGithub, BsLinkedin, BsTwitter, BsInstagram } from 'react-icons/bs';
 import ContactForm from 'components/ContactForm';
-import { motion } from 'framer-motion';
 import { Section } from 'components/layout/Section';
-import Link from 'next/link';
 import profileData from 'content/profile-data.json';
-import { ReactElement } from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import type { ReactElement } from 'react';
+import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { MdEmail, MdLocationOn } from 'react-icons/md';
 
 const ICON_MAP: { [name in string]: ReactElement } = {
   linkedin: <BsLinkedin size="28px" />,

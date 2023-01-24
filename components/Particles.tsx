@@ -1,14 +1,12 @@
 'use client';
 
 import { useColorModeValue, useToken } from '@chakra-ui/react';
-import React, { ReactElement, useCallback, useMemo } from 'react';
-import Particles from 'react-particles';
+import type { ReactElement } from 'react';
+import React, { useCallback, useMemo } from 'react';
+import { Particles } from 'react-particles';
 import type { Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim';
-
-interface ParticleProps {
-  id: string;
-}
+import type { ParticleProps } from 'types/components/particles';
 
 const ParticlesComponent = ({ id }: ParticleProps): ReactElement => {
   const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [

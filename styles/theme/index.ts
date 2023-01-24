@@ -1,10 +1,12 @@
+import '@fontsource/open-sans/700.css';
+import '@fontsource/raleway/400.css';
+
 import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
 import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 import { mode } from '@chakra-ui/theme-tools';
-import '@fontsource/open-sans/700.css';
-import '@fontsource/raleway/400.css';
-import components from './components';
+
 import colors from './color';
+import components from './components';
 
 const theme = extendTheme(
   {

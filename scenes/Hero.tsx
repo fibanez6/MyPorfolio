@@ -1,8 +1,8 @@
 'use client';
 
-import { Stack, Flex, Text, VStack, useMediaQuery } from '@chakra-ui/react';
+import { Flex, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react';
 import Particles from 'components/Particles';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 const Hero = (): ReactElement => {
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
@@ -12,7 +12,7 @@ const Hero = (): ReactElement => {
       <Flex
         w={'full'}
         h={'100vh'}
-        backgroundImage={'url(./media/hero.jpg)'}
+        backgroundImage={'url(./media/hero.webp)'}
         backgroundSize={'cover'}
         backgroundPosition={'center center'}
         position={'relative'}

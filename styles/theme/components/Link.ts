@@ -1,4 +1,4 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
+import type { ComponentSingleStyleConfig } from '@chakra-ui/react';
 import { bgMode, getColorMode, getHoverColorMode } from '@theme/color';
 import { jello } from '@theme/frames';
 

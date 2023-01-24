@@ -1,24 +1,18 @@
-import NavBar from 'scenes/NavBar';
-import Certificates from 'scenes/Certificates';
-import Contact from 'scenes/Contact';
-import Experience from 'scenes/Experience';
-import Hero from 'scenes/Hero';
 import { Stack, useMediaQuery } from '@chakra-ui/react';
-import { NextSeo } from 'next-seo';
-import { NEXT_SEO_DEFAULT } from 'next-seo-config';
-import { ReactElement, useEffect, useState } from 'react';
-import DotNav from 'scenes/DotNav';
-import { motion } from 'framer-motion';
-import glob from 'glob';
+import SceneWithMotion from 'components/pages/SceneWithMotion';
 import fs from 'fs';
+import glob from 'glob';
 import matter from 'gray-matter';
-import { MarkdownProps } from 'types/sections/experience';
+import type { GetStaticProps, InferGetServerSidePropsType } from 'next';
+import dynamic from 'next/dynamic';
+import type { ReactElement } from 'react';
+import { useEffect, useState } from 'react';
+import NavBar from 'scenes/NavBar';
+import type { MarkdownProps } from 'types/scenes/experience';
+import { SECTIONS } from 'utils/constants';
 import { sortbByDate } from 'utils/date';
-import { GTagManager } from 'components/google/GTagManager';
 
-const Pages = ['Hero', 'Experience', 'Certificates', 'Contact'];
-
-export const getStaticProps = async (): Promise<any> => {
+export const getStaticProps: GetStaticProps = async () => {
   const jobs: MarkdownProps[] = glob
     .sync('content/jobs/**/*.md')
     .map((file) => {
@@ -39,10 +33,13 @@ export const getStaticProps = async (): Promise<any> => {
   };
 };
 
-export default function Home({ jobs }: any): ReactElement {
+export default function Home({
+  jobs
+}: InferGetServerSidePropsType<typeof getStaticProps>): ReactElement {
   const [selectedPage, setSelectedPage] = useState('hero');
   const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [isDesktop] = useMediaQuery('(min-width: 1060px)');
+  const sections = Object.keys(SECTIONS);
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -56,26 +53,34 @@ export default function Home({ jobs }: any): ReactElement {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
+  const DynamicDotNav = dynamic(() => import('scenes/DotNav'), {
+    ssr: false
+  });
+
+  const renderSections = ({ hero = false }): ReactElement[] =>
+    Object.entries(SECTIONS)
+      .filter(([_, { isHero }]) => (hero ? isHero : !isHero))
+      .map(([id, { Component }]) => {
+        const props = id === 'experience' ? { jobs } : {};
+        return (
+          <SceneWithMotion key={id} onViewportEnter={() => setSelectedPage(id)}>
+            <Component {...props} />
+          </SceneWithMotion>
+        );
+      });
+
   return (
     <>
-      {/* HEAD */}
-      <NextSeo {...NEXT_SEO_DEFAULT} useAppDir={false} />
-      <GTagManager />
-
-      {/* BODY */}
       <NavBar
-        pages={Pages.slice(1)}
+        pages={sections.slice(1)}
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
       />
-      {isDesktop && <DotNav pages={Pages} selectedPage={selectedPage} />}
-
-      <motion.div
-        viewport={{ amount: 'all' }}
-        onViewportEnter={() => setSelectedPage('hero')}
-      >
-        <Hero />
-      </motion.div>
+      {isDesktop && (
+        <DynamicDotNav pages={sections} selectedPage={selectedPage} />
+      )}
+      {renderSections({ hero: true })}
       <Stack
         as="main"
         minH="100vh"
@@ -85,24 +90,7 @@ export default function Home({ jobs }: any): ReactElement {
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
         _last={{ pb: 10 }}
       >
-        <motion.div
-          viewport={{ amount: 'all' }}
-          onViewportEnter={() => setSelectedPage('experience')}
-        >
-          <Experience jobs={jobs} />
-        </motion.div>
-        <motion.div
-          viewport={{ amount: 'all' }}
-          onViewportEnter={() => setSelectedPage('certificates')}
-        >
-          <Certificates />
-        </motion.div>
-        <motion.div
-          viewport={{ amount: 'all' }}
-          onViewportEnter={() => setSelectedPage('contact')}
-        >
-          <Contact />
-        </motion.div>
+        {renderSections({ hero: false })}
       </Stack>
     </>
   );

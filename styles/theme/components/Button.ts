@@ -1,4 +1,5 @@
-import { ComponentSingleStyleConfig, theme } from '@chakra-ui/react';
+import type { ComponentSingleStyleConfig } from '@chakra-ui/react';
+import { theme } from '@chakra-ui/react';
 import { bgMode } from '@theme/color';
 
 const Button: ComponentSingleStyleConfig = {

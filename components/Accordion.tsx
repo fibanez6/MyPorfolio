@@ -2,13 +2,13 @@
 
 import {
   Accordion,
-  AccordionItem,
   AccordionButton,
-  AccordionPanel,
   AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box
 } from '@chakra-ui/react';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 const Accordion2 = (): ReactElement => {
   return (

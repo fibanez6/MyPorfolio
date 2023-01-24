@@ -1,13 +1,14 @@
 'use client';
 
-import Timeline from 'components/Timeline';
 import { Section } from 'components/layout/Section';
-import { ReactElement, useMemo } from 'react';
+import Timeline from 'components/Timeline';
+import type { ReactElement } from 'react';
+import { useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { TimelineProps } from 'types/components/Timeline';
-import { ExpProps } from 'types/sections/experience';
+import type { TimelineProps } from 'types/components/timeline';
+import type { ExpProps } from 'types/scenes/experience';
 
-const Experience = ({ jobs }: ExpProps): ReactElement => {
+const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
   const timelineData: TimelineProps[] = useMemo(() => {
     return jobs.reduce((acc, curr) => {
       return acc.concat({

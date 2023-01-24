@@ -1,21 +1,21 @@
 'use client';
 
+import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
   Box,
-  Flex,
-  Link,
   Button,
-  useDisclosure,
-  useColorModeValue,
+  Flex,
+  HStack,
+  IconButton,
+  Link,
   Stack,
   useColorMode,
-  IconButton,
-  HStack
+  useColorModeValue,
+  useDisclosure
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { NavLinkProps, NavProps } from 'types/sections/Nav';
 import TabSlider from 'components/TabSlider';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import type { NavLinkProps, NavProps } from 'types/scenes/navBar';
 
 const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
   const _page = page.toLowerCase();
@@ -24,6 +24,7 @@ const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
     <Link
       p={2}
       minW="9rem"
+      textTransform="capitalize"
       href={`#${_page}`}
       onClick={() => {
         if (typeof onHamburgerIcon === 'function') {
@@ -47,9 +48,7 @@ const NavBar = ({
   const topPageColor = useColorModeValue('gray.100', 'gray.900');
 
   const moveSlider = (): number => {
-    const capitalized =
-      selectedPage && selectedPage[0].toUpperCase() + selectedPage.slice(1);
-    const idx = pages.indexOf(capitalized);
+    const idx = pages.indexOf(selectedPage);
     return idx * 8 + idx;
   };
 
