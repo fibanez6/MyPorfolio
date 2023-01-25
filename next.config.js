@@ -8,9 +8,6 @@ const nextConfig = {
   experimental: {
     appDir: false
   },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')]
-  },
   eslint: {
     dirs: [
       'pages',
@@ -22,6 +19,14 @@ const nextConfig = {
       'hooks',
       'styles'
     ]
+  },
+  i18n: {
+    defaultLocale: 'en',
+    localeDetection: false,
+    locales: ['en']
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')]
   }
 };
 
