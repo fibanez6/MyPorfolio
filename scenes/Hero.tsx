@@ -2,6 +2,7 @@
 
 import { Flex, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react';
 import Particles from 'components/Particles';
+import Image from 'next/image';
 import type { ReactElement } from 'react';
 
 const Hero = (): ReactElement => {
@@ -9,15 +10,16 @@ const Hero = (): ReactElement => {
 
   return (
     <section id="hero" className="section-hero">
-      <Flex
-        w={'full'}
-        h={'100vh'}
-        backgroundImage={'url(./media/hero.webp)'}
-        backgroundSize={'cover'}
-        backgroundPosition={'center center'}
-        position={'relative'}
-        zIndex={10}
-      >
+      <Flex w={'full'} h={'100vh'} position={'relative'}>
+        <Image
+          src={'/media/hero.webp'}
+          fill
+          alt="Hero section background"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center'
+          }}
+        />
         {isDesktop && <Particles id="particles-js" />}
         <VStack
           w={'full'}
@@ -25,6 +27,7 @@ const Hero = (): ReactElement => {
           alignItems={{ base: 'center', md: 'end' }}
           px={{ base: '0rem', md: '5rem', lg: '10rem', xl: '15rem' }}
           bgGradient={'linear(to-r, blackAlpha.600,  rgba(142,225,255, 0.5))'}
+          zIndex={10}
         >
           <Stack align={'flex-end'} spacing={6}>
             <Text
