@@ -27,7 +27,8 @@ export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
         as="section"
         className={cx('fibanez-section', className)}
         ref={ref}
-        p={'3rem 0'}
+        pt={'5rem'}
+        pb={'2rem'}
         {...rest}
         __css={{
           ...styles,

@@ -2,8 +2,6 @@
 import dynamic from 'next/dynamic';
 import type { Sections } from 'types/utils/sections';
 
-export const DEFAULT_LOCALE = 'en';
-
 export const SECTIONS: Sections = {
   hero: {
     Component: dynamic(() => import('scenes/Hero')),

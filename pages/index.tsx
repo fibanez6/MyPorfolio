@@ -88,7 +88,7 @@ export default function Home({
         m="0 auto"
         gap={2}
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
-        _last={{ pb: 10 }}
+        _last={{ pb: '5rem' }}
       >
         {renderSections({ hero: false })}
       </Stack>
