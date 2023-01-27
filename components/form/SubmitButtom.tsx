@@ -13,7 +13,7 @@ export const SubmitButtom = ({
   isSuccess,
   isLoading
 }: SubmitButtomProps): ReactElement => {
-  const buttomRef = useRef<HTMLButtonElement>();
+  const buttomRef = useRef<HTMLButtonElement>(null);
   const [pos, setPos] = useState<Position>({
     x: undefined,
     y: undefined
