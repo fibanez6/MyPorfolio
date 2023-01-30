@@ -29,7 +29,7 @@ const Laptop = (): ReactElement => {
 
   useTyped(terminalRef, {
     strings: [about],
-    typeSpeed: 50
+    typeSpeed: 10
   });
   return (
     <Flex
@@ -63,13 +63,15 @@ const Laptop = (): ReactElement => {
   \\ V  V /  __/ | (_| (_) | | | | | |  __/
    \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|`}
           </Text>
-          {/* <Box lineHeight={{ base: 0.5, md: 1, lg: 1 }}> */}
-          <Text
-            as="span"
-            fontSize="1.15vmin"
-            whiteSpace="pre"
-            ref={terminalRef}
-          />
+          <Box lineHeight={{ base: 0.5, sm: 1, md: 1.5 }}>
+            <Text
+              as="span"
+              fontSize="1.2vmin"
+              whiteSpace="pre"
+              lineHeight="5px"
+              ref={terminalRef}
+            />
+          </Box>
         </Box>
       </Box>
     </Flex>
