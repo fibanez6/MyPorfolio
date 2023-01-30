@@ -7,6 +7,9 @@ export const SECTIONS: Sections = {
     Component: dynamic(() => import('scenes/Hero')),
     isHero: true
   },
+  about: {
+    Component: dynamic(() => import('scenes/About'))
+  },
   experience: {
     Component: dynamic(() => import('scenes/Experience'))
   },

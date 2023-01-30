@@ -1,23 +1,35 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, useToken } from '@chakra-ui/react';
 import useTyped from 'hooks/useTyped';
 import Image from 'next/image';
 import type { ReactElement } from 'react';
 import { useRef } from 'react';
-import type { TypedOptions } from 'typed.js';
+import Moment from 'react-moment';
 
-const options: TypedOptions = {
-  strings: [
-    'Some <i>strings</i> are slanted',
-    'Some <strong>strings</strong> are bold',
-    'HTML characters &times; &copy;'
-  ],
-  typeSpeed: 50,
-  backSpeed: 50
-};
+const data = (bashColor: string): string =>
+  `<span style="color:${bashColor}">$ whoami</span>\n` +
+  '`Fernando Ibanez`\n' +
+  `<span style="color:${bashColor}">$ echo "USER_ROLE"</span>\n` +
+  '`Software Engineer`\n' +
+  `<span style="color:${bashColor}">$ echo "USER_EDUCATION"</span>\n` +
+  '`- MSc. in Artificial Intelligence - Universidad Politécnica de Madrid - Spain`\n' +
+  "`- Bachelor's Degree in Computer Science - Universidad Politécnica de Madrid - Spain`\n" +
+  `<span style="color:${bashColor}">$ echo "USER_LOCATION"</span>\n` +
+  '`Melbouner, Australia`\n' +
+  `<span style="color:${bashColor}">$ echo "USER_INTEREST"</span>\n` +
+  '`Passionate about new technologies, European football (soccer) and\n' +
+  'traveling around the world to learn about other cultures and foods.`\n' +
+  `<span style="color:${bashColor}">$ </span>`;
 
 const Laptop = (): ReactElement => {
   const terminalRef = useRef<HTMLParagraphElement>(null);
-  useTyped(terminalRef, options);
+  const [bashColor] = useToken('colors', ['bash']);
+
+  const about = data(bashColor);
+
+  useTyped(terminalRef, {
+    strings: [about],
+    typeSpeed: 50
+  });
   return (
     <Flex flexDir="column" position="relative" maxW={1000} maxH={1000}>
       <Image src="/media/laptop.svg" alt="unibody" width={1000} height={1000} />
@@ -29,17 +41,36 @@ const Laptop = (): ReactElement => {
         w="74.3%"
         maxH={5}
       >
-        <Flex justifyContent="flex-end">
-          <Text
-            fontFamily="sans-serif"
-            fontWeight="semibold"
-            fontSize="1.5vmin"
-          >
-            Fri 27 Jan <span>13:27</span>
-          </Text>
+        <Flex
+          justifyContent="flex-end"
+          fontFamily="sans-serif"
+          fontWeight="semibold"
+          fontSize="1.5vmin"
+        >
+          <Moment format="ddd D MMM">{new Date()}</Moment>
         </Flex>
-        <Flex pt="4%">
-          <Text fontSize="1.7vmin" ref={terminalRef} />
+        <Flex pt="4%" flexDir="column">
+          <Text
+            fontSize="0.6vmin"
+            whiteSpace="pre"
+            fontFamily="monospace"
+            color={bashColor}
+            pb="4%"
+          >
+            {`__        __   _
+\\ \\      / /__| | ___ ___  _ __ ___   ___
+ \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_  ' _ \\ / _ \\
+  \\ V  V /  __/ | (_| (_) | | | | | |  __/
+   \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|`}
+          </Text>
+          <Box lineHeight={{ base: 0.5, md: 1, lg: 1 }}>
+            <Text
+              as="span"
+              fontSize="1.15vmin"
+              whiteSpace="pre"
+              ref={terminalRef}
+            />
+          </Box>
         </Flex>
       </Box>
     </Flex>
