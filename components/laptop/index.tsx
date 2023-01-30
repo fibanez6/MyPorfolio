@@ -22,6 +22,7 @@ const data = (bashColor: string): string =>
 
 const Laptop = (): ReactElement => {
   const terminalRef = useRef<HTMLParagraphElement>(null);
+  const windowRef = useRef<HTMLDivElement>(null);
   const [bashColor] = useToken('colors', ['bash']);
 
   const about = data(bashColor);
@@ -31,16 +32,15 @@ const Laptop = (): ReactElement => {
     typeSpeed: 50
   });
   return (
-    <Flex flexDir="column" position="relative" maxW={1000} maxH={1000}>
-      <Image src="/media/laptop.svg" alt="unibody" width={1000} height={1000} />
-      <Box
-        position="absolute"
-        right="12.5%"
-        top="7.5%"
-        color="white"
-        w="74.3%"
-        maxH={5}
-      >
+    <Flex
+      flexDir="column"
+      position="relative"
+      w="100%"
+      maxH="600px"
+      ref={windowRef}
+    >
+      <Image src="/media/laptop.svg" alt="unibody" width={1024} height={600} />
+      <Box position="absolute" right="12.5%" top="7.5%" color="white" w="74.3%">
         <Flex
           justifyContent="flex-end"
           fontFamily="sans-serif"
@@ -49,7 +49,7 @@ const Laptop = (): ReactElement => {
         >
           <Moment format="ddd D MMM">{new Date()}</Moment>
         </Flex>
-        <Flex pt="4%" flexDir="column">
+        <Box pt="4%" maxH="100%">
           <Text
             fontSize="0.6vmin"
             whiteSpace="pre"
@@ -63,15 +63,14 @@ const Laptop = (): ReactElement => {
   \\ V  V /  __/ | (_| (_) | | | | | |  __/
    \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|`}
           </Text>
-          <Box lineHeight={{ base: 0.5, md: 1, lg: 1 }}>
-            <Text
-              as="span"
-              fontSize="1.15vmin"
-              whiteSpace="pre"
-              ref={terminalRef}
-            />
-          </Box>
-        </Flex>
+          {/* <Box lineHeight={{ base: 0.5, md: 1, lg: 1 }}> */}
+          <Text
+            as="span"
+            fontSize="1.15vmin"
+            whiteSpace="pre"
+            ref={terminalRef}
+          />
+        </Box>
       </Box>
     </Flex>
   );
