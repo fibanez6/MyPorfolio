@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Flex, Text, useToken } from '@chakra-ui/react';
 import useTyped from 'hooks/useTyped';
 import Image from 'next/image';
@@ -5,30 +7,13 @@ import type { ReactElement } from 'react';
 import { useRef } from 'react';
 import Moment from 'react-moment';
 
-const data = (bashColor: string): string =>
-  `<span style="color:${bashColor}">$ whoami</span>\n` +
-  '`Fernando Ibanez`\n' +
-  `<span style="color:${bashColor}">$ echo "USER_ROLE"</span>\n` +
-  '`Software Engineer`\n' +
-  `<span style="color:${bashColor}">$ echo "USER_EDUCATION"</span>\n` +
-  '`- MSc. in Artificial Intelligence - Universidad Politécnica de Madrid - Spain`\n' +
-  "`- Bachelor's Degree in Computer Science - Universidad Politécnica de Madrid - Spain`\n" +
-  `<span style="color:${bashColor}">$ echo "USER_LOCATION"</span>\n` +
-  '`Melbouner, Australia`\n' +
-  `<span style="color:${bashColor}">$ echo "USER_INTEREST"</span>\n` +
-  '`Passionate about new technologies, European football (soccer) and\n' +
-  'traveling around the world to learn about other cultures and foods.`\n' +
-  `<span style="color:${bashColor}">$ </span>`;
-
-const Laptop = (): ReactElement => {
+const Terminal = ({ data }: { data: string[] }): ReactElement => {
   const terminalRef = useRef<HTMLParagraphElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
   const [bashColor] = useToken('colors', ['bash']);
 
-  const about = data(bashColor);
-
   useTyped(terminalRef, {
-    strings: [about],
+    strings: data,
     typeSpeed: 10
   });
   return (
@@ -44,8 +29,8 @@ const Laptop = (): ReactElement => {
         <Flex
           justifyContent="flex-end"
           fontFamily="sans-serif"
-          fontWeight="semibold"
-          fontSize="1.5vmin"
+          fontWeight="medium"
+          fontSize={{ base: '1.2vmin', xl: '1.1vmin' }}
         >
           <Moment format="ddd D MMM">{new Date()}</Moment>
         </Flex>
@@ -55,7 +40,7 @@ const Laptop = (): ReactElement => {
             whiteSpace="pre"
             fontFamily="monospace"
             color={bashColor}
-            pb="4%"
+            pb="3.3%"
           >
             {`__        __   _
 \\ \\      / /__| | ___ ___  _ __ ___   ___
@@ -63,12 +48,17 @@ const Laptop = (): ReactElement => {
   \\ V  V /  __/ | (_| (_) | | | | | |  __/
    \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|`}
           </Text>
-          <Box lineHeight={{ base: 0.5, sm: 1, md: 1.5 }}>
+          <Box
+            lineHeight={{
+              base: '1.3vmin',
+              md: '2.1vmin',
+              xl: '1.75vmin'
+            }}
+          >
             <Text
               as="span"
-              fontSize="1.2vmin"
+              fontSize={{ base: '1.3vmin', xl: '1.15vmin' }}
               whiteSpace="pre"
-              lineHeight="5px"
               ref={terminalRef}
             />
           </Box>
@@ -78,4 +68,4 @@ const Laptop = (): ReactElement => {
   );
 };
 
-export default Laptop;
+export default Terminal;

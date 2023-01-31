@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import ContactForm from 'components/ContactForm';
 import { Section } from 'components/layout/Section';
-import profileData from 'content/profile-data.json';
+import { CONTACT } from 'content/profile-data';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
@@ -28,7 +28,7 @@ const ICON_MAP: { [name in string]: ReactElement } = {
 };
 
 const Contact = (): ReactElement => {
-  const { social, email, location } = profileData.contact;
+  const { social, email, location } = CONTACT;
   const bgColor = useColorModeValue('primary.70', 'gray.500');
   const contactColor = useColorModeValue('gray.50', 'whiteAlpha.900');
   const subtitleColor = useColorModeValue('primary.700', 'secundary.600');
