@@ -13,7 +13,7 @@ export const BASH_ABOUT = [
   },
   {
     cmd: '$ echo "USER_LOCATION"',
-    resp: 'Melbouner, Australia'
+    resp: 'Melbourne, Australia'
   },
   {
     cmd: '$ echo "USER_INTEREST"',
