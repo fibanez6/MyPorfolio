@@ -15,7 +15,7 @@ import {
   VStack
 } from '@chakra-ui/react';
 import { Section } from 'components/layout/Section';
-import profileData from 'content/profile-data.json';
+import { CERTIFICATES } from 'content/profile-data';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -67,7 +67,7 @@ const Certificate = ({
               "b"
               "c"
               "d"`,
-              lg: `"a b" 
+              lg: `"a b"
               "c d"`
             }}
           >
@@ -92,8 +92,6 @@ const Certificate = ({
 };
 
 const Certificates = (): ReactElement => {
-  const certs = profileData.certificates;
-
   return (
     <Section id="certificates" title="Certificates">
       <Flex
@@ -102,7 +100,7 @@ const Certificates = (): ReactElement => {
         flexWrap={'wrap'}
         gap={{ base: '5rem', sm: '10rem', md: '7rem', lg: '10rem' }}
       >
-        {certs.map((e, index) => {
+        {CERTIFICATES.map((e, index) => {
           return <Certificate key={index} index={index} {...e} />;
         })}
       </Flex>

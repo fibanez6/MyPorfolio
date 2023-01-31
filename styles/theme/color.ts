@@ -62,7 +62,8 @@ const Colors: any = {
     700: '#144131',
     800: '#0e2b21',
     900: '#071610'
-  }
+  },
+  bash: '#18BF0B'
 };
 
 export default Colors;
