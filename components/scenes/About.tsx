@@ -1,7 +1,6 @@
 'use client';
 
 import { useToken } from '@chakra-ui/react';
-import { Section } from 'components/layout/Section';
 import Terminal from 'components/Terminal';
 import { BASH_ABOUT } from 'content/profile-data';
 import type { ReactElement } from 'react';
@@ -18,11 +17,7 @@ const About = (): ReactElement => {
     return styledAbout.join('\n');
   }, [bashColor]);
 
-  return (
-    <Section id="about">
-      <Terminal data={[data]} />
-    </Section>
-  );
+  return <Terminal data={[data]} />;
 };
 
 export default About;

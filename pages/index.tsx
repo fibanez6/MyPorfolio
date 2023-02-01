@@ -1,5 +1,6 @@
 import { Stack, useMediaQuery } from '@chakra-ui/react';
-import Scene from 'components/layout/Scene';
+import Section from 'components/layout/Section';
+import NavBar from 'components/scenes/NavBar';
 import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
@@ -7,8 +8,7 @@ import type { GetStaticProps, InferGetServerSidePropsType } from 'next';
 import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
-import NavBar from 'scenes/NavBar';
-import type { MarkdownProps } from 'types/scenes/experience';
+import type { MarkdownProps } from 'types/components/scenes/experience';
 import { SECTIONS } from 'utils/constants';
 import { sortbByDate } from 'utils/date';
 
@@ -54,19 +54,28 @@ export default function Home({
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/promise-function-async
-  const DynamicDotNav = dynamic(() => import('scenes/DotNav'), {
-    ssr: false
-  });
+  const DynamicDotNav = dynamic(
+    async () => await import('components/scenes/DotNav'),
+    {
+      ssr: false
+    }
+  );
 
-  const renderSections = ({ hero = false }): ReactElement[] =>
+  const renderSections = (): ReactElement[] =>
     Object.entries(SECTIONS)
-      .filter(([_, { isHero }]) => (hero ? isHero : !isHero))
-      .map(([id, { Component }]) => {
+      .filter(([_, { isHero }]) => !isHero)
+      .map(([id, { Component, title }]) => {
         const props = id === 'experience' ? { jobs } : {};
         return (
-          <Scene key={id} onViewportEnter={() => setSelectedPage(id)}>
+          <Section
+            key={id}
+            id={id}
+            title={title}
+            withMotion={true}
+            onViewportEnter={() => setSelectedPage(id)}
+          >
             <Component {...props} />
-          </Scene>
+          </Section>
         );
       });
 
@@ -80,7 +89,9 @@ export default function Home({
       {isDesktop && (
         <DynamicDotNav pages={sectionNames} selectedPage={selectedPage} />
       )}
-      {renderSections({ hero: true })}
+      <Section id={'hero'} onViewportEnter={() => setSelectedPage('hero')}>
+        <SECTIONS.hero.Component />
+      </Section>
       <Stack
         as="main"
         minH="100vh"
@@ -90,7 +101,7 @@ export default function Home({
         px={{ base: 5, sm: 5, md: 10, lg: 16 }}
         _last={{ pb: '5rem' }}
       >
-        {renderSections({ hero: false })}
+        {renderSections()}
       </Stack>
     </>
   );
