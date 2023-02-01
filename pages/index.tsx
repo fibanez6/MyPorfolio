@@ -1,5 +1,5 @@
 import { Stack, useMediaQuery } from '@chakra-ui/react';
-import SceneWithMotion from 'components/pages/SceneWithMotion';
+import Scene from 'components/layout/Scene';
 import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
@@ -64,9 +64,9 @@ export default function Home({
       .map(([id, { Component }]) => {
         const props = id === 'experience' ? { jobs } : {};
         return (
-          <SceneWithMotion key={id} onViewportEnter={() => setSelectedPage(id)}>
+          <Scene key={id} onViewportEnter={() => setSelectedPage(id)}>
             <Component {...props} />
-          </SceneWithMotion>
+          </Scene>
         );
       });
 

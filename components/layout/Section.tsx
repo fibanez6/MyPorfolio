@@ -6,14 +6,15 @@ import {
   useStyleConfig
 } from '@chakra-ui/system';
 import { motion } from 'framer-motion';
-import type { SectionProps } from 'types/components/layout';
+import type { SectionProps } from 'types/components/layout/section';
 
 export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
   const { className, title, children, ...rest } = omitThemingProps(props);
   const styles = useStyleConfig('Section', props);
 
   return (
-    <motion.div
+    <motion.section
+      className={cx('fibanez-section', className)}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
@@ -24,8 +25,6 @@ export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
       }}
     >
       <Stack
-        as="section"
-        className={cx('fibanez-section', className)}
         ref={ref}
         pt={'5rem'}
         pb={'2rem'}
@@ -37,12 +36,14 @@ export const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
       >
         {title && (
           <Center pb={10}>
-            <Heading fontSize="3xl">{title}</Heading>
+            <Heading fontSize="3xl" textTransform="capitalize">
+              {title}
+            </Heading>
           </Center>
         )}
         {children}
       </Stack>
-    </motion.div>
+    </motion.section>
   );
 });
 

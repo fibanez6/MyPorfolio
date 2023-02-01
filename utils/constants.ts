@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/promise-function-async */
 import dynamic from 'next/dynamic';
-import type { Sections } from 'types/utils/sections';
+import type { Sections } from 'types/utils/constants';
 
 export const SECTIONS: Sections = {
   hero: {
@@ -11,10 +11,12 @@ export const SECTIONS: Sections = {
     Component: dynamic(() => import('scenes/About'))
   },
   experience: {
-    Component: dynamic(() => import('scenes/Experience'))
+    Component: dynamic(() => import('scenes/Experience')),
+    title: 'Experience'
   },
   certificates: {
-    Component: dynamic(() => import('scenes/Certificates'))
+    Component: dynamic(() => import('scenes/Certificates')),
+    title: 'Certificates'
   },
   contact: {
     Component: dynamic(() => import('scenes/Contact'))
