@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import type { WindowDimentions } from 'types/hooks/windowDimentions';
+import type { Dimensions } from 'types/hooks/Dimensions';
 
-const useWindowDimension = (): WindowDimentions => {
-  const [windowDimensions, setWindowDimensions] = useState<WindowDimentions>({
-    width: undefined,
-    height: undefined
+const useWindowDimension = (): Dimensions => {
+  const [windowDimensions, setWindowDimensions] = useState<Dimensions>({
+    width: 0,
+    height: 0
   });
   useEffect(() => {
     const handleResize = (): void => {

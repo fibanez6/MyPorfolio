@@ -63,6 +63,18 @@ export const EDUCATION = [
   }
 ];
 
+export const SKILLS = [
+  'Agile',
+  'Docker',
+  'Kafka',
+  'Kubernetes',
+  'Java',
+  'Javascript',
+  'Nextjs',
+  'React',
+  'Spring boot'
+];
+
 export const CONTACT = {
   email: 'fibanez84@gmail.com',
   location: 'Melbourne, Australia',
