@@ -14,13 +14,12 @@ import {
   Text,
   VStack
 } from '@chakra-ui/react';
-import { Section } from 'components/layout/Section';
 import { CERTIFICATES } from 'content/profile-data';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import type { ReactElement } from 'react';
-import type { CertProps } from 'types/scenes/certificate';
+import type { CertProps } from 'types/components/scenes/certificate';
 
 const Certificate = ({
   title,
@@ -93,18 +92,16 @@ const Certificate = ({
 
 const Certificates = (): ReactElement => {
   return (
-    <Section id="certificates" title="Certificates">
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        flexWrap={'wrap'}
-        gap={{ base: '5rem', sm: '10rem', md: '7rem', lg: '10rem' }}
-      >
-        {CERTIFICATES.map((e, index) => {
-          return <Certificate key={index} index={index} {...e} />;
-        })}
-      </Flex>
-    </Section>
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      flexWrap={'wrap'}
+      gap={{ base: '5rem', sm: '10rem', md: '7rem', lg: '10rem' }}
+    >
+      {CERTIFICATES.map((e, index) => {
+        return <Certificate key={index} index={index} {...e} />;
+      })}
+    </Flex>
   );
 };
 

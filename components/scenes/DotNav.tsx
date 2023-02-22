@@ -2,7 +2,7 @@
 
 import { Link, VStack } from '@chakra-ui/react';
 import type { ReactElement } from 'react';
-import type { NavLinkProps, NavProps } from 'types/scenes/navBar';
+import type { NavLinkProps, NavProps } from 'types/components/scenes/navBar';
 
 const DotLink = ({ page, isSelected }: NavLinkProps): ReactElement => {
   const _page = page.toLowerCase();

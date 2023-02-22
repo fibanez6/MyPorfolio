@@ -2,8 +2,8 @@
 
 import 'styles/globals.scss';
 
+import ChakraApp from 'components/app/ChakraApp';
 import { GTagManager } from 'components/google/GTagManager';
-import ChakraApp from 'components/pages/ChakraApp';
 import seoData from 'content/seo-data.json';
 import type { AppProps } from 'next/app';
 import { NextSeo } from 'next-seo';

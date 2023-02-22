@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import TabSlider from 'components/TabSlider';
 import type { ReactElement } from 'react';
-import type { NavLinkProps, NavProps } from 'types/scenes/navBar';
+import type { NavLinkProps, NavProps } from 'types/components/scenes/navBar';
 
 const NavLink = ({ page, onHamburgerIcon }: NavLinkProps): ReactElement => {
   const _page = page.toLowerCase();

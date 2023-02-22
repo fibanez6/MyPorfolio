@@ -1,12 +1,11 @@
 'use client';
 
-import { Section } from 'components/layout/Section';
 import Timeline from 'components/Timeline';
 import type { ReactElement } from 'react';
 import { useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
+import type { ExpProps } from 'types/components/scenes/experience';
 import type { TimelineProps } from 'types/components/timeline';
-import type { ExpProps } from 'types/scenes/experience';
 
 const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
   const timelineData: TimelineProps[] = useMemo(() => {
@@ -21,11 +20,7 @@ const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
     }, []);
   }, [jobs]);
 
-  return (
-    <Section id="experience" title="Experience">
-      <Timeline data={timelineData} />
-    </Section>
-  );
+  return <Timeline data={timelineData} />;
 };
 
 export default Experience;
