@@ -1,32 +1,20 @@
-import type { ChakraProps } from '@chakra-ui/react';
-import { Box } from '@chakra-ui/react';
-import { SKILLS } from 'content/profile-data';
+import { Box, omitThemingProps } from '@chakra-ui/react';
+import { forwardRef } from '@chakra-ui/system';
 import useDimensions from 'hooks/useDimensions';
-import type { ReactElement } from 'react';
 import { useMemo, useRef } from 'react';
 import type {
+  FlyThroughSceneProps,
   Motion3d,
   TextTransition
-} from 'types/components/textFly/TextFly';
+} from 'types/components/flyThrough/FlyThrough';
 import type { Dimensions } from 'types/hooks/Dimensions';
 import type { Offsets } from 'types/hooks/Offsets';
 import { getRandom, getRandomElement } from 'utils/random';
 
-import TextFly from './TextFly';
+import FlyThroughText from './FlyThroughText';
 
-const COLORS = ['#aec1d2', '#F5F5DC', '#A52A2A', '#6495ED', '#FF1493'];
 const ROW_N = 10;
 const COLUMN_N = 10;
-const REPEAT_TIMES = 1;
-const MIN_DURATION = 4;
-const MAX_DURATION = 5;
-
-const style: ChakraProps = {
-  minH: '25rem',
-  backgroundColor: '#eaeaea',
-  position: 'relative',
-  overflow: 'hidden'
-};
 
 const getTransitions = (grid: Dimensions): TextTransition[] => {
   const rowSize = grid.width / ROW_N;
@@ -71,10 +59,15 @@ const getMotionDestination = (quadrant: number): Motion3d => {
   }
 };
 
-const TextFlys = (): ReactElement => {
+const FlyThroughScene = forwardRef<FlyThroughSceneProps, 'div'>((props) => {
+  const {
+    words,
+    minDuration = 4,
+    maxDuration = 5,
+    ...rest
+  } = omitThemingProps(props);
   const targetRef = useRef(null);
   const grid = useDimensions(targetRef);
-  const totalELt = SKILLS.length * REPEAT_TIMES;
 
   const textTransitions = useMemo(() => {
     return grid.width !== 0 && grid.height !== 0 ? getTransitions(grid) : [];
@@ -85,22 +78,27 @@ const TextFlys = (): ReactElement => {
   };
 
   return (
-    <Box ref={targetRef} {...style}>
+    <Box
+      ref={targetRef}
+      position="relative"
+      overflow="hidden"
+      minH="25rem"
+      {...rest}
+    >
       {textTransitions.length &&
-        [...Array(totalELt)].map((_, i) => (
-          <TextFly
+        words.map((word, i) => (
+          <FlyThroughText
             key={i}
-            backgroundColor={COLORS[i % COLORS.length]}
             h={7}
             getTransition={getTransition}
             delay={i * 0.3}
-            duration={getRandom(MIN_DURATION, MAX_DURATION)}
+            duration={getRandom(minDuration, maxDuration)}
           >
-            {SKILLS[i % SKILLS.length]}
-          </TextFly>
+            {word}
+          </FlyThroughText>
         ))}
     </Box>
   );
-};
+});
 
-export default TextFlys;
+export default FlyThroughScene;

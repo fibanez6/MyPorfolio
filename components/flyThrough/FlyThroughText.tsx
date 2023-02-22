@@ -1,31 +1,13 @@
-import type {
-  ChakraProps,
-  HTMLChakraProps,
-  ThemingProps
-} from '@chakra-ui/react';
 import { Box, omitThemingProps, Text } from '@chakra-ui/react';
 import { forwardRef, useStyleConfig } from '@chakra-ui/system';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type {
+  FlyThroughTextProps,
   Motion3d,
   TextTransition
-} from 'types/components/textFly/TextFly';
+} from 'types/components/flyThrough/FlyThrough';
 import { shallowEqual } from 'utils/object';
-
-interface TextFlyProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'Container'> {
-  delay?: number;
-  duration: number;
-  getTransition: () => TextTransition;
-}
-
-const innerStyle: ChakraProps = {
-  position: 'absolute',
-  transform: 'translateZ(0)',
-  transformOrigin: 'center'
-};
 
 const variant = {
   visible: ({ x, y, z }: Motion3d) => ({
@@ -45,7 +27,7 @@ const variant = {
   })
 };
 
-const TextFly = forwardRef<TextFlyProps, 'div'>((props, ref) => {
+const FlyThroughText = forwardRef<FlyThroughTextProps, 'div'>((props, ref) => {
   const {
     children,
     delay = 0,
@@ -56,8 +38,6 @@ const TextFly = forwardRef<TextFlyProps, 'div'>((props, ref) => {
   const styles = useStyleConfig('div', props);
   const [transition, setTransition] = useState<TextTransition>(getTransition());
   const controls = useAnimationControls();
-
-  // console.log('rendered flyText'); // TODO
 
   useEffect(() => {
     controls.set('hidden');
@@ -78,12 +58,14 @@ const TextFly = forwardRef<TextFlyProps, 'div'>((props, ref) => {
     <Box
       ref={ref}
       __css={{
-        ...innerStyle,
+        position: 'absolute',
+        transform: 'translateZ(0)',
+        transformOrigin: 'center',
         ...styles
       }}
-      {...rest}
       top={`${transition.start.y}px`}
       left={`${transition.start.x}px`}
+      {...rest}
     >
       <AnimatePresence>
         <motion.div
@@ -92,7 +74,6 @@ const TextFly = forwardRef<TextFlyProps, 'div'>((props, ref) => {
           transition={{
             delay,
             duration,
-            // repeat: Infinity,
             ease: [0.2, 0.4, 1, 0]
           }}
         >
@@ -103,4 +84,4 @@ const TextFly = forwardRef<TextFlyProps, 'div'>((props, ref) => {
   );
 });
 
-export default TextFly;
+export default FlyThroughText;

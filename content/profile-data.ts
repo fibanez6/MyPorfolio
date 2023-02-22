@@ -63,17 +63,25 @@ export const EDUCATION = [
   }
 ];
 
-export const SKILLS = [
-  'Agile',
-  'Docker',
-  'Kafka',
-  'Kubernetes',
-  'Java',
-  'Javascript',
-  'Nextjs',
-  'React',
-  'Spring boot'
-];
+export const SKILLS = {
+  times: 2,
+  words: [
+    'Agile',
+    'AWS',
+    'Docker',
+    'Groovy',
+    'Helm',
+    'Kafka',
+    'Kubernetes',
+    'Java',
+    'Javascript',
+    'Nextjs',
+    'React',
+    'REST',
+    'Spring boot',
+    'Vert.x'
+  ]
+};
 
 export const CONTACT = {
   email: 'fibanez84@gmail.com',

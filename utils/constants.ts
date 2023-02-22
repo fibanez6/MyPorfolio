@@ -14,6 +14,10 @@ export const SECTIONS: Sections = {
     Component: dynamic(() => import('components/scenes/Experience')),
     title: 'Experience'
   },
+  skills: {
+    Component: dynamic(() => import('components/scenes/Skills')),
+    title: 'Skills'
+  },
   certificates: {
     Component: dynamic(() => import('components/scenes/Certificates')),
     title: 'Certificates'
