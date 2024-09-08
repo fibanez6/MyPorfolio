@@ -1,5 +1,5 @@
 ---
-role: 'Software Engineer'
+role: 'Senior Software Engineer'
 company: 'BJSS UK'
 location: 'London, United Kingdom'
 start: 'Jan 2018'
