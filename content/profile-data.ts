@@ -78,7 +78,7 @@ export const SKILLS = {
     'Nextjs',
     'React',
     'REST',
-    'Scala'
+    'Scala',
     'Spring boot',
     'Vert.x'
   ]
