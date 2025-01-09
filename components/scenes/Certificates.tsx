@@ -42,7 +42,13 @@ const Certificate = ({
         visible: { opacity: 1, scale: 1 }
       }}
     >
-      <Card align="center" justify={'center'} variant="unstyled" minW="22rem">
+      <Card
+        className="card"
+        align="center"
+        justify={'center'}
+        variant="unstyled"
+        minW="10rem"
+      >
         <CardHeader>
           <VStack>
             <Heading size={{ base: 'md', sm: 'sm', lg: 'md' }}>{title}</Heading>
@@ -56,11 +62,12 @@ const Certificate = ({
             <Image src={image} alt={alt} width={200} height={200} />
           </Center>
           <SimpleGrid
+            className="info-table"
             columns={{ base: 1, lg: 2 }}
             justifyItems="center"
             pt="0.5rem"
-            spacingX={{ sm: '0.2rem', lg: '0.5rem' }}
-            spacingY={{ sm: '0.2rem', lg: '0.5rem' }}
+            spacingX={{ sm: '0.2rem', lg: '0.2rem' }}
+            spacingY={{ sm: '0.2rem', lg: '0.2rem' }}
             gridTemplateAreas={{
               base: `"a"
               "b"
@@ -96,7 +103,7 @@ const Certificates = (): ReactElement => {
       alignItems="center"
       justifyContent="center"
       flexWrap={'wrap'}
-      gap={{ base: '5rem', sm: '10rem', md: '7rem', lg: '10rem' }}
+      gap={{ base: '5rem', sm: '7rem', md: '7rem', lg: '4rem' }}
     >
       {CERTIFICATES.map((e, index) => {
         return <Certificate key={index} index={index} {...e} />;
