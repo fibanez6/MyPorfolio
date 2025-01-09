@@ -1,9 +1,9 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormLabel
-} from '@chakra-ui/form-control';
-import { Textarea } from '@chakra-ui/react';
+  FormLabel,
+  Textarea
+} from '@chakra-ui/react';
 import { useField } from 'formik';
 import type { ReactElement } from 'react';
 import React from 'react';

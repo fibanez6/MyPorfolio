@@ -1,9 +1,7 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormLabel
-} from '@chakra-ui/form-control';
-import {
+  FormLabel,
   Input,
   InputGroup,
   InputLeftElement,
