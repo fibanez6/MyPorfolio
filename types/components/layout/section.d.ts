@@ -1,5 +1,5 @@
 import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react';
-import type { VisualViewport } from 'framer-motion';
+import type { VisualViewport } from 'motion/react';
 
 export interface SectionLayoutProps
   extends HTMLChakraProps<'section'>,

@@ -7,7 +7,7 @@ import {
   useStyleConfig
 } from '@chakra-ui/react';
 import { cx } from '@chakra-ui/utils';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import type {
   SectionLayoutProps,
   SectionProps
@@ -56,14 +56,14 @@ const Section = forwardRef<SectionProps, 'section'>((props, ref) => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           variants={{
             hidden: { opacity: 0.1, y: 50 },
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <SectionLayout id={id} pt={'5rem'} pb={'2rem'} {...rest}>
+          <SectionLayout id={id} pt={'5rem'} pb={'5rem'} {...rest}>
             {children}
           </SectionLayout>
         </motion.div>
