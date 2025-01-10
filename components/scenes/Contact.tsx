@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import ContactForm from 'components/ContactForm';
 import { CONTACT } from 'content/profile-data';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
 import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';

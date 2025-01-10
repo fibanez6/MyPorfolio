@@ -15,7 +15,7 @@ import {
   VStack
 } from '@chakra-ui/react';
 import { CERTIFICATES } from 'content/profile-data';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import type { ReactElement } from 'react';
@@ -35,7 +35,7 @@ const Certificate = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true }}
       transition={{ delay: index * 0.3, duration: 0.6 }}
       variants={{
         hidden: { opacity: 0, scale: 0.8 },
@@ -103,7 +103,7 @@ const Certificates = (): ReactElement => {
       alignItems="center"
       justifyContent="center"
       flexWrap={'wrap'}
-      gap={{ base: '5rem', sm: '7rem', md: '7rem', lg: '4rem' }}
+      gap={{ base: '5rem', sm: '7rem', md: '7rem', lg: '5rem' }}
     >
       {CERTIFICATES.map((e, index) => {
         return <Certificate key={index} index={index} {...e} />;

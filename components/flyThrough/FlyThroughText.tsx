@@ -5,7 +5,7 @@ import {
   Text,
   useStyleConfig
 } from '@chakra-ui/react';
-import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
+import { AnimatePresence, motion, useAnimationControls } from 'motion/react';
 import { useEffect, useState } from 'react';
 import type {
   FlyThroughTextProps,
