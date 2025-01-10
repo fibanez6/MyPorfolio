@@ -1,7 +1,7 @@
 'use client';
 
-import { cx } from '@chakra-ui/shared-utils';
-import { chakra, forwardRef, useStyleConfig } from '@chakra-ui/system';
+import { chakra, forwardRef, useStyleConfig } from '@chakra-ui/react';
+import { cx } from '@chakra-ui/utils';
 import type { TabSliderProps } from 'types/components/tabSlider';
 
 const TabSlider = forwardRef<TabSliderProps, 'span'>((props, ref) => {

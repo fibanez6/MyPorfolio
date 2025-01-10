@@ -1,5 +1,4 @@
-import { Box, omitThemingProps } from '@chakra-ui/react';
-import { forwardRef } from '@chakra-ui/system';
+import { Box, forwardRef, omitThemingProps } from '@chakra-ui/react';
 import useDimensions from 'hooks/useDimensions';
 import { useMemo, useRef } from 'react';
 import type {
