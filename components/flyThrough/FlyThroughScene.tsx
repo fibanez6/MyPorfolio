@@ -58,7 +58,7 @@ const getMotionDestination = (quadrant: number): Motion3d => {
   }
 };
 
-const FlyThroughScene = forwardRef<FlyThroughSceneProps, 'div'>((props) => {
+const FlyThroughScene = forwardRef<FlyThroughSceneProps, 'div'>((props, _) => {
   const {
     words,
     minDuration = 4,
