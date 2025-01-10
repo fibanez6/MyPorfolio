@@ -5,7 +5,7 @@ export const BASH_ABOUT = [
   },
   {
     cmd: '$ echo "USER_ROLE"',
-    resp: 'Software Engineer'
+    resp: 'Senior Software Engineer'
   },
   {
     cmd: '$ echo "USER_EDUCATION"',
@@ -78,6 +78,7 @@ export const SKILLS = {
   words: [
     'Agile',
     'AWS',
+    'CI/CD',
     'Docker',
     'Groovy',
     'Helm',
@@ -87,7 +88,6 @@ export const SKILLS = {
     'Javascript',
     'Nextjs',
     'React',
-    'REST',
     'Scala',
     'Spring boot',
     'Vert.x'
