@@ -1,5 +1,10 @@
-import { Box, omitThemingProps, Text } from '@chakra-ui/react';
-import { forwardRef, useStyleConfig } from '@chakra-ui/system';
+import {
+  Box,
+  forwardRef,
+  omitThemingProps,
+  Text,
+  useStyleConfig
+} from '@chakra-ui/react';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type {
