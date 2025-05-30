@@ -28,7 +28,7 @@ export const CERTIFICATES = [
     description: 'Amazon Web Services (AWS)',
     credentialId: 'FXHJ72T1Q111Q3WY',
     image: '/media/AWS-Certified-Developer-Associate.webp',
-    alt: 'AWS Certified Developer Associate',
+    alt: 'AWS Certified Developer Associate (DVA-C01)',
     date: 'August 2022',
     link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/FXHJ72T1Q111Q3WY'
   },
@@ -38,7 +38,7 @@ export const CERTIFICATES = [
     description: 'Amazon Web Services (AWS)',
     credentialId: 'MNW36P7BNEEQQPSW',
     image: '/media/AWS-Certified-Solutions-Architect-Associate.webp',
-    alt: 'AWS Certified Solutions Architect Associate',
+    alt: 'AWS Certified Solutions Architect Associate (SAA-C03)',
     date: 'May 2025',
     link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/MNW36P7BNEEQQPSW'
   },
@@ -48,7 +48,7 @@ export const CERTIFICATES = [
     description: 'Amazon Web Services (AWS)',
     credentialId: '3a6bbc9abc3544b99a9c0e242df4e1c7',
     image: '/media/AWS-Certified-Sysops-Administrator-associate.png',
-    alt: 'AWS Certified Solutions Architect Associate',
+    alt: 'AWS Certified Solutions Architect Associate (SOA-C02)',
     date: 'January 2025',
     link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/3a6bbc9abc3544b99a9c0e242df4e1c7'
   }

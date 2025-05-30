@@ -1,18 +1,12 @@
 'use client';
 
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
   Card,
   CardBody,
-  CardFooter,
-  CardHeader,
   Center,
   Flex,
-  Heading,
   Link,
-  SimpleGrid,
-  Text,
-  VStack
+  SimpleGrid
 } from '@chakra-ui/react';
 import { CERTIFICATES } from 'content/profile-data';
 import { motion } from 'motion/react';
@@ -49,25 +43,19 @@ const Certificate = ({
         variant="unstyled"
         minW="10rem"
       >
-        <CardHeader>
-          <VStack>
-            <Heading size={{ base: 'md', sm: 'sm', lg: 'md' }}>{title}</Heading>
-            <Heading as="h3" size={{ base: 'md', sm: 'xs', md: 'sm' }}>
-              {subtitle}
-            </Heading>
-          </VStack>
-        </CardHeader>
-        <CardBody pt="5" pb="5" gap="0.5rem">
+        <CardBody pt="5" pb="5">
           <Center>
-            <Image src={image} alt={alt} width={200} height={200} />
+            <Link as={NextLink} href={link} isExternal>
+              <Image src={image} alt={alt} width={200} height={200} />
+            </Link>
           </Center>
           <SimpleGrid
             className="info-table"
             columns={{ base: 1, lg: 2 }}
             justifyItems="center"
             pt="0.5rem"
-            spacingX={{ sm: '0.2rem', lg: '0.2rem' }}
-            spacingY={{ sm: '0.2rem', lg: '0.2rem' }}
+            spacingX={{ sm: '0rem', lg: '0.2rem' }}
+            spacingY={{ sm: '0rem', lg: '0.2rem' }}
             gridTemplateAreas={{
               base: `"a"
               "b"
@@ -76,22 +64,8 @@ const Certificate = ({
               lg: `"a b"
               "c d"`
             }}
-          >
-            <Text gridArea="a">
-              <strong>Issued:</strong>
-            </Text>
-            <Text gridArea={{ md: 'b', lg: 'c' }}>{date}</Text>
-            <Text gridArea={{ md: 'c', lg: 'b' }}>
-              <strong>Credential ID:</strong>
-            </Text>
-            <Text gridArea="d">{credentialId}</Text>
-          </SimpleGrid>
+          ></SimpleGrid>
         </CardBody>
-        <CardFooter>
-          <Link as={NextLink} href={link} variant={'solid'} isExternal>
-            Show Credential <ExternalLinkIcon mx="5px" />
-          </Link>
-        </CardFooter>
       </Card>
     </motion.div>
   );
