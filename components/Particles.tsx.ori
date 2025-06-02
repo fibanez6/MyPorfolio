@@ -1,14 +1,14 @@
 'use client';
 
 import { useColorModeValue, useToken } from '@chakra-ui/react';
-import type { Engine, IOptions } from '@tsparticles/engine';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
 import type { ReactElement } from 'react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo } from 'react';
+import { Particles } from 'react-particles'; // TODO replace it with @tsparticles/react
+import type { Engine } from 'tsparticles-engine';
+import { loadSlim } from 'tsparticles-slim';
 import type { ParticleProps } from 'types/components/particles';
 
-const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
+const ParticlesComponent = ({ id }: ParticleProps): ReactElement => {
   const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [
     'primary.60',
     'secundary.200',
@@ -17,10 +17,8 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
   ]);
   const dotcolor = useColorModeValue(dotlight, dotdark);
   const linkcolor = useColorModeValue(linklight, linkdark);
-  const [init, setInit] = useState(false);
-
-  const particlesOptions: IOptions = useMemo(
-    () => ({
+  const options = useMemo(() => {
+    return {
       particles: {
         number: {
           value: 80,
@@ -86,32 +84,14 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
         }
       },
       retina_detect: true
-    }),
-    [dotcolor, linkcolor]
-  );
+    };
+  }, [dotcolor, linkcolor]);
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  useEffect(() => {
-    const setupEngine = async (): Promise<void> => {
-      try {
-        await initParticlesEngine(particlesInit);
-        setInit(true);
-      } catch (error) {
-        console.error('Failed to initialize tsParticles engine:', error);
-        setInit(false);
-      }
-    };
-    void setupEngine();
-  }, [particlesInit]);
-
-  return (
-    init && (
-      <Particles id={id} init={particlesInit} options={particlesOptions} />
-    )
-  );
+  return <Particles id={id} init={particlesInit} options={options} />;
 };
 
 export default ParticlesComponent;
