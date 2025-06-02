@@ -8,7 +8,7 @@ import type { ReactElement } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import type { ParticleProps } from 'types/components/particles';
 
-const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
+const ParticlesComponent = ({ id }: ParticleProps): ReactElement | null => {
   const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [
     'primary.60',
     'secundary.200',
@@ -31,7 +31,9 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
           enable: true,
           mode: 'repulse'
         },
-        resize: true
+        resize: {
+          enable: true
+        }
       },
       modes: {
         push: {
@@ -43,9 +45,8 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
         }
       }
     },
-    fullScreen: {
-      enable: false
-    },
+    fullScreen: false,
+    detectRetina: true,
     particles: {
       color: {
         value: dotcolor
@@ -57,22 +58,18 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
         opacity: 0.5,
         width: 1
       },
-      move: {
-        direction: 'none',
-        enable: true,
-        outModes: {
-          default: 'bounce'
-        },
-        random: false,
-        speed: { min: 3, max: 5 },
-        straight: false
-      },
       number: {
         density: {
           enable: true,
           area: 800
         },
         value: 80
+      },
+      move: {
+        enable: true,
+        random: true,
+        speed: { min: 2, max: 5 },
+        straight: false
       },
       opacity: {
         value: { min: 0.2, max: 0.7 }
@@ -83,8 +80,7 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
       size: {
         value: { min: 1, max: 5 }
       }
-    },
-    detectRetina: true
+    }
   };
 
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -104,11 +100,7 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
     void setupEngine();
   }, [particlesInit]);
 
-  return (
-    init && (
-      <Particles id={id} init={particlesInit} options={particlesOptions} />
-    )
-  );
+  return init ? <Particles id={id} options={particlesOptions} /> : null;
 };
 
 export default ParticlesComponent;
