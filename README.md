@@ -15,8 +15,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Stack
 
-- [Next 13.5.8](https://nextjs.org/)
-- [React 18.2.0](https://reactjs.org/)
+- [Next 15.3.3](https://nextjs.org/)
+- [React 18.3.1](https://reactjs.org/)
 - [Typescript 4.9.4](https://www.typescriptlang.org/)
 - [Chakra-ui 2.10.4](https://chakra-ui.com/)
 - [Motion.dev 11.16.4](https://motion.dev/)

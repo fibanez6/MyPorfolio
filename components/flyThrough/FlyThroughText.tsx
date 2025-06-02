@@ -72,7 +72,7 @@ const FlyThroughText = forwardRef<FlyThroughTextProps, 'div'>((props, ref) => {
       left={`${transition.start.x}px`}
       {...rest}
     >
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <motion.div
           animate={controls}
           variants={variant}

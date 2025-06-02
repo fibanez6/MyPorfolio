@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import type { JSX } from 'react';
 
 export const GAnalitycs = (): JSX.Element => (
   <>

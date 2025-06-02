@@ -5,9 +5,6 @@ const nextConfig = {
   env: {
     G_TAG_MANAGER: process.env.G_TAG_MANAGER
   },
-  experimental: {
-    appDir: false
-  },
   eslint: {
     dirs: [
       'pages',
