@@ -1,11 +1,11 @@
 'use client';
 
 import { useColorModeValue, useToken } from '@chakra-ui/react';
-import type { Engine, IOptions } from '@tsparticles/engine';
+import type { Engine } from '@tsparticles/engine';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { ReactElement } from 'react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { ParticleProps } from 'types/components/particles';
 
 const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
@@ -19,76 +19,73 @@ const ParticlesComponent = ({ id }: ParticleProps): false | ReactElement => {
   const linkcolor = useColorModeValue(linklight, linkdark);
   const [init, setInit] = useState(false);
 
-  const particlesOptions: IOptions = useMemo(
-    () => ({
-      particles: {
-        number: {
-          value: 80,
-          density: {
-            enable: true,
-            value_area: 800
-          }
-        },
-        move: {
+  const particlesOptions = {
+    fpsLimit: 120,
+    interactivity: {
+      events: {
+        onClick: {
           enable: true,
-          speed: 1
+          mode: 'push'
         },
-        links: {
+        onHover: {
           enable: true,
-          speed: { min: 1, max: 3 },
-          color: linkcolor
-        },
-        size: {
-          value: { min: 1, max: 3 }
-        },
-        opacity: {
-          value: { min: 0.2, max: 0.7 }
-        },
-        color: {
-          value: [dotcolor]
-        }
-      },
-      fullScreen: {
-        enable: false
-      },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: true,
-            mode: 'repulse'
-          }
+          mode: 'repulse'
         },
         resize: true
       },
       modes: {
-        grab: {
-          distance: 400,
-          line_linked: {
-            opacity: 1
-          }
-        },
-        bubble: {
-          distance: 400,
-          size: 40,
-          duration: 2,
-          opacity: 8,
-          speed: 3
+        push: {
+          quantity: 4
         },
         repulse: {
           distance: 200,
           duration: 0.4
-        },
-        push: {
-          particles_nb: 4
-        },
-        remove: {
-          particles_nb: 2
         }
+      }
+    },
+    fullScreen: {
+      enable: false
+    },
+    particles: {
+      color: {
+        value: dotcolor
       },
-      retina_detect: true
-    }),
-    [dotcolor, linkcolor]
-  );
+      links: {
+        color: linkcolor,
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1
+      },
+      move: {
+        direction: 'none',
+        enable: true,
+        outModes: {
+          default: 'bounce'
+        },
+        random: false,
+        speed: { min: 3, max: 5 },
+        straight: false
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800
+        },
+        value: 80
+      },
+      opacity: {
+        value: { min: 0.2, max: 0.7 }
+      },
+      shape: {
+        type: 'circle'
+      },
+      size: {
+        value: { min: 1, max: 5 }
+      }
+    },
+    detectRetina: true
+  };
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
