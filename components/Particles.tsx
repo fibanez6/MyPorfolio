@@ -1,14 +1,14 @@
 'use client';
 
 import { useColorModeValue, useToken } from '@chakra-ui/react';
+import type { Engine } from '@tsparticles/engine';
+import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
 import type { ReactElement } from 'react';
-import React, { useCallback, useMemo } from 'react';
-import { Particles } from 'react-particles';
-import type { Engine } from 'tsparticles-engine';
-import { loadSlim } from 'tsparticles-slim';
+import { useCallback, useEffect, useState } from 'react';
 import type { ParticleProps } from 'types/components/particles';
 
-const ParticlesComponent = ({ id }: ParticleProps): ReactElement => {
+const ParticlesComponent = ({ id }: ParticleProps): ReactElement | null => {
   const [dotlight, dotdark, linklight, linkdark] = useToken('colors', [
     'primary.60',
     'secundary.200',
@@ -17,81 +17,90 @@ const ParticlesComponent = ({ id }: ParticleProps): ReactElement => {
   ]);
   const dotcolor = useColorModeValue(dotlight, dotdark);
   const linkcolor = useColorModeValue(linklight, linkdark);
-  const options = useMemo(() => {
-    return {
-      particles: {
-        number: {
-          value: 80,
-          density: {
-            enable: true,
-            value_area: 800
-          }
-        },
-        move: {
+  const [init, setInit] = useState(false);
+
+  const particlesOptions = {
+    fpsLimit: 120,
+    interactivity: {
+      events: {
+        onClick: {
           enable: true,
-          speed: 1
+          mode: 'push'
         },
-        links: {
+        onHover: {
           enable: true,
-          speed: { min: 1, max: 3 },
-          color: linkcolor
+          mode: 'repulse'
         },
-        size: {
-          value: { min: 1, max: 3 }
-        },
-        opacity: {
-          value: { min: 0.2, max: 0.7 }
-        },
-        color: {
-          value: [dotcolor]
+        resize: {
+          enable: true
         }
       },
-      fullScreen: {
-        enable: false
-      },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: true,
-            mode: 'repulse'
-          }
-        },
-        resize: true
-      },
       modes: {
-        grab: {
-          distance: 400,
-          line_linked: {
-            opacity: 1
-          }
-        },
-        bubble: {
-          distance: 400,
-          size: 40,
-          duration: 2,
-          opacity: 8,
-          speed: 3
+        push: {
+          quantity: 4
         },
         repulse: {
           distance: 200,
           duration: 0.4
-        },
-        push: {
-          particles_nb: 4
-        },
-        remove: {
-          particles_nb: 2
         }
+      }
+    },
+    fullScreen: false,
+    detectRetina: true,
+    particles: {
+      color: {
+        value: dotcolor
       },
-      retina_detect: true
-    };
-  }, [dotcolor, linkcolor]);
+      links: {
+        color: linkcolor,
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800
+        },
+        value: 80
+      },
+      move: {
+        enable: true,
+        random: true,
+        speed: { min: 2, max: 5 },
+        straight: false
+      },
+      opacity: {
+        value: { min: 0.2, max: 0.7 }
+      },
+      shape: {
+        type: 'circle'
+      },
+      size: {
+        value: { min: 1, max: 5 }
+      }
+    }
+  };
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  return <Particles id={id} init={particlesInit} options={options} />;
+  useEffect(() => {
+    const setupEngine = async (): Promise<void> => {
+      try {
+        await initParticlesEngine(particlesInit);
+        setInit(true);
+      } catch (error) {
+        console.error('Failed to initialize tsParticles engine:', error);
+        setInit(false);
+      }
+    };
+    void setupEngine();
+  }, [particlesInit]);
+
+  return init ? <Particles id={id} options={particlesOptions} /> : null;
 };
 
 export default ParticlesComponent;
