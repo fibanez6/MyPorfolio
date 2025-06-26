@@ -53,6 +53,16 @@ export const CERTIFICATES = [
     link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/3a6bbc9abc3544b99a9c0e242df4e1c7'
   },
   {
+    title: 'AWS Certified Data Engineer',
+    subtitle: 'Associate (DEA-C01)',
+    description: 'Amazon Web Services (AWS)',
+    credentialId: '448c0221891942a4926119258ffb9914',
+    image: '/media/AWS-Certified-Data-Engineer-Associate.png',
+    alt: 'AWS Certified Data Engineer Associate (DEA-C01)',
+    date: 'June 2025',
+    link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/448c0221891942a4926119258ffb9914'
+  },
+  {
     title: 'Generative AI Essentials',
     subtitle: 'AWS Partner',
     description: 'Amazon Web Services (AWS)',
