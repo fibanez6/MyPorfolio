@@ -1,5 +1,5 @@
 ---
-role: 'Senior Software Engineer and AWS'
+role: 'Senior Software Engineer | DevOps | AWS'
 company: 'BJSS AUS'
 location: 'Melbourne, Australia'
 start: 'Apr 2022'
