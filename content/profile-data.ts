@@ -4,19 +4,19 @@ export const BASH_ABOUT = [
     resp: 'Fernando Ibanez'
   },
   {
-    cmd: '$ echo "USER_ROLE"',
-    resp: 'Senior Software Engineer'
+    cmd: '$ echo "$USER_ROLE"',
+    resp: 'Senior Software Engineer, DevOps and Senior Consultant'
   },
   {
-    cmd: '$ echo "USER_EDUCATION"',
+    cmd: '$ echo "$USER_EDUCATION"',
     resp: "- MSc. in Artificial Intelligence - Universidad Politécnica de Madrid - Spain\n- Bachelor's Degree in Computer Science - Universidad Politécnica de Madrid - Spain"
   },
   {
-    cmd: '$ echo "USER_LOCATION"',
+    cmd: '$ echo "$USER_LOCATION"',
     resp: 'Melbourne, Australia'
   },
   {
-    cmd: '$ echo "USER_INTEREST"',
+    cmd: '$ echo "$USER_INTEREST"',
     resp: 'Passionate about new technologies, European football (soccer) and\ntraveling around the world to learn about other cultures and foods'
   }
 ];
