@@ -1,5 +1,5 @@
 ---
-role: 'Senior Software Engineer'
+role: 'Senior Software Engineer | DevOps'
 company: 'BJSS UK'
 location: 'London, United Kingdom'
 start: 'Jan 2018'
