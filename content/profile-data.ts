@@ -29,7 +29,7 @@ export const CERTIFICATES = [
     credentialId: 'FXHJ72T1Q111Q3WY',
     image: '/media/AWS-Certified-Developer-Associate.webp',
     alt: 'AWS Certified Developer Associate (DVA-C02)',
-    date: 'August 2028',
+    date: 'August 2025',
     link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/FXHJ72T1Q111Q3WY'
   },
   {
