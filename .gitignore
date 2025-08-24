@@ -40,3 +40,5 @@ next-env.d.ts
 /.vscode
 _chakra-defautl.tsx
 styles.txt
+
+env.local

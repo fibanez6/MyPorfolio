@@ -3,7 +3,9 @@
 import Timeline from 'components/Timeline';
 import type { ReactElement } from 'react';
 import { useMemo } from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import type { ExpProps } from 'types/components/scenes/experience';
 import type { TimelineProps } from 'types/components/timeline';
 
@@ -15,7 +17,11 @@ const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
         subtitle: curr.frontmatter.company,
         date: curr.frontmatter.start,
         location: curr.frontmatter.location,
-        content: <ReactMarkdown>{curr.html}</ReactMarkdown>
+        content: (
+          <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+            {curr.html}
+          </Markdown>
+        )
       } as any);
     }, []);
   }, [jobs]);
