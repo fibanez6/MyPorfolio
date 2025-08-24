@@ -19,7 +19,7 @@ website: 'https://www.bjss.com/'
 
 - Software engineering and cloud support in the AWS public cloud for multiple microservices applications that were deployed on AWS EKS.
 - Implementation of the _backfilling historical rate tool_.
-- Collaborated with stakeholders in Australia, and with application teams in Sydney to deliver high-quality solutions.
+- Collaborated with stakeholders in the US and Australia, and with application teams in Sydney to deliver high-quality solutions.
 
 - _Tech Stack:_ Python, Amazon MSK (Kafka), AWS EKS, AWS ECR, Docker, Helm
 
