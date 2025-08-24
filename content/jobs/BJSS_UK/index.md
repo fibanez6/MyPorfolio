@@ -13,6 +13,7 @@ website: 'https://www.bjss.com/'
 - Collaboration with Platform and Test for the delivery of Software components. ​
 - Coach Development Team promoting best practices and those of the client.​
 - Softwares were delivered using CI/CD principles to respond to changing needs and policy requirements.​
+
 - _Tech Stack:_ Java, Amazon S3, Kafka, Kubernetes, Docker, Helm, ELK Stack, Jenkins
 
 **A migration tool that generated code from OpenAPI Specifications (Financial)​**
