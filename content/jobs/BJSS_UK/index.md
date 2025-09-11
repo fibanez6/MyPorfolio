@@ -11,11 +11,23 @@ website: 'https://www.bjss.com/'
 
 </br>
 
-- Collaborated on the technical implementation of a new business event streaming capability in the cloud. This was designed to decouple incoming data from Immigration Gov.UK services from the backend data storage and analysis systems.​
-- Collaboration with Platform and Test for the delivery of Software components. ​
-- Coach Development Team promoting best practices and those of the client.​
-- Softwares were delivered using CI/CD principles to respond to changing needs and policy requirements.​
-- **Tech Stack:** Java, Amazon S3, Kafka, Kubernetes, Docker, Helm, ELK Stack, Jenkins
+Technical Lead for the Client’s Event Streaming Platform, decoupling incoming data from Gov.UK Immigration and citizenship services from
+backend storage and analytics systems.
+
+</br>
+
+- _Key Contributions & Responsibilities_:
+  - Led a team to deliver high-quality software components, DLQ management, and platform governance, while maintaining architecture documentation and promoting best practices across development and testing teams.
+  - Worked in an Agile environment, contributing to team decisions and providing technical support to other teams to deliver software components aligned with client vision.
+  - Handling thousands of business events per second.
+  - Delivered projects using AWS technologies, Kubernetes, microservices, and event streaming/messaging services.
+  - Collaborated and implemented (CI/CD) Jenkins pipeline jobs.
+  - Mentor new team members.
+
+</br>
+
+- _Tech Stack:_ 
+  - Java, Spring boot, Vertx, Amazon S3, Kafka, Kubernetes, Docker, Helm, ELK Stack, Jenkins
 
 </br>
 
@@ -23,4 +35,5 @@ website: 'https://www.bjss.com/'
 
 </br>
 
-- Designed and delivered the required tools to help with the automated migration, whilst gathering detailed requirements from different stakeholders and integrated into their development pipeline​
+Designed and implemented automated migration tools based on stakeholder requirements, including a rules-based Swagger validator and a code-
+generation tool, fully integrated into the development pipeline to enhance efficiency and compliance.
