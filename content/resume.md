@@ -16,6 +16,20 @@ Certified across multiple AWS disciplines, I bring a strong balance of **technic
 
 ---
 
+## ⚙️ Skills Summary
+
+| **Category**          | **Skills & Tools**                                                                                                                                                    |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Languages**         | Java 17/11/8, Scala, Python, TypeScript, JavaScript, Bash                                                                                                             |
+| **Cloud Platforms**   | AWS (Lambda, EKS, ECS, EC2, S3, Aurora, RDS, API Gateway, CloudFront, CloudFormation), GCP (Vertex AI)                                                                |
+| **DevOps & CI/CD**    | Docker, Kubernetes, Jenkins, ArgoCD, Bamboo, GitHub Actions, Grafana, Kibana, Splunk                                                                                  |
+| **Frameworks & APIs** | Spring Boot, Vert.x, gRPC, REST APIs, OpenAPI/Swagger                                                                                                                 |
+| **Databases**         | PostgreSQL, MySQL, Cassandra, Oracle, DynamoDB                                                                                                                        |
+| **Practices**         | Agile, TDD/BDD, CI/CD, Microservices, Event-Driven Architecture, SOLID Principles                                                                                     |
+| **Certifications**    | AWS Solutions Architect – Associate · SysOps – Associate · Developer – Associate · Data Engineer – Associate · AWS Partner: GenAI Essentials · Google Cloud Vertex AI |
+
+---
+
 ## 💼 Professional Experience
 
 ### **CGI Australia | Melbourne, Australia (Jul 2024 – Present)**
@@ -94,12 +108,14 @@ Java, JavaScript, MySQL, 3D-Secure, PayPal APIs, Agile.
 
 ---
 
-## 🎓 Education & Certifications
+## 🎓 Education
 
 **MSc. Artificial Intelligence**, Universidad Politécnica de Madrid, Spain – 2014
 **BSc. Computer Science**, Universidad Politécnica de Madrid, Spain – 2011
 
-**Certifications:**
+---
+
+## 🏆 Certifications
 
 - AWS Certified Solutions Architect – Associate
 - AWS Certified SysOps Administrator – Associate
