@@ -84,15 +84,7 @@ const NavBar = ({
       zIndex={'sticky'}
       transition=".5s ease-in-out"
       boxShadow={isTopOfPage ? 'none' : '0px 1px 6px 4px #02054bc9'}
-      sx={{
-        pointerEvents: 'auto',
-        '@media (max-width: 768px)': {
-          pointerEvents: isOpen ? 'auto' : 'auto',
-          '& > *': {
-            pointerEvents: 'auto'
-          }
-        }
-      }}
+      overflow={isOpen ? 'visible' : 'hidden'}
       {...navStyles()}
     >
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
@@ -144,11 +136,14 @@ const NavBar = ({
       {/* Mobile Content */}
       <Box
         pb={4}
-        display={{ md: 'none' }}
-        zIndex={isOpen ? 'overlay' : -1}
+        display={isOpen ? { base: 'block', md: 'none' } : 'none'}
+        zIndex={isOpen ? 'overlay' : 'hide'}
         id="mobile-nav"
+        position="absolute"
+        top="3.6rem"
+        left={0}
+        right={0}
         pointerEvents={isOpen ? 'auto' : 'none'}
-        position="relative"
       >
         <Stack
           as={'nav'}

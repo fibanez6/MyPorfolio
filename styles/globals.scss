@@ -55,8 +55,24 @@ body {
     touch-action: manipulation;
   }
 
-  /* When mobile menu is closed, ensure it doesn't block touch */
-  #mobile-nav[style*='pointer-events: none'] {
+  /* Completely remove mobile nav from touch when hidden */
+  #mobile-nav[style*='display: none'] {
+    height: 0 !important;
+    overflow: hidden !important;
     pointer-events: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Ensure navbar doesn't interfere with content below on mobile */
+  @media (max-width: 768px) {
+    /* stylelint-disable selector-class-pattern */
+    .chakra-stack:not([aria-expanded='true']) {
+      pointer-events: none !important;
+    }
+
+    .chakra-stack:not([aria-expanded='true']) > * {
+      pointer-events: auto !important;
+    }
+    /* stylelint-enable selector-class-pattern */
   }
 }
