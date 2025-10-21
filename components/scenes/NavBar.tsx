@@ -79,11 +79,20 @@ const NavBar = ({
       top={0}
       color={isTopOfPage ? topPageColor : 'gray.100'}
       w={'full'}
-      h="3.6rem"
+      h={isOpen ? '100vh' : '3.6rem'}
       px={4}
       zIndex={'sticky'}
       transition=".5s ease-in-out"
       boxShadow={isTopOfPage ? 'none' : '0px 1px 6px 4px #02054bc9'}
+      sx={{
+        pointerEvents: 'auto',
+        '@media (max-width: 768px)': {
+          pointerEvents: isOpen ? 'auto' : 'auto',
+          '& > *': {
+            pointerEvents: 'auto'
+          }
+        }
+      }}
       {...navStyles()}
     >
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
@@ -109,6 +118,7 @@ const NavBar = ({
             position="relative"
             spacing={0}
             overflow="hidden"
+            pointerEvents={{ base: 'none', md: 'auto' }}
           >
             {pages.map((page) => (
               <NavLink
@@ -132,7 +142,14 @@ const NavBar = ({
       </Flex>
 
       {/* Mobile Content */}
-      <Box pb={4} display={{ md: 'none' }} zIndex={1}>
+      <Box
+        pb={4}
+        display={{ md: 'none' }}
+        zIndex={isOpen ? 'overlay' : -1}
+        id="mobile-nav"
+        pointerEvents={isOpen ? 'auto' : 'none'}
+        position="relative"
+      >
         <Stack
           as={'nav'}
           spacing={4}
@@ -141,6 +158,7 @@ const NavBar = ({
           opacity={isOpen ? 1 : 0}
           transform={isOpen ? '' : 'translate(0, -150%)'}
           transition=".5s .1s ease-in-out"
+          pointerEvents={isOpen ? 'auto' : 'none'}
         >
           {pages.map((page) => (
             <NavLink

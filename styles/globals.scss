@@ -48,4 +48,15 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
   /* stylelint-enable selector-class-pattern */
+
+  /* Fix mobile-nav blocking touch events */
+  #mobile-nav {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* When mobile menu is closed, ensure it doesn't block touch */
+  #mobile-nav[style*='pointer-events: none'] {
+    pointer-events: none !important;
+  }
 }
