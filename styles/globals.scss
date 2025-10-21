@@ -16,6 +16,7 @@ body {
 #particles-js {
   canvas {
     left: 0;
+    pointer-events: none; /* Allow touch events to pass through */
     position: absolute;
     top: 0;
   }
@@ -24,4 +25,27 @@ body {
 .typed-cursor,
 .typed-cursor--blink {
   font-size: 1.15vmin;
+}
+
+/* Ensure mobile touch events work properly */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    touch-action: manipulation;
+  }
+
+  button,
+  [role='button'],
+  .chakra-button {
+    cursor: pointer;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  .chakra-menu__menuitem {
+    cursor: pointer;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* stylelint-enable selector-class-pattern */
 }

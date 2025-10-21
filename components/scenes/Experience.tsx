@@ -102,6 +102,14 @@ const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
             colorScheme="blue"
             variant="outline"
             size="md"
+            position="relative"
+            zIndex="dropdown"
+            sx={{
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent',
+              pointerEvents: 'auto',
+              cursor: 'pointer'
+            }}
             leftIcon={
               <Icon viewBox="0 0 24 24" boxSize={4}>
                 <path
@@ -118,8 +126,23 @@ const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
           >
             Download Resume
           </MenuButton>
-          <MenuList>
-            <MenuItem onClick={() => handleDownloadResume('md')}>
+          <MenuList
+            zIndex="dropdown"
+            sx={{
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent',
+              pointerEvents: 'auto'
+            }}
+          >
+            <MenuItem
+              onClick={() => handleDownloadResume('md')}
+              sx={{
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+                cursor: 'pointer',
+                minH: '44px'
+              }}
+            >
               <HStack spacing={3}>
                 <Icon viewBox="0 0 24 24" boxSize={5}>
                   <path
@@ -137,7 +160,15 @@ const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
                 </VStack>
               </HStack>
             </MenuItem>
-            <MenuItem onClick={() => handleDownloadResume('pdf')}>
+            <MenuItem
+              onClick={() => handleDownloadResume('pdf')}
+              sx={{
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+                cursor: 'pointer',
+                minH: '44px'
+              }}
+            >
               <HStack spacing={3}>
                 <Icon viewBox="0 0 24 24" boxSize={5} color="red.500">
                   <path
@@ -155,7 +186,15 @@ const Experience = ({ jobs = [] }: ExpProps): ReactElement => {
                 </VStack>
               </HStack>
             </MenuItem>
-            <MenuItem onClick={handleViewResume}>
+            <MenuItem
+              onClick={handleViewResume}
+              sx={{
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+                cursor: 'pointer',
+                minH: '44px'
+              }}
+            >
               <HStack spacing={3}>
                 <Icon viewBox="0 0 24 24" boxSize={5} color="blue.500">
                   <path
