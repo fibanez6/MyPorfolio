@@ -98,7 +98,7 @@ const NavBar = ({
           onClick={isOpen ? onClose : onOpen}
         />
         <Box opacity={isOpen ? 0 : 1} transition=".25s ease-in-out">
-          <Link href={'#'} p={2} minW="9rem">
+          <Link href={'/'} p={2} minW="9rem" textTransform="capitalize">
             Home
           </Link>
         </Box>

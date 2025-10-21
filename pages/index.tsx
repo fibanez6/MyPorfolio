@@ -1,4 +1,4 @@
-import { Stack, useMediaQuery } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import Section from 'components/layout/Section';
 import NavBar from 'components/scenes/NavBar';
 import fs from 'fs';
@@ -8,6 +8,7 @@ import type { GetStaticProps, InferGetServerSidePropsType } from 'next';
 import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
+import type { ArticleMarkdownProps } from 'types/components/scenes/articles';
 import type { MarkdownProps } from 'types/components/scenes/experience';
 import { SECTIONS } from 'utils/constants';
 import { sortbByDate } from 'utils/date';
@@ -26,19 +27,38 @@ export const getStaticProps: GetStaticProps = async () => {
       };
     });
 
+  const articles: ArticleMarkdownProps[] = glob
+    .sync('content/articles/**/*.md')
+    .map((file) => {
+      const slug = file.replace('.md', '');
+      const readFile = fs.readFileSync(file, 'utf-8');
+      const { data, content } = matter(readFile);
+      return {
+        slug,
+        frontmatter: data as ArticleMarkdownProps['frontmatter'],
+        html: content
+      };
+    });
+
   return {
     props: {
-      jobs: jobs.sort(sortbByDate)
+      jobs: jobs.sort(sortbByDate),
+      articles: articles.sort(
+        (a, b) =>
+          new Date(b.frontmatter.date).getTime() -
+          new Date(a.frontmatter.date).getTime()
+      )
     }
   };
 };
 
 export default function Home({
-  jobs
+  jobs,
+  articles
 }: InferGetServerSidePropsType<typeof getStaticProps>): ReactElement {
   const [selectedPage, setSelectedPage] = useState('hero');
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  const [isDesktop] = useMediaQuery('(min-width: 1060px)');
+  const [isDesktop, setIsDesktop] = useState(false);
   const sectionNames = Object.keys(SECTIONS);
 
   useEffect(() => {
@@ -49,8 +69,21 @@ export default function Home({
       }
       if (window.scrollY !== 0) setIsTopOfPage(false);
     };
+
+    const handleResize = (): void => {
+      setIsDesktop(window.innerWidth >= 1060);
+    };
+
+    // Set initial desktop state
+    handleResize();
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/promise-function-async
@@ -65,7 +98,12 @@ export default function Home({
     Object.entries(SECTIONS)
       .filter(([_, { isHero }]) => !isHero)
       .map(([id, { Component, title }]) => {
-        const props = id === 'experience' ? { jobs } : {};
+        let props = {};
+        if (id === 'experience') {
+          props = { jobs };
+        } else if (id === 'articles') {
+          props = { articles };
+        }
         return (
           <Section
             key={id}
