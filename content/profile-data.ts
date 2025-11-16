@@ -125,7 +125,7 @@ export const SKILLS = {
 };
 
 export const CONTACT = {
-  email: 'fibanez84@gmail.com',
+  email: 'me@fibanez.com',
   location: 'Melbourne, Australia',
   social: [
     {

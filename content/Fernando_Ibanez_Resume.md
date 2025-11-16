@@ -3,7 +3,7 @@
 **Technical Lead | Senior Cloud & Software Engineer | AWS Certified**
 
 🗺️ Spanish and British and Australian Permanent Resident
-📍 Melbourne, Australia | 📧 Fernando.ibanez.armijo@gmail.com | 📞 +61 --- --- ---
+📍 Melbourne, Australia | 📧 me@fibanez.com | 📞 +61 --- --- ---
 🌐 [www.fibanez.com](http://www.fibanez.com) | [LinkedIn](https://www.linkedin.com/in/ibanezf)
 
 ---
