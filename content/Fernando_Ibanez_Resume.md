@@ -38,6 +38,22 @@ Certified across multiple AWS disciplines, I bring a strong balance of **technic
 
 **Technical Lead | Senior Software & Platform Engineer | Cloud & DevOps**
 
+- Macquarie Bank – Modernization Services – Financial Services
+  
+  Modernized .NET services and migrated Sybase databases to AWS RDS SQL Server, transitioning from on-premises to cloud.
+
+  _Key Achievements_:
+
+  - Migrated legacy .NET services and Sybase DBs to AWS, improving scalability and reliability.
+  - Used AI tools (Claude) to plan transformation and validate schema/data across 2,000+ stored procedures.
+  - Ensured data integrity between source and target systems.
+  - Deployed on AWS following enterprise CI/CD, security, and networking standards.
+  - Engaged with stakeholders on delivery progress and technical decisions.
+  
+  _Technical Environment:_
+  
+  - AWS (EC2, RDS), Java, SQL Server, Sybase, CI/CD, Claude
+
 - **Queensland Digital Licence Application (DLA) – Department of Transport and Main Roads**
 
   Delivering cloud-native and backend engineering solutions for government digital transformation projects, focusing on serverless architecture, scalability, performance, and security in public cloud environments.
