@@ -4,13 +4,14 @@ import { Box, Flex, Text, useToken } from '@chakra-ui/react';
 import useTyped from 'hooks/useTyped';
 import Image from 'next/image';
 import type { ReactElement } from 'react';
-import { useRef } from 'react';
-import Moment from 'react-moment';
+import { useMemo, useRef } from 'react';
+import { formatShortDate } from 'utils/date';
 
 const Terminal = ({ data }: { data: string[] }): ReactElement => {
   const terminalRef = useRef<HTMLParagraphElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
   const [bashColor] = useToken('colors', ['bash']);
+  const formattedDate = useMemo(() => formatShortDate(new Date()), []);
 
   useTyped(terminalRef, {
     strings: data,
@@ -32,7 +33,7 @@ const Terminal = ({ data }: { data: string[] }): ReactElement => {
           fontWeight="medium"
           fontSize={{ base: '1.2vmin', xl: '1.1vmin' }}
         >
-          <Moment format="ddd D MMM">{new Date()}</Moment>
+          {formattedDate}
         </Flex>
         <Box pt="4%" maxH="100%">
           <Text

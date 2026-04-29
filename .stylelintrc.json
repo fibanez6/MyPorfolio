@@ -2,10 +2,8 @@
   "extends": [
     "stylelint-config-recommended",
     "stylelint-config-sass-guidelines",
-    "stylelint-config-styled-components",
-    "stylelint-config-prettier"
+    "stylelint-config-styled-components"
   ],
-  "plugins": ["stylelint-order"],
   "rules": {
     "annotation-no-unknown": null,
     "function-no-unknown": null,

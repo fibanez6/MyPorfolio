@@ -16,10 +16,10 @@ import type { ReactElement } from 'react';
 import type { CertProps } from 'types/components/scenes/certificate';
 
 const Certificate = ({
-  title,
-  subtitle,
-  credentialId,
-  date,
+  title: _title,
+  subtitle: _subtitle,
+  credentialId: _credentialId,
+  date: _date,
   alt,
   image,
   link,

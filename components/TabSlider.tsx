@@ -5,7 +5,7 @@ import { cx } from '@chakra-ui/utils';
 import type { TabSliderProps } from 'types/components/tabSlider';
 
 const TabSlider = forwardRef<TabSliderProps, 'span'>((props, ref) => {
-  const { className, variant, ...rest } = props;
+  const { variant, ...rest } = props;
   const styles = useStyleConfig('TabSlider', { variant });
 
   return (

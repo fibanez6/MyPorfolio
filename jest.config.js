@@ -7,10 +7,7 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const customJestConfig = {
-  setupFilesAfterEnv: [
-    '@testing-library/jest-dom/extend-expect',
-    '<rootDir>/jest.setup.js'
-  ],
+  setupFilesAfterEnv: ['@testing-library/jest-dom', '<rootDir>/jest.setup.js'],
   moduleDirectories: ['<rootDir>', 'node_modules'],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)

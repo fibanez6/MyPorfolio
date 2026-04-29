@@ -2,7 +2,7 @@ import type { ComponentType } from 'react';
 
 export interface Section {
   Component: ComponentType<any>;
-  isHero?: boolean = false;
+  isHero?: boolean;
   title?: string;
 }
 

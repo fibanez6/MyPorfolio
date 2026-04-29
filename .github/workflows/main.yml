@@ -6,10 +6,14 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
       - name: Install Modules
-        run: yarn install
+        run: npm ci
       - name: Run Build
-        run: yarn run build
+        run: npm run build
       - name: Run Tests
-        run: yarn test
+        run: npm test

@@ -58,46 +58,48 @@ const getMotionDestination = (quadrant: number): Motion3d => {
   }
 };
 
-const FlyThroughScene = forwardRef<FlyThroughSceneProps, 'div'>((props, _) => {
-  const {
-    words,
-    minDuration = 4,
-    maxDuration = 5,
-    ...rest
-  } = omitThemingProps(props);
-  const targetRef = useRef(null);
-  const grid = useDimensions(targetRef);
+const FlyThroughScene = forwardRef<FlyThroughSceneProps, 'div'>(
+  (props, _ref) => {
+    const {
+      words,
+      minDuration = 4,
+      maxDuration = 5,
+      ...rest
+    } = omitThemingProps(props);
+    const targetRef = useRef(null);
+    const grid = useDimensions(targetRef);
 
-  const textTransitions = useMemo(() => {
-    return grid.width !== 0 && grid.height !== 0 ? getTransitions(grid) : [];
-  }, [grid]);
+    const textTransitions = useMemo(() => {
+      return grid.width !== 0 && grid.height !== 0 ? getTransitions(grid) : [];
+    }, [grid]);
 
-  const getTransition = (): TextTransition => {
-    return getRandomElement(textTransitions);
-  };
+    const getTransition = (): TextTransition => {
+      return getRandomElement(textTransitions);
+    };
 
-  return (
-    <Box
-      ref={targetRef}
-      position="relative"
-      overflow="hidden"
-      minH="25rem"
-      {...rest}
-    >
-      {textTransitions.length &&
-        words.map((word, i) => (
-          <FlyThroughText
-            key={i}
-            h={7}
-            getTransition={getTransition}
-            delay={i * 0.3}
-            duration={getRandom(minDuration, maxDuration)}
-          >
-            {word}
-          </FlyThroughText>
-        ))}
-    </Box>
-  );
-});
+    return (
+      <Box
+        ref={targetRef}
+        position="relative"
+        overflow="hidden"
+        minH="25rem"
+        {...rest}
+      >
+        {textTransitions.length &&
+          words.map((word, i) => (
+            <FlyThroughText
+              key={i}
+              h={7}
+              getTransition={getTransition}
+              delay={i * 0.3}
+              duration={getRandom(minDuration, maxDuration)}
+            >
+              {word}
+            </FlyThroughText>
+          ))}
+      </Box>
+    );
+  }
+);
 
 export default FlyThroughScene;

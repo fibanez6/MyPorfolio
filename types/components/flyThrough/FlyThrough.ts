@@ -1,16 +1,14 @@
 import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react';
 
 export interface FlyThroughSceneProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'Container'> {
+  extends HTMLChakraProps<'div'>, ThemingProps<'Container'> {
   words: string[];
   minDuration: number;
   maxDuration: number;
 }
 
 export interface FlyThroughTextProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'Container'> {
+  extends HTMLChakraProps<'div'>, ThemingProps<'Container'> {
   delay?: number;
   duration: number;
   getTransition: () => TextTransition;

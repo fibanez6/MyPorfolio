@@ -113,7 +113,7 @@ const Articles = ({ articles = [] }: ArticlesProps): ReactElement => {
                   rehypePlugins={[rehypeRaw]}
                   components={{
                     p: ({ children }) => <Text mb={2}>{children}</Text>,
-                    a: ({ href, children }) => (
+                    a: ({ children }) => (
                       <Text
                         as="span"
                         color="blue.500"

@@ -38,8 +38,8 @@ export const SubmitButtom = ({
   let posY: number;
   const dodgeMouse = (): void => {
     if (dodge) {
-      posX ? (posX = 0) : (posX = getRandom(0, 300));
-      posY ? (posY = 0) : (posY = getRandom(0, 300));
+      posX = posX ? 0 : getRandom(0, 300);
+      posY = posY ? 0 : getRandom(0, 300);
       setPos({ x: posX, y: posY });
       if (buttomRef.current) {
         buttomRef.current.style.transform = `translate(${-posX}px, ${-posY}px)`;

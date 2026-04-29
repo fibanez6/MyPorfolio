@@ -13,6 +13,14 @@ import type { MarkdownProps } from 'types/components/scenes/experience';
 import { SECTIONS } from 'utils/constants';
 import { sortbByDate } from 'utils/date';
 
+// eslint-disable-next-line @typescript-eslint/promise-function-async
+const DynamicDotNav = dynamic(
+  async () => await import('components/scenes/DotNav'),
+  {
+    ssr: false
+  }
+);
+
 export const getStaticProps: GetStaticProps = async () => {
   const jobs: MarkdownProps[] = glob
     .sync('content/jobs/**/*.md')
@@ -86,17 +94,9 @@ export default function Home({
     };
   }, []);
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  const DynamicDotNav = dynamic(
-    async () => await import('components/scenes/DotNav'),
-    {
-      ssr: false
-    }
-  );
-
   const renderSections = (): ReactElement[] =>
     Object.entries(SECTIONS)
-      .filter(([_, { isHero }]) => !isHero)
+      .filter(([_key, { isHero }]) => !isHero)
       .map(([id, { Component, title }]) => {
         let props = {};
         if (id === 'experience') {

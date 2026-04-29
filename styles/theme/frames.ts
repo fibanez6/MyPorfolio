@@ -16,7 +16,7 @@ export const suspension = keyframes`
 `;
 
 export const fly = keyframes`
-      from {transform: translateX(-6.5m) rotate(45deg) scale(1);}
+      from {transform: translateX(-6.5em) rotate(45deg) scale(1);}
       to {transform: translateX(3em) rotate(45deg) scale(1.3)}
 `;
 
